@@ -1,11 +1,178 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3хТОМ</title>
-</head>
-<body>
-    
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap");
+      body {
+        font-family: "Nunito", sans-serif;
+      }
+      .grid-bg {
+        background:
+          linear-gradient(
+            to right,
+            rgba(55, 65, 81, 0.12) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(55, 65, 81, 0.12) 1px,
+            transparent 1px
+          ),
+          radial-gradient(
+            circle at left center,
+            rgba(218, 247, 230, 0.75),
+            transparent 38%
+          ),
+          radial-gradient(
+            circle at right center,
+            rgba(255, 220, 238, 0.65),
+            transparent 42%
+          ),
+          linear-gradient(90deg, #edf6f1 0%, #f7f1f6 55%, #fcf5ef 100%);
+
+        background-size:
+          28px 28px,
+          28px 28px,
+          cover,
+          cover,
+          cover;
+      }
+
+      .rubik-spray-paint-regular {
+        font-family: "Rubik Spray Paint", system-ui;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen bg-white">
+    <section class="relative min-h-[555px] grid-bg overflow-hidden">
+      <!-- Navbar -->
+      <header class="absolute top-3 left-1/2 z-20 w-[80%] -translate-x-1/2 bg-[#FFFFFF] rounded-full">
+        <nav
+          class="flex items-center justify-between rounded-full border border-[#FF66A2] bg-white px-6 py-2 shadow-lg shadow-[#FF66A2]/40"
+        >
+          <!-- Logo -->
+          <div class="flex items-center gap-3">
+          </div>
+
+          <!-- Menu -->
+          <ul
+            class="hidden items-center gap-10 text-sm font-bold text-black md:flex"
+          >
+            <li>
+              <a href="#" class="border-b border-pink-500 pb-1 text-pink-500"
+                >Нүүр</a
+              >
+            </li>
+            <li><a href="#" class="hover:text-pink-500">Танилцуулга</a></li>
+            <li><a href="#" class="hover:text-pink-500">Мэдээлэл</a></li>
+            <li><a href="#" class="hover:text-pink-500">Постер</a></li>
+            <li><a href="#" class="hover:text-pink-500">Бичлэг</a></li>
+            <li><a href="#" class="hover:text-pink-500">Холбогдох</a></li>
+          </ul>
+
+          <!-- Buttons -->
+          <div class="hidden items-center gap-3 md:flex">
+            <button
+              class="rounded-full bg-[#FF66A2] px-6 py-3 text-sm font-bold text-white shadow-md shadow-[#000000]/40 transition hover:bg-pink-600"
+            >
+              Хандив өгөх
+            </button>
+
+            <button
+              class="rounded-full border-2 border-pink-500 px-6 py-2.5 text-sm font-bold text-pink-500 transition hover:bg-pink-50"
+            >
+              Нэвтрэх
+            </button>
+          </div>
+
+          <!-- Mobile icon -->
+          <button class="text-2xl font-black text-pink-500 md:hidden">
+            ☰
+          </button>
+        </nav>
+      </header>
+
+      <!-- Hero content -->
+      <div class="mx-auto flex min-h-[555px] w-[80%] items-center pt-20">
+        <div class="max-w-[520px]">
+          <span
+            class="mb-7 inline-flex rounded-full border border-pink-400 bg-white/40 px-4 py-1 text-xs font-bold text-pink-400 mt-10"
+          >
+            Бүх хүнд нээлттэй
+          </span>
+
+          <h1
+            class="rubik-spray-paint-regular text-[34px] text-[#190950] sm:text-[42px]"
+          >
+            "<span class="text-[#FF66A2]">3хТом</span>" клуб нь <br />
+            тусгай хэрэгцээт <br />
+            хүмүүсийн
+            <span class="relative inline-block isolate">
+              <span class="relative z-10">хөгжил,</span>
+              <span
+                class="absolute bottom-[8px] left-1/2 h-4 w-[105%] -translate-x-1/2 rounded-full bg-[#FFE299]"
+              ></span>
+            </span>
+            нийгмийн оролцоог <br />
+            дэмжих <span class="text-[#FF66A2]">орон зай</span> юм.
+          </h1>
+
+          <p class="mt-4 text-lg text-gray-700">Хамтдаа илүү тод гэрэлтъе.</p>
+
+          <div class="mt-6 flex items-center gap-5">
+            <button
+              class="rounded-full border-2 border-pink-500 bg-white/40 px-6 py-3 text-sm font-extrabold text-pink-500 transition hover:bg-pink-50"
+            >
+              Дэлгэрэнгүй ↗
+            </button>
+
+            <button
+              class="rounded-full bg-pink-500 px-7 py-3 text-sm font-extrabold text-white shadow-md shadow-pink-300 transition hover:bg-pink-600"
+            >
+              Хандив өгөх
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat button -->
+      <button
+        class="absolute bottom-[-42px] right-[4.5%] z-30 flex h-14 w-14 items-center justify-center rounded-full bg-pink-500 text-2xl text-white shadow-lg shadow-pink-300 ring-4 ring-white"
+      >
+        💬
+      </button>
+    </section>
+
+    <!-- Stats -->
+    <section
+      class="relative z-10 grid grid-cols-2 border-t border-pink-200 bg-white md:grid-cols-4"
+    >
+      <div class="border-r border-pink-100 py-8 text-center">
+        <h3 class="text-4xl font-black text-pink-500">+20</h3>
+        <p class="mt-1 text-sm font-bold text-black">Гишүүд</p>
+      </div>
+
+      <div class="border-r border-pink-100 py-8 text-center">
+        <h3 class="text-4xl font-black text-pink-500">+2</h3>
+        <p class="mt-1 text-sm font-bold text-black">Хамтрагч</p>
+      </div>
+
+      <div class="border-r border-pink-100 py-8 text-center">
+        <h3 class="text-4xl font-black text-pink-500">+10</h3>
+        <p class="mt-1 text-sm font-bold text-black">Хөтөлбөрүүд</p>
+      </div>
+
+      <div class="py-8 text-center">
+        <h3 class="text-4xl font-black text-pink-500">+30</h3>
+        <p class="mt-1 text-sm font-bold text-black">Хандивлагч</p>
+      </div>
+    </section>
+  </body>
 </html>
