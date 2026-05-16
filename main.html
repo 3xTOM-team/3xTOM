@@ -1,1 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3хТОМ</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap"); 
+      .grid-bg {
+        background:
+          linear-gradient(
+            to right,
+            rgba(55, 65, 81, 0.22) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(55, 65, 81, 0.22) 1px,
+            transparent 1px
+          ),
+          radial-gradient(
+            circle at left center,
+            rgba(218, 247, 230, 0.75),
+            transparent 38%
+          ),
+          radial-gradient(
+            circle at right center,
+            rgba(255, 220, 238, 0.65),
+            transparent 42%
+          ),
+          linear-gradient(90deg, #edf6f1 0%, #f7f1f6 55%, #fcf5ef 100%);
 
+        background-size:
+          28px 28px,
+          28px 28px,
+          cover,
+          cover,
+          cover;
+      }
+
+      .rubik-spray-paint-regular {
+        font-family: "Rubik Spray Paint", system-ui;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen bg-[#FFFFFF]">
+    <section class="relative z-20 min-h-[555px] grid-bg overflow-visible">
+      <!--Navbar-->
+      <header
+        class="absolute top-3 left-1/2 z-50 w-[80%] -translate-x-1/2 bg-[#FFFFFF] rounded-full"
+      >
+        <nav
+          class="flex items-center justify-between rounded-full border border-[#FF66A2] bg-[#FFFFFF] px-6 py-1.5 shadow-[0_0_20px_rgba(255,102,162,0.4)] shadow-[#FF66A2]"
+        >
+          <!--Logo-->
+          <div
+            class="flex h-18 w-14 items-center justify-center rounded-full ml-8 mt-[-12px] mb-[-8px] cursor-pointer"
+          >
+            <a href="/3хТом/main.html"
+              ><img
+                src="./3xTOM-logo-vector.svg"
+                alt="3xTOM logo"
+                class="h-full w-full object-contain"
+            /></a>
+          </div>
+
+          <!--Menu-->
+          <ul
+            class="hidden items-center gap-10 text-sm font-bold text-black md:flex"
+          >
+            <li>
+              <a
+                href="/3хТом/main.html"
+                class="border-b border-[#FF7EB1] pb-1 text-pink-500"
+                >Нүүр</a
+              >
+            </li>
+            <li>
+              <a href="/3хТом/about.html" class="hover:text-pink-500"
+                >Танилцуулга</a
+              >
+            </li>
+            <li>
+              <a href="/3хТом/info.html" class="hover:text-pink-500"
+                >Мэдээлэл</a
+              >
+            </li>
+            <li>
+              <a href="/3хТом/poster.html" class="hover:text-pink-500"
+                >Постер</a
+              >
+            </li>
+            <li>
+              <a href="/3хТом/videos.html" class="hover:text-pink-500"
+                >Бичлэг</a
+              >
+            </li>
+            <li>
+              <a href="/3хТом/contact.html" class="hover:text-pink-500"
+                >Холбогдох</a
+              >
+            </li>
+          </ul>
+
+          <div class="hidden items-center gap-3 md:flex">
+            <a
+              href="/3хТом/donate.html"
+              class="rounded-full bg-[#FF66A2] px-6 py-3 text-sm font-bold text-white shadow-md shadow-[#000000]/40 transition hover:bg-pink-600 cursor-pointer"
+            >
+              Хандив өгөх
+            </a>
+
+            <a
+              href="/3хТом/login.html"
+              class="rounded-full border-2 border-[#FF66A2] px-6 py-2.5 text-sm font-bold text-[#FF66A2] transition hover:bg-pink-50 cursor-pointer"
+            >
+              Нэвтрэх
+            </a>
+          </div>
+
+          <button class="text-2xl font-black text-pink-500 md:hidden">
+            ☰
+          </button>
+        </nav>
+      </header>
+
+      <div class="mx-auto flex min-h-[555px] w-[80%] items-center pt-20">
+        <div class="max-w-[520px]">
+          <span
+            class="mb-7 inline-flex rounded-full border border-pink-400 bg-[#FFFFFF]/40 px-4 py-1 text-xs font-bold text-pink-400 mt-10"
+          >
+            Бүх хүнд нээлттэй
+          </span>
+
+          <h1
+            class="rubik-spray-paint-regular text-[34px] leading-[1.15] text-[#190950] sm:text-[42px] sm:leading-[1.08]"
+          >
+            "<span class="text-[#FF66A2]">3хТОМ</span>" клуб нь <br />
+            тусгай хэрэгцээт <br />
+            хүмүүсийн
+            <span class="relative inline-block isolate">
+              <span class="relative z-10">хөгжил,</span>
+              <span
+                class="absolute bottom-[8px] left-1/2 h-4 w-[105%] -translate-x-1/2 rounded-full bg-[#FFE299]"
+              ></span>
+            </span>
+            нийгмийн оролцоог <br />
+            дэмжих <span class="text-[#FF66A2]">орон зай</span> юм.
+          </h1>
+
+          <p class="mt-2 text-lg text-gray-700">Хамтдаа илүү тод гэрэлтъе.</p>
+
+          <div class="mt-6 flex items-center gap-5">
+            <a
+              href="/3хТом/info.html"
+              class="rounded-full border-2 border-[#FF66A2] bg-[#FFFFFF] px-4 py-2 text-sm text-[#FF66A2] font-bold transition hover:bg-pink-50 flex items-center justify-center cursor-pointer"
+            >
+              Дэлгэрэнгүй
+              <div class="ml-2 mr-[-6px] mt-[9px]">
+                <svg
+                  width="17"
+                  height="18"
+                  viewBox="0 0 17 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.5833 9.16669H4.49992"
+                    stroke="#FF66A2"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M10.9583 1.45831L5.12492 7.29165"
+                    stroke="#FF66A2"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M10.9583 5.73748V1.45831H6.67909"
+                    stroke="#FF66A2"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </a>
+
+            <a
+              href="/3хТом/donate.html"
+              class="rounded-full bg-[#FF66A2] px-7 py-3 text-sm font-bold text-white shadow-md shadow-pink-300 transition hover:bg-pink-500 cursor-pointer"
+            >
+              Хандив өгөх
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!--Chat-->
+      <a
+        href="/3хТом/chat.html"
+        class="absolute bottom-[-42px] right-[4.5%] z-20 flex h-14 w-14 items-center justify-center rounded-full bg-[#FF66A2]"
+      >
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 30 30"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M22.475 13.4875V18.4875C22.475 18.8125 22.4625 19.125 22.425 19.425C22.1375 22.8 20.15 24.475 16.4875 24.475H15.9875C15.675 24.475 15.375 24.625 15.1875 24.875L13.6875 26.875C13.025 27.7625 11.95 27.7625 11.2875 26.875L9.78748 24.875C9.62498 24.6625 9.2625 24.475 8.9875 24.475H8.48751C4.50001 24.475 2.5 23.4875 2.5 18.4875V13.4875C2.5 9.82501 4.18751 7.83751 7.55001 7.55001C7.85001 7.51251 8.16251 7.5 8.48751 7.5H16.4875C20.475 7.5 22.475 9.50001 22.475 13.4875Z"
+            stroke="white"
+            stroke-width="1.5"
+            stroke-miterlimit="10"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M27.4751 8.48751V13.4875C27.4751 17.1625 25.7875 19.1375 22.425 19.425C22.4625 19.125 22.4751 18.8125 22.4751 18.4875V13.4875C22.4751 9.50001 20.475 7.5 16.4875 7.5H8.48755C8.16255 7.5 7.85005 7.51251 7.55005 7.55001C7.83755 4.18751 9.82505 2.5 13.4875 2.5H21.4875C25.475 2.5 27.4751 4.50001 27.4751 8.48751Z"
+            stroke="white"
+            stroke-width="1.5"
+            stroke-miterlimit="10"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M16.8694 16.5625H16.8806"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M12.4944 16.5625H12.5056"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M8.11937 16.5625H8.13062"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+    </section>
+
+    <!--Stats-->
+    <section
+      class="relative z-0 grid grid-cols-2 border-t border-pink-200 bg-[#FFFFFF] md:grid-cols-4"
+    >
+      <div class="border-r border-pink-100 py-8 text-center">
+        <h3 class="text-4xl font-extrabold text-[#FF66A2]">+20</h3>
+        <p class="mt-1 text-sm font-bold text-gray-800">Гишүүд</p>
+      </div>
+
+      <div class="border-r border-pink-100 py-8 text-center">
+        <h3 class="text-4xl font-extrabold text-[#FF66A2]">+2</h3>
+        <p class="mt-1 text-sm font-bold text-gray-800">Хамтрагч</p>
+      </div>
+
+      <div class="border-r border-pink-100 py-8 text-center">
+        <h3 class="text-4xl font-extrabold text-[#FF66A2]">+10</h3>
+        <p class="mt-1 text-sm font-bold text-gray-800">Хөтөлбөрүүд</p>
+      </div>
+
+      <div class="py-8 text-center">
+        <h3 class="text-4xl font-extrabold text-[#FF66A2]">+30</h3>
+        <p class="mt-1 text-sm font-bold text-gray-800">Хандивлагч</p>
+      </div>
+    </section>
+  </body>
+</html>
