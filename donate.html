@@ -8,98 +8,765 @@
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@900&display=swap");
 
       .rubik-spray-paint-regular {
         font-family: "Rubik Spray Paint", system-ui;
         font-weight: 400;
         font-style: normal;
       }
-      .page-bg {
+
+      .comic-relief-bold {
+        font-family: "Comic Relief", system-ui;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      .mango-logo {
+        font-family: "Chiron GoRound TC", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 900;
+        font-style: normal;
+      }
+
+      .soft-bg {
         background:
-          radial-gradient(circle at 15% 25%, #e9fbff 0%, transparent 35%),
-          radial-gradient(circle at 85% 20%, #ffe4f1 0%, transparent 35%),
-          radial-gradient(circle at 35% 80%, #ffe0f3 0%, transparent 35%),
-          radial-gradient(circle at 65% 80%, #e9edff 0%, transparent 35%),
-          linear-gradient(135deg, #f8ffff, #fff1f8);
+          radial-gradient(
+            circle at 10% 16%,
+            rgba(218, 247, 230, 0.86),
+            transparent 32%
+          ),
+          radial-gradient(
+            circle at 88% 18%,
+            rgba(255, 220, 238, 0.88),
+            transparent 34%
+          ),
+          radial-gradient(
+            circle at 28% 82%,
+            rgba(255, 239, 180, 0.62),
+            transparent 34%
+          ),
+          radial-gradient(
+            circle at 78% 82%,
+            rgba(218, 225, 255, 0.75),
+            transparent 36%
+          ),
+          linear-gradient(135deg, #fdffff 0%, #fff3fa 48%, #f3fff8 100%);
+      }
+
+      .grid-bg {
+        background:
+          linear-gradient(
+            to right,
+            rgba(55, 65, 81, 0.16) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(55, 65, 81, 0.16) 1px,
+            transparent 1px
+          ),
+          radial-gradient(
+            circle at left center,
+            rgba(218, 247, 230, 0.75),
+            transparent 38%
+          ),
+          radial-gradient(
+            circle at right center,
+            rgba(255, 220, 238, 0.65),
+            transparent 42%
+          ),
+          linear-gradient(90deg, #edf6f1 0%, #f7f1f6 55%, #fcf5ef 100%);
+        background-size:
+          28px 28px,
+          28px 28px,
+          cover,
+          cover,
+          cover;
       }
 
       .footer-grid-bg {
         background:
-          linear-gradient(to right, rgba(0, 0, 0, 0.12) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(0, 0, 0, 0.12) 1px, transparent 1px),
-          linear-gradient(90deg, #effcff, #fff8dd, #f3eaff);
+          linear-gradient(
+            to right,
+            rgba(55, 65, 81, 0.18) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(55, 65, 81, 0.18) 1px,
+            transparent 1px
+          ),
+          radial-gradient(
+            circle at left center,
+            rgba(218, 247, 230, 0.75),
+            transparent 38%
+          ),
+          radial-gradient(
+            circle at right center,
+            rgba(218, 225, 255, 0.7),
+            transparent 42%
+          ),
+          radial-gradient(
+            circle at center,
+            rgba(255, 235, 180, 0.65),
+            transparent 36%
+          ),
+          linear-gradient(
+            90deg,
+            #f5efff 0%,
+            #f6fff7 45%,
+            #fff7db 63%,
+            #eef2ff 100%
+          );
         background-size:
-          26px 26px,
-          26px 26px,
+          32px 32px,
+          32px 32px,
+          cover,
+          cover,
+          cover,
           cover;
+      }
+
+      .field-shadow {
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .donate-card-shadow {
+        box-shadow: 0 24px 70px rgba(255, 102, 162, 0.22);
       }
     </style>
   </head>
 
-  <body class="page-bg min-h-screen">
-    <header
-      class="absolute top-3 left-1/2 z-50 w-[80%] -translate-x-1/2 bg-[#FFFFFF] rounded-full"
-    >
-      <nav
-        class="flex items-center justify-between rounded-full border border-[#FF66A2] bg-[#FFFFFF] px-6 py-1.5 shadow-[0_0_20px_rgba(255,102,162,0.4)] shadow-[#FF66A2]"
-      >
+  <body class="min-h-screen bg-white text-[#19004E]">
+    <main class="soft-bg overflow-hidden">
+      <section class="relative min-h-[980px] px-[6.5%] pt-28 pb-20">
+        <header
+          class="absolute top-3 left-1/2 z-50 w-[80%] -translate-x-1/2 bg-[#FFFFFF] rounded-full"
+        >
+          <nav
+            class="flex items-center justify-between rounded-full border border-[#FF66A2] bg-[#FFFFFF] px-6 py-1.5 shadow-[0_0_20px_rgba(255,102,162,0.4)] shadow-[#FF66A2]"
+          >
+            <div
+              class="flex h-18 w-14 items-center justify-center rounded-full ml-8 mt-[-12px] mb-[-8px] cursor-pointer"
+            >
+              <a href="/3хТом/main.html"
+                ><img
+                  src="./3xTOM-logo-vector.svg"
+                  alt="3xTOM logo"
+                  class="h-full w-full object-contain"
+              /></a>
+            </div>
+
+            <ul
+              class="hidden items-center gap-10 text-sm font-bold text-black md:flex"
+            >
+              <li>
+                <a href="/3хТом/main.html" class="hover:text-pink-500">Нүүр</a>
+              </li>
+              <li>
+                <a href="/3хТом/about.html" class="hover:text-pink-500"
+                  >Танилцуулга</a
+                >
+              </li>
+              <li>
+                <a href="/3хТом/news.html" class="hover:text-pink-500"
+                  >Мэдээлэл</a
+                >
+              </li>
+              <li>
+                <a href="/3хТом/poster.html" class="hover:text-pink-500"
+                  >Постер</a
+                >
+              </li>
+              <li>
+                <a href="/3хТом/videos.html" class="hover:text-pink-500"
+                  >Бичлэг</a
+                >
+              </li>
+              <li>
+                <a href="/3хТом/contact.html" class="hover:text-pink-500"
+                  >Холбогдох</a
+                >
+              </li>
+            </ul>
+
+            <div class="hidden items-center gap-3 md:flex">
+              <a
+                href="/3хТом/donate.html"
+                class="rounded-full border-2 border-[#FF66A2] bg-white px-6 py-3 text-sm font-bold text-[#FF66A2] shadow-md shadow-[#000000]/40 transition hover:bg-pink-50 cursor-pointer"
+              >
+                Хандив өгөх
+              </a>
+
+              <a
+                href="/3хТом/login.html"
+                class="rounded-full bg-[#FF66A2] px-6 py-2.5 text-sm font-bold text-white transition hover:bg-pink-200 cursor-pointer"
+              >
+                Нэвтрэх
+              </a>
+            </div>
+          </nav>
+        </header>
+
         <div
-          class="flex h-18 w-14 items-center justify-center rounded-full ml-8 mt-[-12px] mb-[-8px] cursor-pointer"
+          class="pointer-events-none absolute left-[4%] top-[210px] h-28 w-28 rounded-full bg-[#DDA8E6]/70"
+        ></div>
+        <div
+          class="pointer-events-none absolute right-[5%] top-[190px] h-24 w-24 rounded-[28px] bg-[#BFF0CE]/80 rotate-12"
+        ></div>
+        <div
+          class="pointer-events-none absolute bottom-[125px] left-[6%] h-24 w-24 bg-[#9DCEF3]/80"
+          style="clip-path: polygon(50% 0, 100% 100%, 0 100%)"
+        ></div>
+        <div
+          class="pointer-events-none absolute bottom-[165px] right-[7%] h-28 w-28 bg-[#FF9CB2]/75"
+          style="clip-path: polygon(50% 0, 100% 100%, 0 100%)"
+        ></div>
+
+        <div
+          class="relative mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-14 pt-16 lg:grid-cols-[0.96fr_1.04fr]"
         >
-          <a href="/3хТом/main.html"
-            ><img
-              src="./3xTOM-logo-vector.svg"
-              alt="3xTOM logo"
-              class="h-full w-full object-contain"
-          /></a>
+          <div>
+            <p
+              class="mb-5 text-[13px] font-semibold tracking-[3px] text-[#FF66A2]"
+            >
+              3xTOM клубын хандивын хуудас
+            </p>
+
+            <h1
+              class="rubik-spray-paint-regular mb-7 text-[42px] leading-[1.08] text-[#19004E] sm:text-[58px]"
+            >
+              Хамтдаа
+              <span class="relative inline-block isolate text-[#FF66A2]">
+                <span class="relative z-10">илүү TOM</span>
+                <span
+                  class="absolute bottom-1 left-1/2 -z-10 h-5 w-[105%] -translate-x-1/2 rounded-full bg-[#FFE299]"
+                ></span>
+              </span>
+              боломж бүтээе
+            </h1>
+
+            <p
+              class="mb-9 max-w-[560px] text-[18px] font-semibold leading-[1.55] text-[#19004E]"
+            >
+              Таны өгсөн хандив 3хТОМ клубын сургалт, сайн дурын үйл ажиллагаа,
+              тусгай хэрэгцээт иргэд болон хүүхэд залуусын хөгжлийн хөтөлбөрийг
+              бодитоор дэмжихэд зориулагдана.
+            </p>
+
+            <div class="mb-10 flex flex-wrap items-center gap-5">
+              <a
+                href="#donate-form"
+                class="rounded-full bg-[#FF66A2] px-8 py-3.5 text-sm font-bold text-white shadow-md shadow-pink-300 transition hover:bg-pink-500"
+              >
+                Одоо хандивлах
+              </a>
+              <a
+                href="/3хТом/contact.html"
+                class="rounded-full border-2 border-[#FF66A2] bg-white px-8 py-3 text-sm font-bold text-[#FF66A2] transition hover:bg-pink-50"
+              >
+                Холбогдох ↗
+              </a>
+            </div>
+
+            <div class="grid max-w-[650px] grid-cols-1 gap-4 sm:grid-cols-3">
+              <div
+                class="rounded-[26px] border border-white bg-white/75 p-5 shadow-[0_12px_35px_rgba(255,102,162,0.14)] backdrop-blur"
+              >
+                <p class="mango-logo text-[38px] leading-none text-[#FF66A2]">
+                  01
+                </p>
+                <p class="mt-2 text-[14px] font-bold leading-5 text-[#19004E]">
+                  Сургалтын материал, хэрэгсэл
+                </p>
+              </div>
+              <div
+                class="rounded-[26px] border border-white bg-white/75 p-5 shadow-[0_12px_35px_rgba(255,201,67,0.18)] backdrop-blur"
+              >
+                <p class="mango-logo text-[38px] leading-none text-[#FFC943]">
+                  02
+                </p>
+                <p class="mt-2 text-[14px] font-bold leading-5 text-[#19004E]">
+                  Хөтөлбөрийн зохион байгуулалт
+                </p>
+              </div>
+              <div
+                class="rounded-[26px] border border-white bg-white/75 p-5 shadow-[0_12px_35px_rgba(157,206,243,0.24)] backdrop-blur"
+              >
+                <p class="mango-logo text-[38px] leading-none text-[#9DCEF3]">
+                  03
+                </p>
+                <p class="mt-2 text-[14px] font-bold leading-5 text-[#19004E]">
+                  Сайн дурын үйл ажиллагаа
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <section
+            id="donate-form"
+            class="donate-card-shadow relative overflow-hidden rounded-[38px] border border-white bg-white/82 p-8 backdrop-blur md:p-10"
+          >
+            <div
+              class="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-[#FFE299]/70"
+            ></div>
+            <div
+              class="absolute -bottom-16 -left-16 h-44 w-44 rounded-full bg-[#BFF0CE]/70"
+            ></div>
+
+            <div class="relative mb-7 flex items-center gap-4">
+              <img
+                src="./3xTOM-logo-vector.svg"
+                alt="3xTOM logo"
+                class="h-20 w-20 object-contain"
+              />
+              <div>
+                <p class="comic-relief-bold text-[28px] text-[#FF66A2]">
+                  3xTOM
+                </p>
+                <h2 class="mt-[-4px] text-[28px] font-extrabold text-[#19004E]">
+                  Хандивын мэдээлэл
+                </h2>
+              </div>
+            </div>
+
+            <form class="relative space-y-6">
+              <div>
+                <label
+                  class="mb-3 block text-[15px] font-extrabold text-[#19004E]"
+                >
+                  Хандивын дүнгээ сонгоно уу
+                </label>
+                <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                  <button
+                    type="button"
+                    class="rounded-full border-2 border-[#FF66A2] bg-[#FFF3FA] px-4 py-3 text-sm font-extrabold text-[#FF66A2] transition hover:bg-[#FF66A2] hover:text-white"
+                  >
+                    5,000₮
+                  </button>
+                  <button
+                    type="button"
+                    class="rounded-full border-2 border-[#FF66A2] bg-[#FFF3FA] px-4 py-3 text-sm font-extrabold text-[#FF66A2] transition hover:bg-[#FF66A2] hover:text-white"
+                  >
+                    10,000₮
+                  </button>
+                  <button
+                    type="button"
+                    class="rounded-full border-2 border-[#FF66A2] bg-[#FFF3FA] px-4 py-3 text-sm font-extrabold text-[#FF66A2] transition hover:bg-[#FF66A2] hover:text-white"
+                  >
+                    20,000₮
+                  </button>
+                  <button
+                    type="button"
+                    class="rounded-full border-2 border-[#FF66A2] bg-[#FF66A2] px-4 py-3 text-sm font-extrabold text-white shadow-md shadow-pink-200"
+                  >
+                    50,000₮
+                  </button>
+                </div>
+              </div>
+
+              <input
+                class="field-shadow h-13 w-full rounded-full border border-gray-100 bg-white px-6 text-[15px] font-semibold outline-none placeholder:text-gray-400"
+                placeholder="Өөр дүн оруулах"
+              />
+
+              <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <input
+                  class="field-shadow h-13 rounded-full border border-gray-100 bg-white px-6 text-[15px] font-semibold outline-none placeholder:text-gray-400"
+                  placeholder="Нэр*"
+                />
+                <input
+                  class="field-shadow h-13 rounded-full border border-gray-100 bg-white px-6 text-[15px] font-semibold outline-none placeholder:text-gray-400"
+                  placeholder="Утасны дугаар*"
+                />
+              </div>
+
+              <input
+                class="field-shadow h-13 w-full rounded-full border border-gray-100 bg-white px-6 text-[15px] font-semibold outline-none placeholder:text-gray-400"
+                placeholder="Имэйл / холбоо барих хаяг"
+              />
+
+              <div>
+                <p class="mb-3 text-[15px] font-extrabold text-[#19004E]">
+                  Хандив өгөх хэлбэр
+                </p>
+                <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                  <label
+                    class="flex cursor-pointer items-center gap-3 rounded-[20px] border-2 border-[#FF66A2] bg-[#FFF3FA] p-4"
+                  >
+                    <input
+                      type="radio"
+                      name="pay"
+                      checked
+                      class="accent-[#FF66A2]"
+                    />
+                    <span class="text-sm font-extrabold text-[#19004E]"
+                      >Банк</span
+                    >
+                  </label>
+                  <label
+                    class="flex cursor-pointer items-center gap-3 rounded-[20px] border border-gray-100 bg-white p-4"
+                  >
+                    <input type="radio" name="pay" class="accent-[#FF66A2]" />
+                    <span class="text-sm font-extrabold text-[#19004E]"
+                      >QPay</span
+                    >
+                  </label>
+                  <label
+                    class="flex cursor-pointer items-center gap-3 rounded-[20px] border border-gray-100 bg-white p-4"
+                  >
+                    <input type="radio" name="pay" class="accent-[#FF66A2]" />
+                    <span class="text-sm font-extrabold text-[#19004E]"
+                      >Бэлнээр</span
+                    >
+                  </label>
+                </div>
+              </div>
+
+              <div class="rounded-[28px] bg-[#FFF6DF] p-5">
+                <p class="mb-3 text-[15px] font-extrabold text-[#19004E]">
+                  Дансны мэдээлэл
+                </p>
+                <div
+                  class="grid gap-2 text-[14px] font-semibold text-[#19004E]"
+                >
+                  <p>
+                    <span class="font-extrabold text-[#FF66A2]">Банк:</span>
+                    .........................
+                  </p>
+                  <p>
+                    <span class="font-extrabold text-[#FF66A2]">Данс:</span>
+                    .........................
+                  </p>
+                  <p>
+                    <span class="font-extrabold text-[#FF66A2]"
+                      >Хүлээн авагч:</span
+                    >
+                    3xTOM клуб
+                  </p>
+                  <p>
+                    <span class="font-extrabold text-[#FF66A2]"
+                      >Гүйлгээний утга:</span
+                    >
+                    Хандив + нэр + утас
+                  </p>
+                </div>
+              </div>
+
+              <textarea
+                class="field-shadow min-h-[110px] w-full resize-none rounded-[28px] border border-gray-100 bg-white px-6 py-5 text-[15px] font-semibold outline-none placeholder:text-gray-400"
+                placeholder="Нэмэлт мессеж бичих"
+              ></textarea>
+
+              <button
+                type="button"
+                class="h-14 w-full rounded-full bg-[#FF66A2] text-[17px] font-extrabold text-white shadow-lg shadow-pink-200 transition hover:bg-pink-500"
+              >
+                Хандив илгээх
+              </button>
+
+              <p
+                class="text-center text-[12px] font-semibold leading-5 text-gray-500"
+              >
+                Энэ form нь frontend загвар тул backend холболт, төлбөрийн API-г
+                дараа нь нэмэх боломжтой.
+              </p>
+            </form>
+          </section>
         </div>
 
-        <ul
-          class="hidden items-center gap-10 text-sm font-bold text-black md:flex"
+        <a
+          href="./chat.html"
+          aria-label="Chat page руу орох"
+          class="fixed bottom-6 right-6 z-[9999] flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-[#FF66A2] shadow-[0_10px_30px_rgba(255,102,162,0.45)] transition-all duration-300 hover:scale-110 hover:bg-[#ff4f96] active:scale-95"
         >
-          <li>
-            <a href="/3хТом/main.html" class="hover:text-pink-500">Нүүр</a>
-          </li>
-          <li>
-            <a href="/3хТом/about.html" class="hover:text-pink-500"
-              >Танилцуулга</a
-            >
-          </li>
-          <li>
-            <a href="/3хТом/news.html" class="hover:text-pink-500">Мэдээлэл</a>
-          </li>
-          <li>
-            <a href="/3хТом/poster.html" class="hover:text-pink-500">Постер</a>
-          </li>
-          <li>
-            <a href="/3хТом/videos.html" class="hover:text-pink-500">Бичлэг</a>
-          </li>
-          <li>
-            <a href="/3хТом/contact.html" class="hover:text-pink-500"
-              >Холбогдох</a
-            >
-          </li>
-        </ul>
-
-        <div class="hidden items-center gap-3 md:flex">
-          <a
-            href="/3хТом/donate.html"
-            class="rounded-full border-2 border-[#FF66A2] bg-white px-6 py-3 text-sm font-bold text-[#FF66A2] shadow-md shadow-[#000000]/40 hover:bg-pink-50 cursor-pointer"
+          <svg
+            width="30"
+            height="30"
+            viewBox="0 0 30 30"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            Хандив өгөх
-          </a>
+            <path
+              d="M22.475 13.4875V18.4875C22.475 18.8125 22.4625 19.125 22.425 19.425C22.1375 22.8 20.15 24.475 16.4875 24.475H15.9875C15.675 24.475 15.375 24.625 15.1875 24.875L13.6875 26.875C13.025 27.7625 11.95 27.7625 11.2875 26.875L9.78748 24.875C9.62498 24.6625 9.2625 24.475 8.9875 24.475H8.48751C4.50001 24.475 2.5 23.4875 2.5 18.4875V13.4875C2.5 9.82501 4.18751 7.83751 7.55001 7.55001C7.85001 7.51251 8.16251 7.5 8.48751 7.5H16.4875C20.475 7.5 22.475 9.50001 22.475 13.4875Z"
+              stroke="white"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M27.4751 8.48751V13.4875C27.4751 17.1625 25.7875 19.1375 22.425 19.425C22.4625 19.125 22.4751 18.8125 22.4751 18.4875V13.4875C22.4751 9.50001 20.475 7.5 16.4875 7.5H8.48755C8.16255 7.5 7.85005 7.51251 7.55005 7.55001C7.83755 4.18751 9.82505 2.5 13.4875 2.5H21.4875C25.475 2.5 27.4751 4.50001 27.4751 8.48751Z"
+              stroke="white"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M16.2445 16.5625H16.2557"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M12.4945 16.5625H12.5057"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M8.74451 16.5625H8.75574"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+      </section>
 
-          <a
-            href="/3хТом/login.html"
-            class="rounded-full bg-[#FF66A2] px-6 py-2.5 text-sm font-bold text-white transition hover:bg-pink-200 cursor-pointer"
+      <section class="px-[6.5%] py-20">
+        <div class="mx-auto max-w-[1280px]">
+          <p
+            class="mb-4 text-[13px] font-semibold tracking-[3px] text-[#FF66A2]"
           >
-            Нэвтрэх
-          </a>
+            Хандив тань юунд зарцуулагдах вэ?
+          </p>
+          <h2 class="mb-12 text-[38px] font-extrabold text-[#17084e]">
+            Таны дэмжлэгээр бүтэх зүйлс
+          </h2>
+
+          <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+            <article
+              class="rounded-[32px] bg-white p-8 shadow-[0_18px_55px_rgba(0,0,0,0.08)]"
+            >
+              <div
+                class="mb-7 flex h-16 w-16 items-center justify-center rounded-full bg-[#FFE299]"
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8 6H24C25.1046 6 26 6.89543 26 8V26H10C7.79086 26 6 24.2091 6 22V8C6 6.89543 6.89543 6 8 6Z"
+                    stroke="#FF66A2"
+                    stroke-width="2.2"
+                  />
+                  <path
+                    d="M10 22H26"
+                    stroke="#FF66A2"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M11 11H21"
+                    stroke="#FF66A2"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M11 15H19"
+                    stroke="#FF66A2"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+              <h3 class="mb-4 text-[24px] font-extrabold text-[#19004E]">
+                Сургалтын хэрэгсэл
+              </h3>
+              <p class="text-[15px] font-semibold leading-6 text-[#19004E]/80">
+                Хүүхэд, залуусын сургалтанд шаардлагатай материал, бичиг хэрэг,
+                постер, тараах материал бэлтгэхэд ашиглагдана.
+              </p>
+            </article>
+
+            <article
+              class="rounded-[32px] bg-white p-8 shadow-[0_18px_55px_rgba(0,0,0,0.08)]"
+            >
+              <div
+                class="mb-7 flex h-16 w-16 items-center justify-center rounded-full bg-[#BFF0CE]"
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16 27C16 27 5 21 5 12.5C5 8.9 7.9 6 11.5 6C13.6 6 15.2 7 16 8.3C16.8 7 18.4 6 20.5 6C24.1 6 27 8.9 27 12.5C27 21 16 27 16 27Z"
+                    stroke="#FF66A2"
+                    stroke-width="2.2"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <h3 class="mb-4 text-[24px] font-extrabold text-[#19004E]">
+                Хөтөлбөрийн дэмжлэг
+              </h3>
+              <p class="text-[15px] font-semibold leading-6 text-[#19004E]/80">
+                Тусгай хэрэгцээт иргэд, асрамжийн газар болон олон нийтэд
+                чиглэсэн үйл ажиллагааны зохион байгуулалтад зарцуулагдана.
+              </p>
+            </article>
+
+            <article
+              class="rounded-[32px] bg-white p-8 shadow-[0_18px_55px_rgba(0,0,0,0.08)]"
+            >
+              <div
+                class="mb-7 flex h-16 w-16 items-center justify-center rounded-full bg-[#9DCEF3]"
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8 17C8 17 10.5 21 16 21C21.5 21 24 17 24 17"
+                    stroke="#FF66A2"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M11 13H11.02"
+                    stroke="#FF66A2"
+                    stroke-width="3.2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M21 13H21.02"
+                    stroke="#FF66A2"
+                    stroke-width="3.2"
+                    stroke-linecap="round"
+                  />
+                  <circle
+                    cx="16"
+                    cy="16"
+                    r="11"
+                    stroke="#FF66A2"
+                    stroke-width="2.2"
+                  />
+                </svg>
+              </div>
+              <h3 class="mb-4 text-[24px] font-extrabold text-[#19004E]">
+                Сайн дурын ажил
+              </h3>
+              <p class="text-[15px] font-semibold leading-6 text-[#19004E]/80">
+                Сайн дурын багийн үйл ажиллагаа, урамшуулал, тээвэр болон
+                талбайн хэрэгцээнд бодитоор тус болно.
+              </p>
+            </article>
+          </div>
         </div>
-      </nav>
-    </header>
+      </section>
 
-    
+      <section class="px-[6.5%] pb-24">
+        <div
+          class="mx-auto grid max-w-[1280px] grid-cols-1 overflow-hidden rounded-[42px] bg-white shadow-[0_22px_70px_rgba(0,0,0,0.1)] lg:grid-cols-[0.95fr_1.05fr]"
+        >
+          <div class="relative min-h-[430px]">
+            <img
+              src="./poster-program.jpg"
+              alt="3xTOM program"
+              class="h-full w-full object-cover"
+            />
+            <div
+              class="absolute left-6 top-6 rounded-full bg-white/82 px-5 py-2 text-sm font-extrabold text-[#FF66A2] backdrop-blur"
+            >
+              3xTOM impact
+            </div>
+            <div class="absolute bottom-7 left-1/2 flex -translate-x-1/2 gap-3">
+              <span class="h-5 w-5 rounded-full bg-[#FF66A2]"></span>
+              <span class="h-5 w-5 rounded-full bg-white"></span>
+              <span class="h-5 w-5 rounded-full bg-white"></span>
+              <span class="h-5 w-5 rounded-full bg-[#9DCEF3]"></span>
+            </div>
+          </div>
+
+          <div class="p-9 md:p-12">
+            <p
+              class="mb-4 text-[13px] font-semibold tracking-[3px] text-[#FF66A2]"
+            >
+              хандив өгөх алхам
+            </p>
+            <h2
+              class="mb-8 text-[36px] font-extrabold leading-tight text-[#17084e]"
+            >
+              Жижиг дэмжлэг ч том өөрчлөлт авчирна
+            </h2>
+
+            <div class="space-y-5">
+              <div class="flex gap-5">
+                <span
+                  class="mango-logo flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#FF66A2] text-[22px] text-white"
+                  >1</span
+                >
+                <div>
+                  <h3 class="text-[20px] font-extrabold text-[#19004E]">
+                    Дүнгээ сонгох
+                  </h3>
+                  <p
+                    class="mt-1 text-[15px] font-semibold leading-6 text-[#19004E]/75"
+                  >
+                    Өөрийн боломжит хэмжээгээр хандивын дүнгээ сонгоно.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-5">
+                <span
+                  class="mango-logo flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#FFC943] text-[22px] text-white"
+                  >2</span
+                >
+                <div>
+                  <h3 class="text-[20px] font-extrabold text-[#19004E]">
+                    Мэдээллээ бөглөх
+                  </h3>
+                  <p
+                    class="mt-1 text-[15px] font-semibold leading-6 text-[#19004E]/75"
+                  >
+                    Нэр, утас, холбоо барих мэдээллээ үлдээнэ.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-5">
+                <span
+                  class="mango-logo flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#9DCEF3] text-[22px] text-white"
+                  >3</span
+                >
+                <div>
+                  <h3 class="text-[20px] font-extrabold text-[#19004E]">
+                    Хандив шилжүүлэх
+                  </h3>
+                  <p
+                    class="mt-1 text-[15px] font-semibold leading-6 text-[#19004E]/75"
+                  >
+                    Гүйлгээний утгад нэр, утсаа бичээд илгээхэд хангалттай.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-9 rounded-[28px] bg-[#FFF3FA] p-6">
+              <p class="text-[18px] font-bold leading-7 text-[#19004E]">
+                “3 дахин TOM бүхэн бидний хичээл зүтгэлийн эцэст 3 дахин ИЛҮҮ
+                болоосой.”
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer class="footer-grid-bg px-[6.5%] py-8">
       <div class="grid grid-cols-1 gap-10 md:grid-cols-[1.1fr_1fr_1.1fr]">
@@ -386,5 +1053,590 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (!document.title.includes("Хандив")) return;
+
+        const form = document.querySelector("#donate-form form");
+        if (!form) return;
+
+        const amountButtons = [
+          ...form.querySelectorAll("button[type='button']"),
+        ].slice(0, 4);
+        const allInputs = [...form.querySelectorAll("input")];
+        const customAmountInput = allInputs[0];
+        const nameInput = allInputs[1];
+        const phoneInput = allInputs[2];
+        const contactInput = allInputs[3];
+        const payRadios = [...form.querySelectorAll("input[name='pay']")];
+        const messageInput = form.querySelector("textarea");
+        const submitBtn = [...form.querySelectorAll("button")].at(-1);
+
+        let selectedAmount = "50,000₮";
+
+        const createToast = () => {
+          const toast = document.createElement("div");
+          toast.style.cssText = `
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 9999;
+      min-width: 280px;
+      max-width: 380px;
+      padding: 16px 18px;
+      border-radius: 22px;
+      background: linear-gradient(135deg,#fff,#fff3fa);
+      color: #19004E;
+      font-weight: 800;
+      box-shadow: 0 18px 50px rgba(255,102,162,.28);
+      border: 1px solid rgba(255,102,162,.25);
+      transform: translateX(130%);
+      opacity: 0;
+      transition: .35s ease;
+    `;
+
+          document.body.appendChild(toast);
+
+          return (message, type = "success") => {
+            toast.textContent = message;
+            toast.style.background =
+              type === "error"
+                ? "linear-gradient(135deg,#fff,#fff1f1)"
+                : "linear-gradient(135deg,#fff,#fff3fa)";
+            toast.style.borderColor =
+              type === "error"
+                ? "rgba(239,68,68,.35)"
+                : "rgba(255,102,162,.35)";
+            toast.style.transform = "translateX(0)";
+            toast.style.opacity = "1";
+
+            clearTimeout(toast.timer);
+            toast.timer = setTimeout(() => {
+              toast.style.transform = "translateX(130%)";
+              toast.style.opacity = "0";
+            }, 2600);
+          };
+        };
+
+        const toast = createToast();
+        const createMobileMenu = () => {
+          const nav = document.querySelector("nav");
+          const menu = nav?.querySelector("ul");
+          if (!nav || !menu) return;
+
+          const toggle = document.createElement("button");
+          toggle.type = "button";
+          toggle.innerHTML = "☰";
+          toggle.style.cssText = `
+      display: none;
+      height: 42px;
+      width: 42px;
+      border-radius: 999px;
+      background: #FF66A2;
+      color: white;
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1;
+    `;
+
+          const panel = document.createElement("div");
+          panel.innerHTML = menu.innerHTML;
+          panel.style.cssText = `
+      position: absolute;
+      top: 72px;
+      left: 50%;
+      width: 92%;
+      transform: translateX(-50%) translateY(-12px);
+      padding: 18px;
+      border-radius: 28px;
+      background: white;
+      box-shadow: 0 24px 60px rgba(255,102,162,.25);
+      border: 1px solid rgba(255,102,162,.25);
+      opacity: 0;
+      pointer-events: none;
+      transition: .25s ease;
+    `;
+
+          panel.querySelectorAll("li").forEach((li) => {
+            li.style.cssText =
+              "list-style:none;margin:12px 0;text-align:center;";
+          });
+
+          panel.querySelectorAll("a").forEach((a) => {
+            a.style.cssText =
+              "display:block;font-weight:900;color:#19004E;text-decoration:none;";
+          });
+
+          nav.appendChild(toggle);
+          nav.appendChild(panel);
+
+          toggle.addEventListener("click", () => {
+            const opened = panel.dataset.open === "true";
+            panel.dataset.open = String(!opened);
+            panel.style.opacity = opened ? "0" : "1";
+            panel.style.pointerEvents = opened ? "none" : "auto";
+            panel.style.transform = opened
+              ? "translateX(-50%) translateY(-12px)"
+              : "translateX(-50%) translateY(0)";
+            toggle.innerHTML = opened ? "☰" : "×";
+          });
+
+          const sync = () => {
+            toggle.style.display = innerWidth < 768 ? "grid" : "none";
+            toggle.style.placeItems = "center";
+
+            if (innerWidth >= 768) {
+              panel.dataset.open = "false";
+              panel.style.opacity = "0";
+              panel.style.pointerEvents = "none";
+              toggle.innerHTML = "☰";
+            }
+          };
+
+          sync();
+          window.addEventListener("resize", sync);
+        };
+
+        createMobileMenu();
+
+        const onlyDigits = (value) => value.replace(/[^\d]/g, "");
+        const formatMoney = (value) => {
+          const digits = onlyDigits(value);
+          if (!digits) return "";
+          return `${Number(digits).toLocaleString("en-US")}₮`;
+        };
+
+        const cleanMoneyNumber = (value) => Number(onlyDigits(value) || 0);
+
+        const setActiveAmount = (button) => {
+          amountButtons.forEach((btn) => {
+            btn.style.background = "#FFF3FA";
+            btn.style.color = "#FF66A2";
+            btn.style.boxShadow = "none";
+            btn.style.transform = "scale(1)";
+          });
+
+          if (button) {
+            button.style.background = "#FF66A2";
+            button.style.color = "white";
+            button.style.boxShadow = "0 12px 28px rgba(255,102,162,.28)";
+            button.style.transform = "scale(1.04)";
+            selectedAmount = button.textContent.trim();
+            customAmountInput.value = "";
+          }
+
+          updateLiveSummary();
+        };
+
+        amountButtons.forEach((button) => {
+          button.addEventListener("click", () => setActiveAmount(button));
+        });
+
+        customAmountInput.addEventListener("input", () => {
+          const formatted = formatMoney(customAmountInput.value);
+          customAmountInput.value = formatted;
+          selectedAmount = formatted;
+
+          amountButtons.forEach((btn) => {
+            btn.style.background = "#FFF3FA";
+            btn.style.color = "#FF66A2";
+            btn.style.boxShadow = "none";
+            btn.style.transform = "scale(1)";
+          });
+
+          updateLiveSummary();
+        });
+
+        const payLabels = payRadios.map((radio) => radio.closest("label"));
+
+        const getPaymentMethod = () => {
+          const checked = payRadios.find((radio) => radio.checked);
+          return checked?.closest("label")?.textContent.trim() || "Банк";
+        };
+
+        const setPaymentStyle = () => {
+          payLabels.forEach((label) => {
+            const active = label.querySelector("input")?.checked;
+
+            label.style.borderColor = active ? "#FF66A2" : "#f3f4f6";
+            label.style.background = active ? "#FFF3FA" : "white";
+            label.style.boxShadow = active
+              ? "0 10px 24px rgba(255,102,162,.14)"
+              : "";
+            label.style.transform = active
+              ? "translateY(-2px)"
+              : "translateY(0)";
+            label.style.transition = ".25s ease";
+          });
+
+          updateLiveSummary();
+        };
+
+        payRadios.forEach((radio) => {
+          radio.addEventListener("change", setPaymentStyle);
+        });
+
+        const liveSummary = document.createElement("div");
+        liveSummary.style.cssText = `
+    display: grid;
+    gap: 8px;
+    padding: 16px;
+    border-radius: 24px;
+    background: linear-gradient(135deg,#FFF3FA,#FFF9E8);
+    border: 1px solid rgba(255,102,162,.16);
+    color: #19004E;
+    font-weight: 800;
+  `;
+
+        const firstFieldBlock = customAmountInput.closest("div");
+        firstFieldBlock.insertAdjacentElement("afterend", liveSummary);
+
+        function updateLiveSummary() {
+          const amount = selectedAmount || "0₮";
+          const name = nameInput.value.trim() || "Нэр";
+          const phone = phoneInput.value.trim() || "утас";
+          const method = getPaymentMethod();
+          const note = `Хандив ${name} ${phone}`;
+
+          liveSummary.innerHTML = `
+      <p style="font-size:13px;color:#FF66A2;font-weight:900;letter-spacing:1.5px;">ХАНДИВЫН ТОВЧ МЭДЭЭЛЭЛ</p>
+      <p>Дүн: <span style="color:#FF66A2;">${amount}</span></p>
+      <p>Хэлбэр: <span style="color:#FF66A2;">${method}</span></p>
+      <p>Гүйлгээний утга: <span style="color:#FF66A2;">${note}</span></p>
+    `;
+
+          submitBtn.textContent = amount
+            ? `${amount} хандив илгээх`
+            : "Хандив илгээх";
+        }
+
+        [nameInput, phoneInput, contactInput, messageInput].forEach((field) => {
+          field.addEventListener("input", updateLiveSummary);
+        });
+
+        const setFieldState = (input, valid, message = "") => {
+          if (!input) return;
+
+          input.style.borderColor = valid ? "#f3f4f6" : "#ef4444";
+          input.style.boxShadow = valid
+            ? "0 0 12px rgba(0,0,0,.08)"
+            : "0 0 0 4px rgba(239,68,68,.08)";
+
+          let error = input.nextElementSibling;
+          if (!error || !error.classList.contains("js-error-text")) {
+            error = document.createElement("p");
+            error.className = "js-error-text";
+            error.style.cssText =
+              "margin:6px 0 0 16px;color:#ef4444;font-size:12px;font-weight:800;";
+            input.insertAdjacentElement("afterend", error);
+          }
+
+          error.textContent = valid ? "" : message;
+        };
+
+        [
+          customAmountInput,
+          nameInput,
+          phoneInput,
+          contactInput,
+          messageInput,
+        ].forEach((input) => {
+          input.addEventListener("input", () => setFieldState(input, true));
+
+          input.addEventListener("focus", () => {
+            input.style.borderColor = "#FF66A2";
+            input.style.boxShadow = "0 0 0 4px rgba(255,102,162,.08)";
+          });
+
+          input.addEventListener("blur", () => {
+            input.style.boxShadow = "0 0 12px rgba(0,0,0,.08)";
+          });
+        });
+
+        const validate = () => {
+          let ok = true;
+          const amountNumber = cleanMoneyNumber(selectedAmount);
+
+          if (amountNumber < 1000) {
+            setFieldState(
+              customAmountInput,
+              false,
+              "Хандивын дүн 1,000₮-өөс дээш байна.",
+            );
+            ok = false;
+          }
+
+          if (nameInput.value.trim().length < 2) {
+            setFieldState(nameInput, false, "Нэрээ зөв оруулна уу.");
+            ok = false;
+          }
+
+          if (phoneInput.value.replace(/[^\d]/g, "").length < 8) {
+            setFieldState(phoneInput, false, "Утасны дугаараа зөв оруулна уу.");
+            ok = false;
+          }
+
+          const contactValue = contactInput.value.trim();
+          if (contactValue && contactValue.includes("@")) {
+            const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactValue);
+            if (!validEmail) {
+              setFieldState(contactInput, false, "Имэйл хаяг буруу байна.");
+              ok = false;
+            }
+          }
+
+          return ok;
+        };
+
+        const createModal = () => {
+          const overlay = document.createElement("div");
+          overlay.style.cssText = `
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: rgba(25,0,78,.45);
+      opacity: 0;
+      pointer-events: none;
+      transition: .25s ease;
+    `;
+
+          const modal = document.createElement("div");
+          modal.style.cssText = `
+      width: min(560px, 100%);
+      border-radius: 34px;
+      background: white;
+      padding: 28px;
+      color: #19004E;
+      box-shadow: 0 30px 90px rgba(0,0,0,.28);
+      transform: translateY(20px) scale(.96);
+      transition: .25s ease;
+    `;
+
+          overlay.appendChild(modal);
+          document.body.appendChild(overlay);
+
+          const open = (donation) => {
+            const qpayText =
+              donation.method === "QPay"
+                ? `<p style="margin-top:12px;padding:12px;border-radius:18px;background:#EFF6FF;font-weight:800;color:#1d4ed8;">QPay холболт backend/API дээр дараа нь ажиллана.</p>`
+                : "";
+
+            modal.innerHTML = `
+        <div style="display:flex;justify-content:space-between;gap:16px;align-items:start;">
+          <div>
+            <p style="font-size:13px;font-weight:900;letter-spacing:2px;color:#FF66A2;">ХАНДИВЫН БАТАЛГАА</p>
+            <h3 style="margin-top:8px;font-size:28px;font-weight:900;">Баярлалаа!</h3>
+          </div>
+          <button type="button" data-close style="height:38px;width:38px;border-radius:999px;background:#FFF3FA;color:#FF66A2;font-size:22px;font-weight:900;">×</button>
+        </div>
+
+        <div style="margin-top:22px;display:grid;gap:12px;font-weight:800;">
+          <p>Дүн: <span style="color:#FF66A2;">${donation.amount}</span></p>
+          <p>Нэр: <span style="color:#FF66A2;">${donation.name}</span></p>
+          <p>Утас: <span style="color:#FF66A2;">${donation.phone}</span></p>
+          <p>Хэлбэр: <span style="color:#FF66A2;">${donation.method}</span></p>
+          <p>Гүйлгээний утга: <span style="color:#FF66A2;">${donation.note}</span></p>
+        </div>
+
+        ${qpayText}
+
+        <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px;">
+          <button type="button" data-copy style="flex:1;min-width:180px;border-radius:999px;background:#FF66A2;color:white;padding:13px 18px;font-weight:900;">Гүйлгээний утга хуулах</button>
+          <button type="button" data-done style="flex:1;min-width:180px;border-radius:999px;border:2px solid #FF66A2;color:#FF66A2;padding:11px 18px;font-weight:900;">Ойлголоо</button>
+        </div>
+      `;
+
+            overlay.style.opacity = "1";
+            overlay.style.pointerEvents = "auto";
+            modal.style.transform = "translateY(0) scale(1)";
+
+            modal
+              .querySelector("[data-close]")
+              .addEventListener("click", close);
+            modal.querySelector("[data-done]").addEventListener("click", close);
+
+            modal
+              .querySelector("[data-copy]")
+              .addEventListener("click", async () => {
+                try {
+                  await navigator.clipboard.writeText(donation.note);
+                  toast("Гүйлгээний утга хуулагдлаа.");
+                } catch {
+                  toast("Хуулах боломжгүй байна.", "error");
+                }
+              });
+          };
+
+          const close = () => {
+            overlay.style.opacity = "0";
+            overlay.style.pointerEvents = "none";
+            modal.style.transform = "translateY(20px) scale(.96)";
+          };
+
+          overlay.addEventListener("click", (event) => {
+            if (event.target === overlay) close();
+          });
+
+          return { open, close };
+        };
+
+        const modal = createModal();
+
+        const saveDonation = (donation) => {
+          const donations = JSON.parse(
+            localStorage.getItem("threeTomDonations") || "[]",
+          );
+          donations.unshift(donation);
+          localStorage.setItem(
+            "threeTomDonations",
+            JSON.stringify(donations.slice(0, 20)),
+          );
+        };
+
+        submitBtn.addEventListener("click", () => {
+          if (!validate()) {
+            toast("Хандивын мэдээллээ зөв бөглөөрэй.", "error");
+            return;
+          }
+
+          const donation = {
+            amount: selectedAmount,
+            amountNumber: cleanMoneyNumber(selectedAmount),
+            name: nameInput.value.trim(),
+            phone: phoneInput.value.trim(),
+            contact: contactInput.value.trim(),
+            method: getPaymentMethod(),
+            message: messageInput.value.trim(),
+            note: `Хандив ${nameInput.value.trim()} ${phoneInput.value.trim()}`,
+            createdAt: new Date().toISOString(),
+          };
+
+          saveDonation(donation);
+          modal.open(donation);
+          toast("Хандивын мэдээлэл хадгалагдлаа.");
+        });
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          submitBtn.click();
+        });
+
+        const bankBox = [...document.querySelectorAll("p")]
+          .find((p) => p.textContent.includes("Гүйлгээний утга:"))
+          ?.closest("div");
+
+        if (bankBox) {
+          const copyBankBtn = document.createElement("button");
+          copyBankBtn.type = "button";
+          copyBankBtn.textContent = "Дансны мэдээлэл хуулах";
+          copyBankBtn.style.cssText = `
+      margin-top: 14px;
+      width: 100%;
+      border-radius: 999px;
+      background: white;
+      color: #FF66A2;
+      padding: 10px 14px;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(255,102,162,.12);
+    `;
+
+          bankBox.appendChild(copyBankBtn);
+
+          copyBankBtn.addEventListener("click", async () => {
+            const note = `Хандив ${nameInput.value.trim() || "Нэр"} ${
+              phoneInput.value.trim() || "утас"
+            }`;
+
+            const text = [
+              "3xTOM клубын хандив",
+              "Банк: .........................",
+              "Данс: .........................",
+              "Хүлээн авагч: 3xTOM клуб",
+              `Гүйлгээний утга: ${note}`,
+            ].join("\n");
+
+            try {
+              await navigator.clipboard.writeText(text);
+              toast("Дансны мэдээлэл хуулагдлаа.");
+            } catch {
+              toast("Хуулах боломжгүй байна.", "error");
+            }
+          });
+        }
+
+        const revealItems = [
+          document.querySelector("header"),
+          ...document.querySelectorAll("section, article, footer > div > div"),
+        ].filter(Boolean);
+
+        revealItems.forEach((item) => {
+          item.style.opacity = "0";
+          item.style.transform = "translateY(26px)";
+          item.style.transition = ".7s ease";
+        });
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+              observer.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.14 },
+        );
+
+        revealItems.forEach((item) => observer.observe(item));
+
+        document
+          .querySelectorAll("article, .donate-card-shadow")
+          .forEach((card) => {
+            card.style.transition = ".25s ease";
+
+            card.addEventListener("mouseenter", () => {
+              card.style.transform = "translateY(-8px)";
+            });
+
+            card.addEventListener("mouseleave", () => {
+              card.style.transform = "translateY(0)";
+            });
+          });
+
+        document.querySelectorAll('a[href^="#"]').forEach((link) => {
+          link.addEventListener("click", (event) => {
+            const target = document.querySelector(link.getAttribute("href"));
+            if (!target) return;
+
+            event.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        });
+
+        document.body.appendChild(topBtn);
+
+        window.addEventListener("scroll", () => {
+          const visible = scrollY > 460;
+          topBtn.style.opacity = visible ? "1" : "0";
+          topBtn.style.pointerEvents = visible ? "auto" : "none";
+          topBtn.style.transform = visible
+            ? "translateY(0)"
+            : "translateY(12px)";
+        });
+
+        topBtn.addEventListener("click", () => {
+          scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        setActiveAmount(amountButtons[3]);
+        setPaymentStyle();
+        updateLiveSummary();
+      });
+    </script>
   </body>
 </html>

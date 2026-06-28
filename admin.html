@@ -1,0 +1,1429 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3xTOM - Admin</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@900&display=swap");
+
+      :root {
+        --pink: #ff66a2;
+        --dark: #19004e;
+        --yellow: #ffe299;
+        --blue: #9dcef3;
+        --green: #bff0ce;
+        --purple: #dda8e6;
+        --orange: #ffa13c;
+      }
+
+      .rubik-spray-paint-regular {
+        font-family: "Rubik Spray Paint", system-ui;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .comic-relief-bold {
+        font-family: "Comic Relief", system-ui;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      .page-bg {
+        background:
+          radial-gradient(
+            circle at 10% 14%,
+            rgba(218, 247, 230, 0.86),
+            transparent 31%
+          ),
+          radial-gradient(
+            circle at 92% 12%,
+            rgba(255, 220, 238, 0.9),
+            transparent 35%
+          ),
+          radial-gradient(
+            circle at 28% 83%,
+            rgba(255, 239, 180, 0.64),
+            transparent 33%
+          ),
+          radial-gradient(
+            circle at 84% 83%,
+            rgba(218, 225, 255, 0.78),
+            transparent 35%
+          ),
+          linear-gradient(135deg, #fdffff 0%, #fff3fa 48%, #f3fff8 100%);
+      }
+
+      .grid-bg {
+        background:
+          linear-gradient(
+            to right,
+            rgba(55, 65, 81, 0.13) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(55, 65, 81, 0.13) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.85),
+            rgba(255, 246, 252, 0.85)
+          );
+        background-size:
+          28px 28px,
+          28px 28px,
+          cover;
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.76);
+        box-shadow: 0 24px 70px rgba(255, 102, 162, 0.18);
+        backdrop-filter: blur(16px);
+      }
+
+      .admin-shadow {
+        box-shadow: 0 18px 45px rgba(25, 0, 78, 0.08);
+      }
+
+      .thin-scrollbar::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      .thin-scrollbar::-webkit-scrollbar-track {
+        background: #fff0f7;
+        border-radius: 999px;
+      }
+
+      .thin-scrollbar::-webkit-scrollbar-thumb {
+        background: #ff9bc4;
+        border-radius: 999px;
+      }
+
+      .svg-icon {
+        display: inline-block;
+        flex-shrink: 0;
+      }
+
+      .tap-target {
+        touch-action: manipulation;
+      }
+
+      @media (max-width: 767px) {
+        .admin-shadow {
+          box-shadow: 0 12px 28px rgba(25, 0, 78, 0.08);
+        }
+      }
+    </style>
+  </head>
+
+  <body class="page-bg min-h-screen text-[#19004E]">
+    <div
+      id="toast"
+      class="fixed right-6 top-6 z-[100] hidden rounded-2xl bg-[#19004E] px-5 py-3 text-sm font-bold text-white shadow-2xl"
+    ></div>
+
+    <header
+      class="fixed left-1/2 top-3 z-50 w-[92%] -translate-x-1/2 rounded-full bg-white/90 backdrop-blur lg:w-[84%]"
+    >
+      <nav
+        class="flex items-center justify-between rounded-full border border-[#FF66A2] bg-white/95 px-4 py-1.5 shadow-[0_0_20px_rgba(255,102,162,0.35)] md:px-6"
+      >
+        <a
+          href="./main.html"
+          class="flex h-16 w-14 items-center justify-center rounded-full md:ml-5 md:mt-[-8px] md:mb-[-8px]"
+        >
+          <img
+            src="./3xTOM-logo-vector.svg"
+            onerror="
+              this.onerror = null;
+              this.src = './3xTOM-logo-vector(3).svg';
+            "
+            alt="3xTOM logo"
+            class="h-full w-full object-contain"
+          />
+        </a>
+
+        <div
+          class="hidden items-center gap-8 text-sm font-bold text-black lg:flex"
+        >
+          <a href="./main.html" class="hover:text-[#FF66A2]">Нүүр</a>
+          <a href="./about.html" class="hover:text-[#FF66A2]">Танилцуулга</a>
+          <a href="./news.html" class="hover:text-[#FF66A2]">Мэдээлэл</a>
+          <a href="./poster.html" class="hover:text-[#FF66A2]">Постер</a>
+          <a href="./videos.html" class="hover:text-[#FF66A2]">Бичлэг</a>
+          <a href="./contact.html" class="hover:text-[#FF66A2]">Холбогдох</a>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span
+            class="hidden rounded-full bg-[#FFE299] px-4 py-2 text-xs font-extrabold text-[#19004E] md:inline-flex"
+            >ADMIN PANEL</span
+          >
+          <button
+            id="logoutBtn"
+            class="hidden rounded-full bg-[#FF66A2] px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-black/20 transition hover:bg-pink-600"
+          >
+            Гарах
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="app" class="min-h-screen pt-28"></main>
+
+    <template id="loginTemplate">
+      <section
+        class="relative mx-auto flex min-h-[760px] w-[92%] items-center justify-center pb-16 pt-10 lg:w-[84%]"
+      >
+        <div
+          class="pointer-events-none absolute left-[2%] top-[160px] h-24 w-24 rounded-full bg-[#DDA8E6]/80"
+        ></div>
+        <div
+          class="pointer-events-none absolute right-[5%] top-[150px] h-24 w-24 rotate-12 rounded-[28px] bg-[#BFF0CE]/80"
+        ></div>
+        <div
+          class="pointer-events-none absolute bottom-[120px] left-[7%] h-24 w-24 bg-[#9DCEF3]/80"
+          style="clip-path: polygon(50% 0, 100% 100%, 0 100%)"
+        ></div>
+        <div
+          class="pointer-events-none absolute bottom-[115px] right-[9%] h-28 w-28 bg-[#FF9CB2]/75"
+          style="clip-path: polygon(50% 0, 100% 100%, 0 100%)"
+        ></div>
+
+        <div
+          class="glass-card grid w-full max-w-[1120px] overflow-hidden rounded-[34px] border border-white/80 lg:grid-cols-[0.92fr_1.08fr]"
+        >
+          <div class="relative min-h-[520px] overflow-hidden bg-[#FFE299] p-10">
+            <img
+              src="./poster-program.jpg"
+              onerror="
+                this.onerror = null;
+                this.src = './poster-program(2).jpg';
+              "
+              alt="3xTOM admin"
+              class="absolute inset-0 h-full w-full object-cover opacity-60"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-[#FFE299]/90 via-[#FFEEF8]/72 to-[#BFF0CE]/70"
+            ></div>
+            <div class="relative z-10 flex h-full flex-col justify-between">
+              <div>
+                <img
+                  src="./3xTOM-logo-vector.svg"
+                  onerror="
+                    this.onerror = null;
+                    this.src = './3xTOM-logo-vector(3).svg';
+                  "
+                  alt="3xTOM"
+                  class="mb-8 h-24 w-24 object-contain"
+                />
+                <p
+                  class="mb-4 text-[13px] font-extrabold tracking-[3px] text-[#FF66A2]"
+                >
+                  3xTOM CLUB ADMIN
+                </p>
+                <h1
+                  class="rubik-spray-paint-regular text-[44px] leading-[1.05] text-[#19004E] md:text-[58px]"
+                >
+                  Website-аа<br />нэг газраас<br /><span class="text-[#FF66A2]"
+                    >удирд</span
+                  >
+                </h1>
+              </div>
+              <div
+                class="rounded-[26px] bg-white/78 p-5 text-sm font-bold leading-6 text-[#19004E] shadow-lg"
+              >
+                Мэдээлэл, постер, бичлэг, хандив, холбоо барих хүсэлтүүдийг
+                нэмэх, засах, устгах боломжтой.
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white/84 p-8 md:p-12">
+            <div class="mb-8">
+              <p
+                class="mb-3 text-[13px] font-extrabold tracking-[3px] text-[#FF66A2]"
+              >
+                ADMIN-ААР НЭВТРЭХ
+              </p>
+              <h2 class="text-[34px] font-black text-[#19004E]">
+                Админ бүртгэл
+              </h2>
+              <p
+                class="mt-3 max-w-[520px] text-sm font-semibold leading-6 text-slate-600"
+              >
+                Default demo account:
+                <span
+                  class="rounded-full bg-pink-50 px-2 py-1 font-black text-[#FF66A2]"
+                  >admin@3xtom.mn</span
+                >
+                /
+                <span
+                  class="rounded-full bg-pink-50 px-2 py-1 font-black text-[#FF66A2]"
+                  >3xtom2026</span
+                >
+              </p>
+            </div>
+
+            <form id="loginForm" class="space-y-5">
+              <label class="block">
+                <span class="mb-2 block text-sm font-black text-[#19004E]"
+                  >Имэйл</span
+                >
+                <input
+                  id="adminEmail"
+                  type="email"
+                  placeholder="admin@3xtom.mn"
+                  autocomplete="username"
+                  required
+                  class="h-14 w-full rounded-full border border-pink-100 bg-white px-5 font-bold outline-none transition focus:border-[#FF66A2] focus:ring-4 focus:ring-pink-100"
+                />
+              </label>
+
+              <label class="block">
+                <span class="mb-2 block text-sm font-black text-[#19004E]"
+                  >Нууц үг</span
+                >
+                <input
+                  id="adminPassword"
+                  type="password"
+                  placeholder="••••••••"
+                  autocomplete="current-password"
+                  required
+                  class="h-14 w-full rounded-full border border-pink-100 bg-white px-5 font-bold outline-none transition focus:border-[#FF66A2] focus:ring-4 focus:ring-pink-100"
+                />
+              </label>
+
+              <button
+                class="tap-target flex h-14 w-full items-center justify-center rounded-full bg-[#FF66A2] text-base font-black text-white shadow-lg shadow-pink-300/50 transition hover:bg-pink-600"
+                type="submit"
+              >
+                Dashboard руу нэвтрэх
+              </button>
+
+              <button
+                id="fillDemoBtn"
+                class="tap-target flex h-12 w-full items-center justify-center rounded-full border-2 border-[#FF66A2] bg-white text-sm font-black text-[#FF66A2] transition hover:bg-pink-50"
+                type="button"
+              >
+                Demo мэдээллээр бөглөх
+              </button>
+            </form>
+
+            <div
+              class="mt-8 rounded-[22px] border border-[#FFE299] bg-[#FFF9E7] p-5 text-sm font-bold leading-6 text-[#19004E]"
+            >
+              Анхаар: энэ нь static HTML admin page. Жинхэнэ хамгаалалт, олон
+              хэрэглэгчийн эрх, live database хэрэгтэй бол Firebase / Supabase /
+              backend-тэй холбоно.
+            </div>
+          </div>
+        </div>
+      </section>
+    </template>
+
+    <template id="dashboardTemplate">
+      <section
+        class="mx-auto grid w-[94%] gap-6 pb-14 lg:w-[90%] lg:grid-cols-[280px_1fr]"
+      >
+        <aside
+          class="admin-shadow h-fit rounded-[30px] border border-white/80 bg-white/82 p-4 backdrop-blur lg:sticky lg:top-28"
+        >
+          <div
+            class="mb-5 flex items-center gap-3 rounded-[24px] bg-[#FFF2F8] p-4"
+          >
+            <img
+              src="./3xTOM-logo-vector.svg"
+              onerror="
+                this.onerror = null;
+                this.src = './3xTOM-logo-vector(3).svg';
+              "
+              alt="3xTOM"
+              class="h-14 w-14 object-contain"
+            />
+            <div>
+              <p class="comic-relief-bold text-[20px] text-[#FF66A2]">3xTOM</p>
+              <p class="text-xs font-black text-[#19004E]/70">
+                Admin dashboard
+              </p>
+            </div>
+          </div>
+          <nav id="sideNav" class="space-y-2"></nav>
+        </aside>
+
+        <section class="min-w-0">
+          <div
+            class="mb-6 rounded-[34px] border border-white/80 bg-white/76 p-6 shadow-[0_18px_50px_rgba(25,0,78,0.08)] backdrop-blur"
+          >
+            <div
+              class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between"
+            >
+              <div>
+                <p
+                  class="mb-2 text-[12px] font-extrabold tracking-[3px] text-[#FF66A2]"
+                >
+                  3xTOM WEBSITE CMS
+                </p>
+                <h1
+                  id="pageTitle"
+                  class="rubik-spray-paint-regular text-[34px] leading-tight text-[#19004E] md:text-[46px]"
+                >
+                  Хянах самбар
+                </h1>
+              </div>
+              <div class="flex flex-wrap gap-3">
+                <button
+                  id="exportBtn"
+                  class="rounded-full border-2 border-[#FF66A2] bg-white px-5 py-3 text-sm font-black text-[#FF66A2] transition hover:bg-pink-50"
+                >
+                  JSON татах
+                </button>
+                <button
+                  id="resetBtn"
+                  class="rounded-full border-2 border-[#19004E] bg-white px-5 py-3 text-sm font-black text-[#19004E] transition hover:bg-[#19004E] hover:text-white"
+                >
+                  Reset data
+                </button>
+                <a
+                  href="./main.html"
+                  class="rounded-full bg-[#FF66A2] px-5 py-3 text-sm font-black text-white shadow-md shadow-pink-300/50 transition hover:bg-pink-600"
+                  >Сайт харах</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div id="mainPanel"></div>
+        </section>
+      </section>
+    </template>
+
+    <script>
+      const STORAGE_KEY = "threeXTOM_admin_data_v1";
+      const AUTH_KEY = "threeXTOM_admin_auth_v1";
+
+      const sections = [
+        { key: "overview", label: "Хянах самбар", icon: "dashboard" },
+        { key: "pages", label: "Хуудсууд", icon: "pages" },
+        { key: "programs", label: "Хөтөлбөр", icon: "star" },
+        { key: "posts", label: "Нийтлэл / Блог", icon: "edit" },
+        { key: "posters", label: "Постер", icon: "image" },
+        { key: "videos", label: "Бичлэг / Podcast", icon: "play" },
+        { key: "donations", label: "Хандив", icon: "heart" },
+        { key: "messages", label: "Холбоо барих", icon: "mail" },
+        { key: "settings", label: "Тохиргоо", icon: "settings" },
+      ];
+
+      const schemas = {
+        pages: [
+          {
+            key: "page",
+            label: "Хуудас",
+            type: "select",
+            options: [
+              "main.html",
+              "about.html",
+              "news.html",
+              "poster.html",
+              "videos.html",
+              "donate.html",
+              "contact.html",
+              "login.html",
+            ],
+          },
+          { key: "menu", label: "Menu нэр" },
+          { key: "title", label: "Hero гарчиг" },
+          { key: "subtitle", label: "Дэд гарчиг" },
+          { key: "description", label: "Тайлбар", type: "textarea" },
+          { key: "buttonText", label: "Button text" },
+          { key: "image", label: "Зураг path / URL" },
+          {
+            key: "status",
+            label: "Төлөв",
+            type: "select",
+            options: ["published", "draft", "hidden"],
+          },
+        ],
+        programs: [
+          { key: "title", label: "Хөтөлбөрийн нэр" },
+          {
+            key: "category",
+            label: "Ангилал",
+            type: "select",
+            options: ["Элсэлт", "Сургалт", "Сайн дурын ажил", "Event", "Other"],
+          },
+          { key: "description", label: "Тайлбар", type: "textarea" },
+          { key: "image", label: "Зураг path / URL" },
+          { key: "date", label: "Огноо", type: "date" },
+          { key: "registerLink", label: "Бүртгүүлэх link" },
+          {
+            key: "status",
+            label: "Төлөв",
+            type: "select",
+            options: ["published", "draft", "closed"],
+          },
+        ],
+        posts: [
+          { key: "title", label: "Нийтлэлийн гарчиг" },
+          { key: "excerpt", label: "Товч агуулга", type: "textarea" },
+          { key: "content", label: "Дэлгэрэнгүй текст", type: "textarea" },
+          { key: "image", label: "Зураг path / URL" },
+          { key: "date", label: "Огноо", type: "date" },
+          { key: "link", label: "Дэлгэрэнгүй link" },
+          {
+            key: "status",
+            label: "Төлөв",
+            type: "select",
+            options: ["published", "draft", "hidden"],
+          },
+        ],
+        posters: [
+          { key: "title", label: "Постер нэр" },
+          { key: "image", label: "Постер зураг path / URL" },
+          { key: "description", label: "Тайлбар", type: "textarea" },
+          { key: "date", label: "Огноо", type: "date" },
+          {
+            key: "status",
+            label: "Төлөв",
+            type: "select",
+            options: ["published", "draft", "hidden"],
+          },
+        ],
+        videos: [
+          { key: "title", label: "Бичлэгийн нэр" },
+          { key: "episode", label: "Дугаар" },
+          { key: "description", label: "Тайлбар", type: "textarea" },
+          { key: "thumbnail", label: "Thumbnail path / URL" },
+          { key: "videoLink", label: "YouTube / video link" },
+          {
+            key: "status",
+            label: "Төлөв",
+            type: "select",
+            options: ["published", "draft", "hidden"],
+          },
+        ],
+        donations: [
+          { key: "donor", label: "Хандивлагч" },
+          { key: "amount", label: "Дүн", type: "number" },
+          {
+            key: "type",
+            label: "Төрөл",
+            type: "select",
+            options: ["Мөнгө", "Ном", "Хувцас", "Сургалтын хэрэгсэл", "Бусад"],
+          },
+          { key: "message", label: "Сэтгэгдэл", type: "textarea" },
+          { key: "date", label: "Огноо", type: "date" },
+          {
+            key: "status",
+            label: "Төлөв",
+            type: "select",
+            options: ["new", "approved", "hidden"],
+          },
+        ],
+        messages: [
+          { key: "name", label: "Нэр" },
+          { key: "email", label: "Имэйл" },
+          { key: "phone", label: "Утас" },
+          { key: "subject", label: "Гарчиг" },
+          { key: "message", label: "Мессеж", type: "textarea" },
+          { key: "date", label: "Огноо", type: "date" },
+          {
+            key: "status",
+            label: "Төлөв",
+            type: "select",
+            options: ["new", "answered", "archived"],
+          },
+        ],
+        settings: [
+          { key: "siteName", label: "Сайтын нэр" },
+          { key: "slogan", label: "Слоган" },
+          { key: "contactEmail", label: "Contact имэйл" },
+          { key: "phone", label: "Утас" },
+          { key: "address", label: "Хаяг", type: "textarea" },
+          { key: "facebook", label: "Facebook link" },
+          { key: "instagram", label: "Instagram link" },
+          { key: "adminEmail", label: "Admin имэйл" },
+          { key: "adminPassword", label: "Admin password" },
+        ],
+      };
+
+      let activeTab = "overview";
+      let editingId = null;
+      let searchQuery = "";
+      let statusFilter = "all";
+
+      function uid() {
+        return (
+          "id_" +
+          Date.now().toString(36) +
+          Math.random().toString(36).slice(2, 8)
+        );
+      }
+
+      function today() {
+        return new Date().toISOString().slice(0, 10);
+      }
+
+      function defaultData() {
+        return {
+          settings: {
+            siteName: "3xTOM",
+            slogan: "Хамтдаа илүү тод гэрэлтъе.",
+            contactEmail: "3xtom@example.com",
+            phone: "+976 9999 9999",
+            address: "Ulaanbaatar, Mongolia",
+            facebook: "https://facebook.com/",
+            instagram: "https://instagram.com/guravdahintom",
+            adminEmail: "admin@3xtom.mn",
+            adminPassword: "3xtom2026",
+          },
+          pages: [
+            {
+              id: uid(),
+              page: "main.html",
+              menu: "Нүүр",
+              title:
+                '"3хТОМ" клуб нь тусгай хэрэгцээт хүмүүсийн хөгжил, нийгмийн оролцоог дэмжих орон зай юм.',
+              subtitle: "Бүх хүнд нээлттэй",
+              description: "Хамтдаа илүү тод гэрэлтъе.",
+              buttonText: "Дэлгэрэнгүй",
+              image: "./intro-main.png",
+              status: "published",
+            },
+            {
+              id: uid(),
+              page: "about.html",
+              menu: "Танилцуулга",
+              title: "3xTOM гэж юу вэ?",
+              subtitle: "3xTOM клубын танилцуулга",
+              description:
+                "3 дахин TOM клуб нь сайн дурын клуб юм. Бид тусгай хэрэгцээт иргэд болон асрамжийн газруудад чиглэн үйл ажиллагаа явуулахыг зорьдог.",
+              buttonText: "Унших",
+              image: "./intro-main.png",
+              status: "published",
+            },
+            {
+              id: uid(),
+              page: "news.html",
+              menu: "Мэдээлэл",
+              title: "Санал болгох хөтөлбөрүүд",
+              subtitle: "3xTOM хөтөлбөр, мэдээлэл",
+              description: "Хөтөлбөр, нийтлэл, блогийн мэдээллүүд.",
+              buttonText: "Бүртгүүлэх",
+              image: "./news.png",
+              status: "published",
+            },
+            {
+              id: uid(),
+              page: "poster.html",
+              menu: "Постер",
+              title: "Бидний бүтээлүүд",
+              subtitle: "3xTOM хөтөлбөр, мэдээлэл",
+              description: "Постер болон creative ажлууд.",
+              buttonText: "Дэлгэрэнгүй",
+              image: "./poster-work.png",
+              status: "published",
+            },
+            {
+              id: uid(),
+              page: "videos.html",
+              menu: "Бичлэг",
+              title: "Бүх мэдээллийг нэг сувгаас",
+              subtitle: "Podcast & video",
+              description: "2026 оны шилдэг дугаарууд.",
+              buttonText: "Дэлгэрэнгүй",
+              image: "./Podcast.png",
+              status: "published",
+            },
+            {
+              id: uid(),
+              page: "donate.html",
+              menu: "Хандив өгөх",
+              title: "Хандив өгөх",
+              subtitle: "3xTOM клубын хандивын хуудас",
+              description: "Том гэрэл асаах жижиг алхам.",
+              buttonText: "Хандивлах",
+              image: "./poster-program.jpg",
+              status: "published",
+            },
+          ],
+          programs: [
+            {
+              id: uid(),
+              title: "Сэтгэлээс ирээдүйд",
+              category: "Элсэлт",
+              description: "Хүүхэд залуусын оролцоог дэмжих 3xTOM хөтөлбөр.",
+              image: "./news.png",
+              date: today(),
+              registerLink: "./contact.html",
+              status: "published",
+            },
+            {
+              id: uid(),
+              title: "Learn Inspire Connect",
+              category: "Сургалт",
+              description: "Суралцах, урам авах, холбогдох боломж.",
+              image: "./intro-main.png",
+              date: today(),
+              registerLink: "./news.html",
+              status: "draft",
+            },
+          ],
+          posts: [
+            {
+              id: uid(),
+              title: "3xTOM клубын шинэ мэдээ",
+              excerpt:
+                "Сайн дурын үйл ажиллагаа болон шинэ хөтөлбөрийн товч мэдээлэл.",
+              content: "Энд дэлгэрэнгүй мэдээ, блогийн текстээ бичнэ.",
+              image: "./News-1.png",
+              date: today(),
+              link: "./news.html",
+              status: "published",
+            },
+          ],
+          posters: [
+            {
+              id: uid(),
+              title: "3xTOM poster",
+              image: "./poster-work.png",
+              description: "Бүтээл, постерын загвар.",
+              date: today(),
+              status: "published",
+            },
+            {
+              id: uid(),
+              title: "Program poster",
+              image: "./poster-program.jpg",
+              description: "Хөтөлбөрийн poster.",
+              date: today(),
+              status: "published",
+            },
+          ],
+          videos: [
+            {
+              id: uid(),
+              title: "Дугаар #12",
+              episode: "#12",
+              description: "3xTOM podcast-ийн онцлох дугаар.",
+              thumbnail: "./video.png",
+              videoLink: "#",
+              status: "published",
+            },
+            {
+              id: uid(),
+              title: "Дугаар #11",
+              episode: "#11",
+              description: "Сэтгэл, оролцоо, хөгжлийн тухай ярилцлага.",
+              thumbnail: "./video.png",
+              videoLink: "#",
+              status: "draft",
+            },
+          ],
+          donations: [
+            {
+              id: uid(),
+              donor: "Anonymous",
+              amount: 0,
+              type: "Мөнгө",
+              message: "Амжилт хүсье!",
+              date: today(),
+              status: "approved",
+            },
+            {
+              id: uid(),
+              donor: "Student volunteer",
+              amount: 0,
+              type: "Ном",
+              message: "Ном хандивласан.",
+              date: today(),
+              status: "new",
+            },
+          ],
+          messages: [
+            {
+              id: uid(),
+              name: "",
+              email: "",
+              phone: "+976",
+              subject: "Сайн дурын ажил",
+              message: "3xTOM-д сайн дурын ажил хийх боломж байна уу?",
+              date: today(),
+              status: "new",
+            },
+          ],
+        };
+      }
+
+      function getStore() {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) {
+          const fresh = defaultData();
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(fresh));
+          return fresh;
+        }
+        try {
+          const base = defaultData();
+          const parsed = JSON.parse(raw);
+          const merged = {
+            ...base,
+            ...parsed,
+            settings: { ...base.settings, ...(parsed.settings || {}) },
+          };
+
+          if (merged.settings.adminEmail === "@3xtom.mn") {
+            merged.settings.adminEmail = "admin@3xtom.mn";
+          }
+          if (merged.settings.adminPassword === "3xTOM2026") {
+            merged.settings.adminPassword = "3xtom2026";
+          }
+
+          return merged;
+        } catch (error) {
+          const fresh = defaultData();
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(fresh));
+          return fresh;
+        }
+      }
+
+      function saveStore(data) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      }
+
+      function escapeHtml(value = "") {
+        return String(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      function imageFallback(src) {
+        const map = {
+          "./3xTOM-logo-vector.svg": "./3xTOM-logo-vector(3).svg",
+          "./intro-main.png": "./intro-main(2).png",
+          "./news.png": "./news(3).png",
+          "./News-1.png": "./News-1(2).png",
+          "./Phone.png": "./Phone(4).png",
+          "./Podcast.png": "./Podcast(9).png",
+          "./poster-work.png": "./poster-work(2).png",
+          "./poster-program.jpg": "./poster-program(2).jpg",
+          "./video.png": "./video(1).png",
+        };
+        return map[src] || "./3xTOM Logo(3).png";
+      }
+
+      function svgIcon(name, className = "h-4 w-4") {
+        const icons = {
+          dashboard:
+            '<svg class="svg-icon ' +
+            className +
+            '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="2"></rect><rect x="14" y="3" width="7" height="7" rx="2"></rect><rect x="3" y="14" width="7" height="7" rx="2"></rect><rect x="14" y="14" width="7" height="7" rx="2"></rect></svg>',
+          pages:
+            '<svg class="svg-icon ' +
+            className +
+            '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14H7z"></path><path d="M15 3v5h5"></path><path d="M4 7v14h11"></path></svg>',
+          star:
+            '<svg class="svg-icon ' +
+            className +
+            '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 3.09 6.26L22 9.27l-5 4.88 1.18 6.88L12 17.77l-6.18 3.26L7 14.15 2 9.27l6.91-1.01z"></path></svg>',
+          edit:
+            '<svg class="svg-icon ' +
+            className +
+            '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>',
+          image:
+            '<svg class="svg-icon ' +
+            className +
+            '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 16-5-5L5 22"></path></svg>',
+          play:
+            '<svg class="svg-icon ' +
+            className +
+            '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="m10 9 5 3-5 3Z"></path></svg>',
+          heart:
+            '<svg class="svg-icon ' +
+            className +
+            '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"></path></svg>',
+          mail:
+            '<svg class="svg-icon ' +
+            className +
+            '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>',
+          settings:
+            '<svg class="svg-icon ' +
+            className +
+            '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"></path><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.65 1.65 0 0 0 15 19.4a1.65 1.65 0 0 0-1 .6 1.65 1.65 0 0 0-.38 1.08V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 8.6 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-.6-1 1.65 1.65 0 0 0-1.08-.38H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 8.6a1.65 1.65 0 0 0-.33-1.82l-.06-.06A2 2 0 1 1 7.04 3.9l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-.6 1.65 1.65 0 0 0 .38-1.08V3a2 2 0 1 1 4 0v.09A1.65 1.65 0 0 0 15.4 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.36.23.7.52 1 .85.3.3.7.47 1.08.47H21a2 2 0 1 1 0 4h-.09A1.65 1.65 0 0 0 19.4 15Z"></path></svg>',
+        };
+        return icons[name] || icons.dashboard;
+      }
+      function toast(message) {
+        const el = document.getElementById("toast");
+        el.textContent = message;
+        el.classList.remove("hidden");
+        clearTimeout(window.__toastTimer);
+        window.__toastTimer = setTimeout(
+          () => el.classList.add("hidden"),
+          2200,
+        );
+      }
+
+      function isAuthed() {
+        return sessionStorage.getItem(AUTH_KEY) === "true";
+      }
+
+      function renderApp() {
+        const app = document.getElementById("app");
+        const logoutBtn = document.getElementById("logoutBtn");
+        if (!isAuthed()) {
+          app.innerHTML = document.getElementById("loginTemplate").innerHTML;
+          logoutBtn.classList.add("hidden");
+          bindLogin();
+          return;
+        }
+        app.innerHTML = document.getElementById("dashboardTemplate").innerHTML;
+        logoutBtn.classList.remove("hidden");
+        renderSideNav();
+        bindDashboardActions();
+        renderPanel();
+      }
+
+      function bindLogin() {
+        const fillDemoBtn = document.getElementById("fillDemoBtn");
+        if (fillDemoBtn) {
+          fillDemoBtn.addEventListener("click", () => {
+            const data = getStore();
+            document.getElementById("adminEmail").value =
+              data.settings.adminEmail;
+            document.getElementById("adminPassword").value =
+              data.settings.adminPassword;
+          });
+        }
+
+        document
+          .getElementById("loginForm")
+          .addEventListener("submit", (event) => {
+            event.preventDefault();
+            const data = getStore();
+            const email = document.getElementById("adminEmail").value.trim();
+            const password = document
+              .getElementById("adminPassword")
+              .value.trim();
+            if (
+              email === data.settings.adminEmail &&
+              password === data.settings.adminPassword
+            ) {
+              sessionStorage.setItem(AUTH_KEY, "true");
+              toast("Амжилттай нэвтэрлээ");
+              renderApp();
+            } else {
+              toast("Имэйл эсвэл нууц үг буруу байна");
+            }
+          });
+      }
+
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        sessionStorage.removeItem(AUTH_KEY);
+        toast("Системээс гарлаа");
+        renderApp();
+      });
+
+      function renderSideNav() {
+        const nav = document.getElementById("sideNav");
+        nav.innerHTML = sections
+          .map((section) => {
+            const active = section.key === activeTab;
+            return `
+              <button data-tab="${section.key}" class="nav-btn tap-target flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-sm font-black transition ${
+                active
+                  ? "bg-[#FF66A2] text-white shadow-lg shadow-pink-200"
+                  : "bg-white/70 text-[#19004E] hover:bg-[#FFF2F8] hover:text-[#FF66A2]"
+              }">
+                <span class="grid h-8 w-8 place-items-center rounded-full ${active ? "bg-white/20" : "bg-[#FFF2F8]"}">${svgIcon(section.icon, "h-4 w-4")}</span>
+                <span>${section.label}</span>
+              </button>
+            `;
+          })
+          .join("");
+
+        document.querySelectorAll(".nav-btn").forEach((button) => {
+          button.addEventListener("click", () => {
+            activeTab = button.dataset.tab;
+            editingId = null;
+            searchQuery = "";
+            statusFilter = "all";
+            renderSideNav();
+            renderPanel();
+          });
+        });
+      }
+
+      function bindDashboardActions() {
+        document
+          .getElementById("exportBtn")
+          .addEventListener("click", exportJson);
+        document.getElementById("resetBtn").addEventListener("click", () => {
+          if (!confirm("Бүх local admin data reset хийх үү?")) return;
+          localStorage.removeItem(STORAGE_KEY);
+          editingId = null;
+          activeTab = "overview";
+          toast("Data reset хийгдлээ");
+          renderSideNav();
+          renderPanel();
+        });
+      }
+
+      function setTitle() {
+        const title =
+          sections.find((item) => item.key === activeTab)?.label || "Admin";
+        document.getElementById("pageTitle").textContent = title;
+      }
+
+      function renderPanel() {
+        setTitle();
+        if (activeTab === "overview") return renderOverview();
+        if (activeTab === "settings") return renderSettings();
+        return renderCrud(activeTab);
+      }
+
+      function statCard(label, value, accent, icon) {
+        return `
+          <div class="rounded-[26px] border border-white/80 bg-white/78 p-5 shadow-[0_14px_36px_rgba(25,0,78,0.07)]">
+            <div class="mb-4 flex items-center justify-between">
+              <span class="grid h-11 w-11 place-items-center rounded-2xl" style="background:${accent}22;color:${accent}">${svgIcon(icon, "h-5 w-5")}</span>
+              <span class="rounded-full bg-[#FFF2F8] px-3 py-1 text-xs font-black text-[#FF66A2]">LIVE</span>
+            </div>
+            <p class="text-sm font-black text-slate-500">${label}</p>
+            <h3 class="mt-1 text-[32px] font-black text-[#19004E]">${value}</h3>
+          </div>
+        `;
+      }
+
+      function renderOverview() {
+        const data = getStore();
+        const publishedPrograms = data.programs.filter(
+          (item) => item.status === "published",
+        ).length;
+        const publishedPosts = data.posts.filter(
+          (item) => item.status === "published",
+        ).length;
+        const donationTotal = data.donations.reduce(
+          (sum, item) => sum + Number(item.amount || 0),
+          0,
+        );
+        const newMessages = data.messages.filter(
+          (item) => item.status === "new",
+        ).length;
+
+        document.getElementById("mainPanel").innerHTML = `
+          <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            ${statCard("Published programs", publishedPrograms, "#FF66A2", "star")}
+            ${statCard("Published posts", publishedPosts, "#FFA13C", "edit")}
+            ${statCard("Donation total", donationTotal.toLocaleString("mn-MN") + "₮", "#9DCEF3", "heart")}
+            ${statCard("New messages", newMessages, "#8E51C7", "mail")}0₮
+          </div>
+
+          <div class="mt-6 grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
+            <div class="rounded-[30px] border border-white/80 bg-white/78 p-6 shadow-[0_18px_45px_rgba(25,0,78,0.07)]">
+              <div class="mb-5 flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-xs font-extrabold tracking-[3px] text-[#FF66A2]">QUICK MANAGE</p>
+                  <h2 class="mt-1 text-2xl font-black">Сайтын гол хэсгүүд</h2>
+                </div>
+                <span class="rounded-full bg-[#FFE299] px-4 py-2 text-xs font-black">${data.pages.length} pages</span>
+              </div>
+              <div class="grid gap-3 md:grid-cols-2">
+                ${data.pages
+                  .map(
+                    (page) => `
+                      <button data-open="pages" data-id="${page.id}" class="quick-edit rounded-[22px] border border-pink-100 bg-white p-4 text-left transition hover:-translate-y-0.5 hover:border-[#FF66A2] hover:shadow-lg">
+                        <div class="mb-3 flex items-center justify-between">
+                          <span class="font-black text-[#19004E]">${escapeHtml(page.menu)}</span>
+                          <span class="rounded-full px-3 py-1 text-[11px] font-black ${badgeClass(page.status)}">${escapeHtml(page.status)}</span>
+                        </div>
+                        <p class="line-clamp-2 text-sm font-semibold leading-5 text-slate-600">${escapeHtml(page.title)}</p>
+                      </button>
+                    `,
+                  )
+                  .join("")}
+              </div>
+            </div>
+
+            <div class="grid-bg rounded-[30px] border border-white/80 p-6 shadow-[0_18px_45px_rgba(25,0,78,0.07)]">
+              <p class="text-xs font-extrabold tracking-[3px] text-[#FF66A2]">ADMIN GUIDE</p>
+              <h2 class="mt-1 text-2xl font-black">Яаж ашиглах вэ?</h2>
+              <div class="mt-5 space-y-3 text-sm font-bold leading-6 text-[#19004E]">
+                <p class="rounded-[20px] bg-white/80 p-4">1. Зүүн талын menu-гээс засах хэсгээ сонгоно.</p>
+                <p class="rounded-[20px] bg-white/80 p-4">2. Баруун талын form дээр мэдээллээ бичээд хадгална.</p>
+                <p class="rounded-[20px] bg-white/80 p-4">3. Edit / Delete button-оор existing content-оо удирдана.</p>
+                <p class="rounded-[20px] bg-[#FFF2F8] p-4 text-[#FF66A2]">Static site тул live website дээр шууд гарахын тулд public хуудсуудаа энэ localStorage data эсвэл backend API-гаас уншуулна.</p>
+              </div>
+            </div>
+          </div>
+        `;
+
+        document.querySelectorAll(".quick-edit").forEach((button) => {
+          button.addEventListener("click", () => {
+            activeTab = button.dataset.open;
+            editingId = button.dataset.id;
+            renderSideNav();
+            renderPanel();
+          });
+        });
+      }
+
+      function badgeClass(status) {
+        const value = String(status || "").toLowerCase();
+        if (["published", "approved", "answered"].includes(value))
+          return "bg-[#E9FFF0] text-[#149447]";
+        if (["draft", "new"].includes(value))
+          return "bg-[#FFF7DB] text-[#C47A00]";
+        if (["hidden", "closed", "archived"].includes(value))
+          return "bg-[#F3F4F6] text-slate-500";
+        return "bg-[#FFF2F8] text-[#FF66A2]";
+      }
+
+      function getPrimary(item, tab) {
+        if (tab === "pages") return item.menu || item.page || "Untitled";
+        if (tab === "donations") return item.donor || "Anonymous";
+        if (tab === "messages") return item.name || item.email || "Message";
+        return item.title || item.name || "Untitled";
+      }
+
+      function getSecondary(item, tab) {
+        if (tab === "pages") return item.title || item.description || "";
+        if (tab === "programs")
+          return item.category + " · " + (item.description || "");
+        if (tab === "posts") return item.excerpt || item.content || "";
+        if (tab === "posters") return item.description || "";
+        if (tab === "videos")
+          return (
+            (item.episode ? item.episode + " · " : "") +
+            (item.description || "")
+          );
+        if (tab === "donations")
+          return `${Number(item.amount || 0).toLocaleString("mn-MN")}₮ · ${item.type || ""} · ${item.message || ""}`;
+        if (tab === "messages")
+          return `${item.subject || ""} · ${item.message || ""}`;
+        return "";
+      }
+
+      function getImage(item) {
+        return item.image || item.thumbnail || "";
+      }
+
+      function blankRecord(tab) {
+        const item = { id: uid() };
+        schemas[tab].forEach((field) => {
+          if (field.type === "date") item[field.key] = today();
+          else if (field.type === "number") item[field.key] = 0;
+          else if (field.type === "select") item[field.key] = field.options[0];
+          else item[field.key] = "";
+        });
+        return item;
+      }
+
+      function filteredRecords(tab) {
+        const data = getStore();
+        let rows = data[tab] || [];
+        if (statusFilter !== "all")
+          rows = rows.filter((item) => String(item.status) === statusFilter);
+        const q = searchQuery.trim().toLowerCase();
+        if (q) {
+          rows = rows.filter((item) =>
+            Object.values(item).join(" ").toLowerCase().includes(q),
+          );
+        }
+        return rows;
+      }
+
+      function rerenderCrudWithSearchFocus(tab) {
+        renderCrud(tab);
+        requestAnimationFrame(() => {
+          const input = document.getElementById("searchInput");
+          if (!input) return;
+          input.focus();
+          const length = input.value.length;
+          input.setSelectionRange(length, length);
+        });
+      }
+      function renderCrud(tab) {
+        const data = getStore();
+        const records = filteredRecords(tab);
+        const allRecords = data[tab] || [];
+        const current = editingId
+          ? allRecords.find((item) => item.id === editingId) || blankRecord(tab)
+          : blankRecord(tab);
+        const statusOptions = [
+          ...new Set(allRecords.map((item) => item.status).filter(Boolean)),
+        ];
+        const sectionLabel =
+          sections.find((item) => item.key === tab)?.label || "Content";
+
+        document.getElementById("mainPanel").innerHTML = `
+          <div class="grid gap-6 xl:grid-cols-[1fr_420px]">
+            <div class="rounded-[30px] border border-white/80 bg-white/78 p-5 shadow-[0_18px_45px_rgba(25,0,78,0.07)]">
+              <div class="mb-5 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+                <div>
+                  <p class="text-xs font-extrabold tracking-[3px] text-[#FF66A2]">${sectionLabel.toUpperCase()}</p>
+                  <h2 class="mt-1 text-2xl font-black">Нийт ${allRecords.length} item</h2>
+                </div>
+                <div class="flex flex-col gap-3 md:flex-row">
+                  <input id="searchInput" value="${escapeHtml(searchQuery)}" placeholder="Хайх..." class="h-11 rounded-full border border-pink-100 bg-white px-4 text-sm font-bold outline-none focus:border-[#FF66A2]" />
+                  <select id="statusFilter" class="h-11 rounded-full border border-pink-100 bg-white px-4 text-sm font-bold outline-none focus:border-[#FF66A2]">
+                    <option value="all">Бүх төлөв</option>
+                    ${statusOptions.map((status) => `<option value="${escapeHtml(status)}" ${statusFilter === status ? "selected" : ""}>${escapeHtml(status)}</option>`).join("")}
+                  </select>
+                  <button id="newItemBtn" class="h-11 rounded-full bg-[#FF66A2] px-5 text-sm font-black text-white shadow-md shadow-pink-200 transition hover:bg-pink-600">+ Шинэ</button>
+                </div>
+              </div>
+
+              <div class="thin-scrollbar max-h-[720px] space-y-4 overflow-auto pr-1">
+                ${
+                  records.length
+                    ? records
+                        .map((item) => {
+                          const img = getImage(item);
+                          return `
+                            <article class="rounded-[24px] border border-pink-100 bg-white p-4 transition hover:border-[#FF66A2] hover:shadow-lg">
+                              <div class="flex flex-col gap-4 md:flex-row md:items-center">
+                                <div class="h-24 w-full overflow-hidden rounded-[18px] bg-[#FFF2F8] md:w-32">
+                                  ${
+                                    img
+                                      ? `<img src="${escapeHtml(img)}" onerror="this.onerror=null;this.src='${escapeHtml(imageFallback(img))}';" alt="" class="h-full w-full object-cover" />`
+                                      : `<div class="grid h-full w-full place-items-center text-[#FF66A2]">${svgIcon(sections.find((s) => s.key === tab)?.icon || "dashboard", "h-7 w-7")}</div>`
+                                  }
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                  <div class="mb-2 flex flex-wrap items-center gap-2">
+                                    <h3 class="truncate text-lg font-black text-[#19004E]">${escapeHtml(getPrimary(item, tab))}</h3>
+                                    ${item.status ? `<span class="rounded-full px-3 py-1 text-[11px] font-black ${badgeClass(item.status)}">${escapeHtml(item.status)}</span>` : ""}
+                                  </div>
+                                  <p class="line-clamp-2 text-sm font-semibold leading-5 text-slate-600">${escapeHtml(getSecondary(item, tab))}</p>
+                                </div>
+                                <div class="flex shrink-0 gap-2">
+                                  <button data-edit="${item.id}" class="edit-btn rounded-full border-2 border-[#FF66A2] px-4 py-2 text-xs font-black text-[#FF66A2] hover:bg-pink-50">Edit</button>
+                                  <button data-delete="${item.id}" class="delete-btn rounded-full border-2 border-[#19004E] px-4 py-2 text-xs font-black text-[#19004E] hover:bg-[#19004E] hover:text-white">Delete</button>
+                                </div>
+                              </div>
+                            </article>
+                          `;
+                        })
+                        .join("")
+                    : `<div class="rounded-[24px] border border-dashed border-[#FF66A2] bg-[#FFF2F8] p-8 text-center font-black text-[#FF66A2]">Item олдсонгүй</div>`
+                }
+              </div>
+            </div>
+
+            <div class="h-fit rounded-[30px] border border-white/80 bg-white/82 p-5 shadow-[0_18px_45px_rgba(25,0,78,0.07)] backdrop-blur xl:sticky xl:top-28">
+              <div class="mb-5 flex items-center justify-between">
+                <div>
+                  <p class="text-xs font-extrabold tracking-[3px] text-[#FF66A2]">EDITOR</p>
+                  <h2 class="mt-1 text-2xl font-black">${editingId ? "Засах" : "Шинээр нэмэх"}</h2>
+                </div>
+                ${editingId ? `<button id="cancelEditBtn" class="rounded-full bg-[#FFF2F8] px-4 py-2 text-xs font-black text-[#FF66A2]">Cancel</button>` : ""}
+              </div>
+              <form id="editorForm" class="space-y-4">
+                ${renderFields(tab, current)}
+                <button class="h-12 w-full rounded-full bg-[#FF66A2] text-sm font-black text-white shadow-lg shadow-pink-200 transition hover:bg-pink-600" type="submit">${editingId ? "Өөрчлөлт хадгалах" : "Нэмэх"}</button>
+              </form>
+            </div>
+          </div>
+        `;
+
+        document
+          .getElementById("searchInput")
+          .addEventListener("input", (event) => {
+            searchQuery = event.target.value;
+            rerenderCrudWithSearchFocus(tab);
+          });
+        document
+          .getElementById("statusFilter")
+          .addEventListener("change", (event) => {
+            statusFilter = event.target.value;
+            renderCrud(tab);
+          });
+        document.getElementById("newItemBtn").addEventListener("click", () => {
+          editingId = null;
+          renderCrud(tab);
+        });
+        document.querySelectorAll(".edit-btn").forEach((button) => {
+          button.addEventListener("click", () => {
+            editingId = button.dataset.edit;
+            renderCrud(tab);
+          });
+        });
+        document.querySelectorAll(".delete-btn").forEach((button) => {
+          button.addEventListener("click", () =>
+            deleteRecord(tab, button.dataset.delete),
+          );
+        });
+        const cancelBtn = document.getElementById("cancelEditBtn");
+        if (cancelBtn)
+          cancelBtn.addEventListener("click", () => {
+            editingId = null;
+            renderCrud(tab);
+          });
+        document
+          .getElementById("editorForm")
+          .addEventListener("submit", (event) => saveRecord(event, tab));
+      }
+
+      function renderFields(tab, current) {
+        return schemas[tab]
+          .map((field) => {
+            const value = current[field.key] ?? "";
+            if (field.type === "textarea") {
+              return `
+                <label class="block">
+                  <span class="mb-2 block text-sm font-black">${field.label}</span>
+                  <textarea data-field="${field.key}" rows="4" class="w-full rounded-[20px] border border-pink-100 bg-white px-4 py-3 text-sm font-bold outline-none focus:border-[#FF66A2] focus:ring-4 focus:ring-pink-100">${escapeHtml(value)}</textarea>
+                </label>
+              `;
+            }
+            if (field.type === "select") {
+              return `
+                <label class="block">
+                  <span class="mb-2 block text-sm font-black">${field.label}</span>
+                  <select data-field="${field.key}" class="h-12 w-full rounded-full border border-pink-100 bg-white px-4 text-sm font-bold outline-none focus:border-[#FF66A2] focus:ring-4 focus:ring-pink-100">
+                    ${field.options.map((option) => `<option value="${escapeHtml(option)}" ${String(value) === String(option) ? "selected" : ""}>${escapeHtml(option)}</option>`).join("")}
+                  </select>
+                </label>
+              `;
+            }
+            return `
+              <label class="block">
+                <span class="mb-2 block text-sm font-black">${field.label}</span>
+                <input data-field="${field.key}" type="${field.type || "text"}" value="${escapeHtml(value)}" class="h-12 w-full rounded-full border border-pink-100 bg-white px-4 text-sm font-bold outline-none focus:border-[#FF66A2] focus:ring-4 focus:ring-pink-100" />
+              </label>
+            `;
+          })
+          .join("");
+      }
+
+      function saveRecord(event, tab) {
+        event.preventDefault();
+        const data = getStore();
+        const item = editingId
+          ? { ...data[tab].find((record) => record.id === editingId) }
+          : { id: uid() };
+        schemas[tab].forEach((field) => {
+          const input = document.querySelector(`[data-field="${field.key}"]`);
+          item[field.key] =
+            field.type === "number"
+              ? Number(input.value || 0)
+              : input.value.trim();
+        });
+        if (editingId) {
+          data[tab] = data[tab].map((record) =>
+            record.id === editingId ? item : record,
+          );
+          toast("Амжилттай засагдлаа");
+        } else {
+          data[tab].unshift(item);
+          toast("Шинэ item нэмэгдлээ");
+        }
+        saveStore(data);
+        editingId = null;
+        renderCrud(tab);
+      }
+
+      function deleteRecord(tab, id) {
+        if (!confirm("Энэ item-ийг устгах уу?")) return;
+        const data = getStore();
+        data[tab] = data[tab].filter((item) => item.id !== id);
+        saveStore(data);
+        if (editingId === id) editingId = null;
+        toast("Устгалаа");
+        renderCrud(tab);
+      }
+
+      function renderSettings() {
+        const data = getStore();
+        document.getElementById("mainPanel").innerHTML = `
+          <div class="grid gap-6 xl:grid-cols-[1fr_0.82fr]">
+            <div class="rounded-[30px] border border-white/80 bg-white/80 p-6 shadow-[0_18px_45px_rgba(25,0,78,0.07)]">
+              <p class="text-xs font-extrabold tracking-[3px] text-[#FF66A2]">SITE SETTINGS</p>
+              <h2 class="mt-1 text-2xl font-black">Ерөнхий тохиргоо</h2>
+              <form id="settingsForm" class="mt-6 grid gap-4 md:grid-cols-2">
+                ${schemas.settings
+                  .map((field) => {
+                    const value = data.settings[field.key] ?? "";
+                    if (field.type === "textarea") {
+                      return `
+                        <label class="block md:col-span-2">
+                          <span class="mb-2 block text-sm font-black">${field.label}</span>
+                          <textarea data-setting="${field.key}" rows="4" class="w-full rounded-[20px] border border-pink-100 bg-white px-4 py-3 text-sm font-bold outline-none focus:border-[#FF66A2] focus:ring-4 focus:ring-pink-100">${escapeHtml(value)}</textarea>
+                        </label>
+                      `;
+                    }
+                    return `
+                      <label class="block ${field.key === "slogan" ? "md:col-span-2" : ""}">
+                        <span class="mb-2 block text-sm font-black">${field.label}</span>
+                        <input data-setting="${field.key}" type="${field.key === "adminPassword" ? "password" : "text"}" value="${escapeHtml(value)}" class="h-12 w-full rounded-full border border-pink-100 bg-white px-4 text-sm font-bold outline-none focus:border-[#FF66A2] focus:ring-4 focus:ring-pink-100" />
+                      </label>
+                    `;
+                  })
+                  .join("")}
+                <button class="h-12 rounded-full bg-[#FF66A2] text-sm font-black text-white shadow-lg shadow-pink-200 transition hover:bg-pink-600 md:col-span-2" type="submit">Тохиргоо хадгалах</button>
+              </form>
+            </div>
+
+            <div class="grid-bg rounded-[30px] border border-white/80 p-6 shadow-[0_18px_45px_rgba(25,0,78,0.07)]">
+              <p class="text-xs font-extrabold tracking-[3px] text-[#FF66A2]">DATA CONNECT</p>
+              <h2 class="mt-1 text-2xl font-black">Public page дээр гаргах</h2>
+              <p class="mt-4 text-sm font-bold leading-6 text-slate-700">
+                Энэ admin.html одоогоор browser localStorage дээр хадгалж байна. Main/news/poster/videos хуудсуудын content-ийг шууд admin-аас уншуулмаар бол тухайн хуудсанд render script нэмэх эсвэл backend database холбоно.
+              </p>
+              <div class="mt-5 rounded-[22px] bg-white/80 p-4">
+                <p class="mb-2 text-sm font-black text-[#19004E]">localStorage key:</p>
+                <code class="break-all rounded-xl bg-[#FFF2F8] px-3 py-2 text-xs font-black text-[#FF66A2]">${STORAGE_KEY}</code>
+              </div>
+              <button id="copyKeyBtn" class="mt-5 h-12 w-full rounded-full border-2 border-[#FF66A2] bg-white text-sm font-black text-[#FF66A2] hover:bg-pink-50">Key copy</button>
+            </div>
+          </div>
+        `;
+
+        document
+          .getElementById("settingsForm")
+          .addEventListener("submit", (event) => {
+            event.preventDefault();
+            const fresh = getStore();
+            document.querySelectorAll("[data-setting]").forEach((input) => {
+              fresh.settings[input.dataset.setting] = input.value.trim();
+            });
+            saveStore(fresh);
+            toast("Тохиргоо хадгалагдлаа");
+          });
+        document
+          .getElementById("copyKeyBtn")
+          .addEventListener("click", async () => {
+            try {
+              await navigator.clipboard.writeText(STORAGE_KEY);
+              toast("Key copy хийгдлээ");
+            } catch (error) {
+              toast("Copy хийх боломжгүй байна");
+            }
+          });
+      }
+
+      function exportJson() {
+        const data = JSON.stringify(getStore(), null, 2);
+        const blob = new Blob([data], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "3xtom-admin-data.json";
+        link.click();
+        URL.revokeObjectURL(url);
+        toast("JSON татагдлаа");
+      }
+
+      renderApp();
+    </script>
+  </body>
+</html>

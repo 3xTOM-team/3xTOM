@@ -162,11 +162,7 @@
             class="hidden items-center gap-10 text-sm font-bold text-black md:flex"
           >
             <li>
-              <a
-                href="/3хТом/main.html"
-                class="hover:text-pink-500"
-                >Нүүр</a
-              >
+              <a href="/3хТом/main.html" class="hover:text-pink-500">Нүүр</a>
             </li>
             <li>
               <a href="/3хТом/about.html" class="hover:text-pink-500"
@@ -179,7 +175,9 @@
               >
             </li>
             <li>
-              <a href="/3хТом/poster.html" class="border-b border-[#FF7EB1] pb-1 text-pink-500"
+              <a
+                href="/3хТом/poster.html"
+                class="border-b border-[#FF7EB1] pb-1 text-pink-500"
                 >Постер</a
               >
             </li>
@@ -613,5 +611,890 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      (() => {
+        "use strict";
+
+        document.addEventListener("DOMContentLoaded", () => {
+          const $ = (selector, parent = document) =>
+            parent.querySelector(selector);
+          const $$ = (selector, parent = document) =>
+            Array.from(parent.querySelectorAll(selector));
+          const clean = (value) =>
+            String(value || "")
+              .replace(/\s+/g, " ")
+              .trim();
+          const escapeHtml = (value) =>
+            String(value ?? "")
+              .replaceAll("&", "&amp;")
+              .replaceAll("<", "&lt;")
+              .replaceAll(">", "&gt;")
+              .replaceAll('"', "&quot;")
+              .replaceAll("'", "&#039;");
+
+          const galleryItems = [
+            {
+              title: "Сайн дурын цэвэрлэгээ",
+              tag: "Үйл ажиллагаа",
+              image: "./poster-001.jpg",
+              fallback: "./poster-work.png",
+              text: "Байгаль орчиндоо эерэг нөлөө үзүүлэх зорилготой сайн дурын өдөрлөгийн агшин.",
+            },
+            {
+              title: "Helping Others poster set",
+              tag: "Постер дизайн",
+              image: "./poster-002.jpg",
+              fallback: "./poster-work.png",
+              text: "Бусдад туслах, ойлгох, хамтран ажиллах санааг хүүхдүүдэд ойлгомжтой хүргэх бүтээлийн багц.",
+            },
+            {
+              title: "Ажил мэргэжлийн танилцуулга",
+              tag: "Сургалтын материал",
+              image: "./poster-003.jpg",
+              fallback: "./poster-work.png",
+              text: "Эмч, цагдаа, гал сөнөөгч зэрэг нийгэмд хэрэгтэй мэргэжлүүдийн үүргийг тайлбарласан материал.",
+            },
+          ];
+
+          const programSlides = [
+            {
+              title: "Сэтгэлээс ирээдүйд",
+              category: "Сайн дурын хөтөлбөр",
+              image: "./poster-program.jpg",
+              fallback: "./poster-program.jpg",
+              description:
+                "Хүүхэд, залуусын оролцоог нэмэгдүүлж, тусламж хэрэгтэй хүмүүст бодит дэмжлэг хүргэх сайн дурын хөтөлбөр.",
+              age: "16+",
+              availability: "Амралтын өдөр болон арга хэмжээний үеэр",
+              eligible:
+                "Сайн дурын ажилд идэвхтэй оролцох хүсэлтэй сурагч, оюутан",
+            },
+            {
+              title: "Бидний бүтээлүүд",
+              category: "Бүтээлч контент",
+              image: "./poster-work.png",
+              fallback: "./poster-work.png",
+              description:
+                "Постер, сургалтын материал, богино бичлэгээр дамжуулан хүүхэд залуусын санаа, дуу хоолойг илэрхийлэх бүтээлч чиглэл.",
+              age: "14+",
+              availability: "Онлайн болон багийн уулзалтаар",
+              eligible:
+                "Зураг, дизайн, бичлэг, контент бүтээх сонирхолтой хүүхдүүд",
+            },
+            {
+              title: "Helping Others campaign",
+              category: "Нөлөөллийн аян",
+              image: "./poster-002.jpg",
+              fallback: "./poster-work.png",
+              description:
+                "Бусдыг ойлгох, туслах, хүндлэх хандлагыг өдөр тутмын жижиг үйлдлээр дамжуулан түгээх аян.",
+              age: "13+",
+              availability: "Сургалт болон өдөрлөгийн үеэр",
+              eligible: "Багаар ажиллах, бусдад туслах хүсэлтэй оролцогчид",
+            },
+            {
+              title: "Community volunteer day",
+              category: "Нээлттэй өдөрлөг",
+              image: "./poster-001.jpg",
+              fallback: "./poster-program.jpg",
+              description:
+                "Орчны цэвэрлэгээ, хүүхдийн үйл ажиллагаа, мэдээлэл түгээх ажлыг нэгтгэсэн нээлттэй сайн дурын өдөрлөг.",
+              age: "16+",
+              availability: "Өдөрлөг зарлагдсан өдрүүдэд",
+              eligible:
+                "Хариуцлагатай, цаг баримталдаг, багийн ажилд дуртай оролцогчид",
+            },
+          ];
+
+          const style = document.createElement("style");
+          style.textContent = `
+          html { scroll-behavior: smooth; }
+          body.poster-js-modal-open { overflow: hidden; }
+          .poster-js-reveal {
+            opacity: 0;
+            transform: translateY(28px) scale(.985);
+            transition: opacity .72s ease, transform .72s ease, box-shadow .25s ease, border-color .25s ease;
+            will-change: opacity, transform;
+          }
+          .poster-js-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+          .poster-js-gallery-card {
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 0;
+            border: 0;
+            border-radius: 22px;
+            overflow: hidden;
+            background: #fff;
+            cursor: pointer;
+            text-align: left;
+            box-shadow: 0 14px 30px rgba(25, 0, 78, .10);
+            transition: transform .28s ease, box-shadow .28s ease;
+          }
+          .poster-js-gallery-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 26px 56px rgba(255, 102, 162, .22), 0 12px 24px rgba(25, 0, 78, .12);
+          }
+          .poster-js-gallery-card img {
+            display: block;
+            transition: transform .42s ease, filter .28s ease;
+          }
+          .poster-js-gallery-card:hover img {
+            transform: scale(1.055);
+            filter: saturate(1.08) contrast(1.02);
+          }
+          .poster-js-gallery-caption {
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            border-radius: 20px;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, .92);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 16px 32px rgba(25, 0, 78, .16);
+            transform: translateY(18px);
+            opacity: 0;
+            transition: opacity .28s ease, transform .28s ease;
+          }
+          .poster-js-gallery-card:hover .poster-js-gallery-caption,
+          .poster-js-gallery-card:focus-visible .poster-js-gallery-caption {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          .poster-js-gallery-tag {
+            display: block;
+            margin-bottom: 4px;
+            color: #ff66a2;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+          }
+          .poster-js-gallery-title {
+            display: block;
+            color: #17084e;
+            font-size: 16px;
+            font-weight: 900;
+            line-height: 1.25;
+          }
+          .poster-js-modal-root {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+          }
+          .poster-js-modal-root.is-open { display: flex; }
+          .poster-js-modal-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(13, 7, 40, .64);
+            backdrop-filter: blur(8px);
+          }
+          .poster-js-modal-card {
+            position: relative;
+            width: min(760px, 100%);
+            max-height: 90vh;
+            overflow: auto;
+            border-radius: 30px;
+            background: #ffffff;
+            border: 2px solid rgba(255, 102, 162, .36);
+            box-shadow: 0 36px 88px rgba(23, 8, 78, .38);
+            animation: posterModalIn .22s ease both;
+          }
+          @keyframes posterModalIn {
+            from { opacity: 0; transform: translateY(18px) scale(.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+          }
+          .poster-js-modal-head {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 26px 28px 14px;
+          }
+          .poster-js-modal-badge {
+            margin-bottom: 8px;
+            color: #ff66a2;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+          }
+          .poster-js-modal-title {
+            color: #17084e;
+            font-size: 28px;
+            font-weight: 900;
+            line-height: 1.18;
+          }
+          .poster-js-modal-close {
+            flex: 0 0 auto;
+            width: 42px;
+            height: 42px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 102, 162, .45);
+            background: #fff;
+            color: #ff66a2;
+            font-size: 24px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: background .2s ease, transform .2s ease;
+          }
+          .poster-js-modal-close:hover { background: #fff0f6; transform: rotate(90deg); }
+          .poster-js-modal-body { padding: 0 28px 28px; }
+          .poster-js-modal-img {
+            width: 100%;
+            max-height: 460px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 18px 36px rgba(25, 0, 78, .12);
+          }
+          .poster-js-modal-text {
+            margin-top: 18px;
+            color: #17084e;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.75;
+          }
+          .poster-js-toast {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 9999;
+            max-width: 390px;
+            border-radius: 18px;
+            background: #17084e;
+            color: white;
+            padding: 14px 18px;
+            font-size: 14px;
+            font-weight: 800;
+            box-shadow: 0 20px 45px rgba(23, 8, 78, .32);
+            opacity: 0;
+            transform: translateY(18px);
+            pointer-events: none;
+            transition: opacity .25s ease, transform .25s ease;
+          }
+          .poster-js-toast.is-show { opacity: 1; transform: translateY(0); }
+          .poster-js-dot-btn {
+            width: 24px;
+            height: 24px;
+            border: 0;
+            border-radius: 999px;
+            background: #fff;
+            cursor: pointer;
+            box-shadow: 0 8px 18px rgba(25, 0, 78, .18);
+            transition: transform .2s ease, background .2s ease, width .2s ease;
+          }
+          .poster-js-dot-btn.is-active {
+            width: 46px;
+            background: #ff66a2;
+          }
+          .poster-js-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 4;
+            width: 44px;
+            height: 44px;
+            border: 0;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .92);
+            color: #ff66a2;
+            font-size: 28px;
+            font-weight: 900;
+            line-height: 1;
+            cursor: pointer;
+            box-shadow: 0 14px 28px rgba(25, 0, 78, .16);
+            transition: transform .2s ease, background .2s ease;
+          }
+          .poster-js-arrow:hover { background: #fff0f6; transform: translateY(-50%) scale(1.08); }
+          .poster-js-arrow.prev { left: 18px; }
+          .poster-js-arrow.next { right: 18px; }
+          .poster-js-program-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            border-radius: 999px;
+            background: #fff0f6;
+            color: #ff4f9a;
+            padding: 8px 14px;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+          }
+          .poster-js-program-badge::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: #ff66a2;
+          }
+          .poster-js-info-card {
+            margin: 18px 0 26px;
+            border-radius: 22px;
+            background: #f8f4ff;
+            padding: 16px 18px;
+            color: #17084e;
+            font-size: 14px;
+            font-weight: 800;
+            line-height: 1.7;
+          }
+          .poster-js-input-error {
+            grid-column: 1 / -1;
+            margin-top: -14px;
+            padding-left: 18px;
+            color: #e11d48;
+            font-size: 12px;
+            font-weight: 800;
+            display: none;
+          }
+          .poster-js-input-error.is-show { display: block; }
+          .poster-js-invalid {
+            border-color: #fb7185 !important;
+            box-shadow: 0 0 0 4px rgba(251, 113, 133, .14) !important;
+          }
+          .poster-js-valid {
+            border-color: rgba(34, 197, 94, .55) !important;
+            box-shadow: 0 0 0 4px rgba(34, 197, 94, .10) !important;
+          }
+          .poster-js-summary {
+            display: none;
+            margin-top: 18px;
+            border-radius: 20px;
+            background: #ecfdf5;
+            color: #065f46;
+            padding: 14px 16px;
+            font-size: 14px;
+            font-weight: 900;
+            line-height: 1.6;
+          }
+          .poster-js-summary.is-show { display: block; }
+          .poster-js-soft-lift {
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+          }
+          .poster-js-soft-lift:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 48px rgba(255, 102, 162, .16), 0 10px 20px rgba(25, 0, 78, .08);
+          }
+          @media (max-width: 767px) {
+            .poster-js-gallery-caption { opacity: 1; transform: translateY(0); }
+            .poster-js-modal-head { padding: 22px 20px 12px; }
+            .poster-js-modal-body { padding: 0 20px 22px; }
+            .poster-js-modal-title { font-size: 23px; }
+            .poster-js-arrow { width: 38px; height: 38px; font-size: 24px; }
+          }
+        `;
+          document.head.appendChild(style);
+
+          const toast = document.createElement("div");
+          toast.className = "poster-js-toast";
+          document.body.appendChild(toast);
+          let toastTimer = null;
+          const showToast = (message) => {
+            toast.textContent = message;
+            toast.classList.add("is-show");
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(
+              () => toast.classList.remove("is-show"),
+              2600,
+            );
+          };
+
+          const modal = document.createElement("div");
+          modal.className = "poster-js-modal-root";
+          modal.innerHTML = `
+          <div class="poster-js-modal-backdrop" data-poster-close="true"></div>
+          <article class="poster-js-modal-card" role="dialog" aria-modal="true" aria-labelledby="posterJsModalTitle">
+            <div class="poster-js-modal-head">
+              <div>
+                <p class="poster-js-modal-badge" data-poster-modal-badge>3xTOM</p>
+                <h3 class="poster-js-modal-title" id="posterJsModalTitle" data-poster-modal-title></h3>
+              </div>
+              <button type="button" class="poster-js-modal-close" data-poster-close="true" aria-label="Хаах">×</button>
+            </div>
+            <div class="poster-js-modal-body" data-poster-modal-body></div>
+          </article>
+        `;
+          document.body.appendChild(modal);
+
+          const modalBadge = $("[data-poster-modal-badge]", modal);
+          const modalTitle = $("[data-poster-modal-title]", modal);
+          const modalBody = $("[data-poster-modal-body]", modal);
+
+          const openModal = ({ badge = "3xTOM", title = "", body = "" }) => {
+            modalBadge.textContent = badge;
+            modalTitle.textContent = title;
+            modalBody.innerHTML = body;
+            modal.classList.add("is-open");
+            document.body.classList.add("poster-js-modal-open");
+            const closeBtn = $(".poster-js-modal-close", modal);
+            if (closeBtn) closeBtn.focus();
+          };
+
+          const closeModal = () => {
+            modal.classList.remove("is-open");
+            document.body.classList.remove("poster-js-modal-open");
+          };
+
+          modal.addEventListener("click", (event) => {
+            if (event.target.closest("[data-poster-close]")) closeModal();
+          });
+
+          document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && modal.classList.contains("is-open"))
+              closeModal();
+          });
+
+          const setImage = (img, item) => {
+            if (!img || !item) return;
+            const oldSrc = img.getAttribute("src") || item.fallback || "";
+            img.src = item.image;
+            img.alt = item.title || "3xTOM poster";
+            img.loading = "lazy";
+            img.onerror = () => {
+              img.onerror = null;
+              img.src = item.fallback || oldSrc;
+            };
+          };
+
+          const setupGallery = () => {
+            const galleryHeading = $$("h1").find((heading) =>
+              clean(heading.textContent).includes("Бидний бүтээлүүд"),
+            );
+            const galleryGrid = galleryHeading
+              ? galleryHeading.nextElementSibling
+              : null;
+            if (!galleryGrid) return [];
+
+            const cards = [];
+            const images = $$(":scope > img", galleryGrid);
+            images.forEach((img, index) => {
+              const item = galleryItems[index] || galleryItems[0];
+              const wrapper = document.createElement("button");
+              wrapper.type = "button";
+              wrapper.className = "poster-js-gallery-card poster-js-reveal";
+              wrapper.setAttribute(
+                "aria-label",
+                `${item.title} дэлгэрэнгүй харах`,
+              );
+
+              if (img.className.includes("lg:mt-16"))
+                wrapper.classList.add("lg:mt-16");
+              if (img.className.includes("lg:mt-6"))
+                wrapper.classList.add("lg:mt-6");
+              img.className = img.className
+                .replace(/\blg:mt-16\b/g, "")
+                .replace(/\blg:mt-6\b/g, "")
+                .trim();
+
+              img.parentNode.insertBefore(wrapper, img);
+              wrapper.appendChild(img);
+              setImage(img, item);
+
+              const caption = document.createElement("span");
+              caption.className = "poster-js-gallery-caption";
+              caption.innerHTML = `
+              <span class="poster-js-gallery-tag">${escapeHtml(item.tag)}</span>
+              <span class="poster-js-gallery-title">${escapeHtml(item.title)}</span>
+            `;
+              wrapper.appendChild(caption);
+
+              wrapper.addEventListener("click", () => {
+                openModal({
+                  badge: item.tag,
+                  title: item.title,
+                  body: `
+                  <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" class="poster-js-modal-img" onerror="this.onerror=null;this.src='${escapeHtml(item.fallback)}';" />
+                  <p class="poster-js-modal-text">${escapeHtml(item.text)}</p>
+                `,
+                });
+              });
+
+              cards.push(wrapper);
+            });
+
+            return cards;
+          };
+
+          const setupProgramSlider = () => {
+            const programHeading = $$("h2").find((heading) =>
+              clean(heading.textContent).includes("Хөтөлбөрүүдийн элсэлт"),
+            );
+            const programCard = programHeading
+              ? programHeading.nextElementSibling
+              : null;
+            if (!programCard) return [];
+
+            const image = $("img", programCard);
+            const leftPanel = image ? image.parentElement : null;
+            const contentPanel = $("h3", programCard)?.parentElement;
+            const title = $("h3", programCard);
+            const description = title ? title.nextElementSibling : null;
+            const meta = description ? description.nextElementSibling : null;
+            const form = $("form", programCard);
+            const submitBtn = Array.from($$("button", programCard)).find(
+              (button) => clean(button.textContent).includes("Бүртгүүлэх"),
+            );
+            const dotHolder = leftPanel ? $(".absolute", leftPanel) : null;
+            let current = 0;
+            let timer = null;
+            let startX = 0;
+
+            programCard.classList.add(
+              "poster-js-soft-lift",
+              "poster-js-reveal",
+            );
+            if (contentPanel && !$(".poster-js-program-badge", contentPanel)) {
+              const badge = document.createElement("div");
+              badge.className = "poster-js-program-badge";
+              contentPanel.insertBefore(badge, title);
+            }
+
+            const programBadge = contentPanel
+              ? $(".poster-js-program-badge", contentPanel)
+              : null;
+            const infoCard = document.createElement("div");
+            infoCard.className = "poster-js-info-card";
+            if (meta && !$(".poster-js-info-card", contentPanel))
+              meta.insertAdjacentElement("afterend", infoCard);
+
+            const renderDots = () => {
+              if (!dotHolder) return;
+              dotHolder.innerHTML = programSlides
+                .map(
+                  (_, index) =>
+                    `<button type="button" class="poster-js-dot-btn ${index === current ? "is-active" : ""}" data-poster-slide="${index}" aria-label="${index + 1}-р хөтөлбөр"></button>`,
+                )
+                .join("");
+            };
+
+            const renderSlide = (index) => {
+              current = (index + programSlides.length) % programSlides.length;
+              const item = programSlides[current];
+              if (programBadge) programBadge.textContent = item.category;
+              if (title) title.textContent = item.title;
+              if (description) description.textContent = item.description;
+              if (meta) {
+                meta.innerHTML = `Age - ${escapeHtml(item.age)}<br />Availability - ${escapeHtml(item.availability)}<br />Eligible for - ${escapeHtml(item.eligible)}`;
+              }
+              infoCard.innerHTML = `Одоогийн сонгосон хөтөлбөр: <strong>${escapeHtml(item.title)}</strong>. Бүртгүүлэхийн өмнө мэдээллээ зөв бөглөөрэй.`;
+              setImage(image, item);
+              renderDots();
+            };
+
+            const goNext = () => renderSlide(current + 1);
+            const goPrev = () => renderSlide(current - 1);
+            const stopAuto = () => {
+              if (timer) clearInterval(timer);
+              timer = null;
+            };
+            const startAuto = () => {
+              stopAuto();
+              timer = setInterval(goNext, 5000);
+            };
+            const restartAuto = () => startAuto();
+
+            if (leftPanel) {
+              const prevBtn = document.createElement("button");
+              const nextBtn = document.createElement("button");
+              prevBtn.type = "button";
+              nextBtn.type = "button";
+              prevBtn.className = "poster-js-arrow prev";
+              nextBtn.className = "poster-js-arrow next";
+              prevBtn.textContent = "‹";
+              nextBtn.textContent = "›";
+              prevBtn.setAttribute("aria-label", "Өмнөх хөтөлбөр");
+              nextBtn.setAttribute("aria-label", "Дараагийн хөтөлбөр");
+              leftPanel.append(prevBtn, nextBtn);
+
+              prevBtn.addEventListener("click", () => {
+                goPrev();
+                restartAuto();
+              });
+              nextBtn.addEventListener("click", () => {
+                goNext();
+                restartAuto();
+              });
+              leftPanel.addEventListener("mouseenter", stopAuto);
+              leftPanel.addEventListener("mouseleave", startAuto);
+              leftPanel.addEventListener(
+                "touchstart",
+                (event) => {
+                  startX = event.changedTouches[0].clientX;
+                },
+                { passive: true },
+              );
+              leftPanel.addEventListener(
+                "touchend",
+                (event) => {
+                  const diff = startX - event.changedTouches[0].clientX;
+                  if (Math.abs(diff) < 45) return;
+                  diff > 0 ? goNext() : goPrev();
+                  restartAuto();
+                },
+                { passive: true },
+              );
+            }
+
+            if (dotHolder) {
+              dotHolder.addEventListener("click", (event) => {
+                const dot = event.target.closest("[data-poster-slide]");
+                if (!dot) return;
+                renderSlide(Number(dot.dataset.posterSlide));
+                restartAuto();
+              });
+            }
+
+            const fields = form ? $$("input", form) : [];
+            const fieldRules = [
+              {
+                key: "firstName",
+                label: "Нэр",
+                test: (value) => value.length >= 2,
+                error: "Нэрээ 2-оос дээш үсгээр бичнэ үү.",
+              },
+              {
+                key: "lastName",
+                label: "Овог",
+                test: (value) => value.length >= 2,
+                error: "Овгоо 2-оос дээш үсгээр бичнэ үү.",
+              },
+              {
+                key: "phone",
+                label: "Утас",
+                test: (value) => /^[0-9+\-\s()]{8,}$/.test(value),
+                error: "Утасны дугаараа зөв бичнэ үү.",
+              },
+              {
+                key: "email",
+                label: "Имэйл",
+                test: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+                error: "Имэйл хаягаа зөв бичнэ үү.",
+              },
+              {
+                key: "why",
+                label: "Яагаад 3xTOM",
+                test: (value) => value.length >= 8,
+                error:
+                  "Яагаад оролцох гэж байгаагаа арай дэлгэрэнгүй бичнэ үү.",
+              },
+              {
+                key: "intro",
+                label: "Өөрийгөө танилцуулах",
+                test: (value) => value.length >= 8,
+                error: "Өөрийгөө арай дэлгэрэнгүй танилцуулна уу.",
+              },
+              {
+                key: "strength",
+                label: "Давуу тал",
+                test: (value) => value.length >= 5,
+                error: "Давуу талаа 5-аас дээш тэмдэгтээр бичнэ үү.",
+              },
+            ];
+
+            fields.forEach((field, index) => {
+              const rule = fieldRules[index];
+              if (!rule) return;
+              field.dataset.posterField = rule.key;
+              field.required = true;
+              if (rule.key === "phone") field.type = "tel";
+              if (rule.key === "email") field.type = "email";
+              field.setAttribute("aria-label", rule.label);
+
+              const error = document.createElement("p");
+              error.className = "poster-js-input-error";
+              error.dataset.posterError = rule.key;
+              error.textContent = rule.error;
+              field.insertAdjacentElement("afterend", error);
+
+              field.addEventListener("input", () =>
+                validateField(field, false),
+              );
+              field.addEventListener("blur", () => validateField(field, true));
+            });
+
+            const summary = document.createElement("div");
+            summary.className = "poster-js-summary";
+            if (
+              submitBtn &&
+              !$(".poster-js-summary", submitBtn.parentElement)
+            ) {
+              submitBtn.parentElement.insertAdjacentElement(
+                "afterend",
+                summary,
+              );
+            }
+
+            const validateField = (field, showError = true) => {
+              const rule = fieldRules.find(
+                (item) => item.key === field.dataset.posterField,
+              );
+              if (!rule) return true;
+              const value = clean(field.value);
+              const ok = rule.test(value);
+              const error = $(`[data-poster-error="${rule.key}"]`);
+
+              field.classList.toggle("poster-js-invalid", !ok && showError);
+              field.classList.toggle("poster-js-valid", ok && value.length > 0);
+              if (error) error.classList.toggle("is-show", !ok && showError);
+              return ok;
+            };
+
+            const collectFormData = () => {
+              const data = {};
+              fields.forEach((field) => {
+                data[field.dataset.posterField] = clean(field.value);
+              });
+              return data;
+            };
+
+            const saveApplication = (data) => {
+              const key = "3xTOM_poster_program_applications";
+              const old = JSON.parse(localStorage.getItem(key) || "[]");
+              old.push(data);
+              localStorage.setItem(key, JSON.stringify(old));
+            };
+
+            const handleSubmit = (event) => {
+              if (event) event.preventDefault();
+              const isValid = fields.every((field) =>
+                validateField(field, true),
+              );
+              if (!isValid) {
+                showToast("Бүртгэлийн талбаруудаа бүрэн, зөв бөглөнө үү.");
+                const firstInvalid = $(".poster-js-invalid", form);
+                if (firstInvalid) firstInvalid.focus();
+                return;
+              }
+
+              const activeProgram = programSlides[current];
+              const data = {
+                program: activeProgram.title,
+                category: activeProgram.category,
+                ...collectFormData(),
+                createdAt: new Date().toISOString(),
+              };
+
+              try {
+                saveApplication(data);
+                summary.innerHTML = `Баярлалаа, <strong>${escapeHtml(data.firstName)}</strong>! Таны бүртгэл “${escapeHtml(activeProgram.title)}” хөтөлбөр дээр хадгалагдлаа.`;
+                summary.classList.add("is-show");
+                if (form) form.reset();
+                fields.forEach((field) =>
+                  field.classList.remove(
+                    "poster-js-valid",
+                    "poster-js-invalid",
+                  ),
+                );
+                $$(".poster-js-input-error").forEach((error) =>
+                  error.classList.remove("is-show"),
+                );
+                showToast("Бүртгэл амжилттай хадгалагдлаа.");
+                openModal({
+                  badge: "Бүртгэл амжилттай",
+                  title: activeProgram.title,
+                  body: `
+                  <p class="poster-js-modal-text">${escapeHtml(data.firstName)} таны бүртгэл browser-ийн localStorage-д хадгалагдлаа. Дараа нь admin хэсэгтэй холбовол энэ өгөгдлийг server рүү явуулж болно.</p>
+                  <div class="poster-js-info-card">Утас: ${escapeHtml(data.phone)}<br />Имэйл: ${escapeHtml(data.email)}</div>
+                `,
+                });
+              } catch (error) {
+                showToast("LocalStorage дээр хадгалах үед алдаа гарлаа.");
+              }
+            };
+
+            if (form) form.addEventListener("submit", handleSubmit);
+            if (submitBtn) {
+              submitBtn.type = "button";
+              submitBtn.addEventListener("click", handleSubmit);
+            }
+
+            renderSlide(0);
+            startAuto();
+
+            return [programCard, ...(fields || [])];
+          };
+
+          const galleryCards = setupGallery();
+          const programTargets = setupProgramSlider();
+
+          $$('a[href^="http"]').forEach((link) => {
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+          });
+
+          const revealTargets = [
+            ...$$("section > p, section > h1, section > h2"),
+            ...galleryCards,
+            ...programTargets,
+            ...$$("footer > div > div"),
+          ].filter(Boolean);
+
+          revealTargets.forEach((item, index) => {
+            item.classList.add("poster-js-reveal");
+            if (!item.style.transitionDelay)
+              item.style.transitionDelay = `${Math.min(index * 45, 260)}ms`;
+          });
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              });
+            },
+            { threshold: 0.13 },
+          );
+          revealTargets.forEach((item) => observer.observe(item));
+
+          const updateProgress = () => {
+            const scrollTop =
+              window.scrollY || document.documentElement.scrollTop;
+            const docHeight =
+              document.documentElement.scrollHeight - window.innerHeight;
+            const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+          };
+          updateProgress();
+          window.addEventListener("scroll", updateProgress, { passive: true });
+
+          const topButton = document.createElement("button");
+          topButton.type = "button";
+          topButton.textContent = "↑";
+          topButton.setAttribute("aria-label", "Дээш очих");
+          document.body.appendChild(topButton);
+          topButton.addEventListener("click", () =>
+            window.scrollTo({ top: 0, behavior: "smooth" }),
+          );
+          window.addEventListener(
+            "scroll",
+            () => topButton.classList.toggle("is-show", window.scrollY > 520),
+            { passive: true },
+          );
+
+          $$("button, a").forEach((item) => {
+            if (item.closest("header")) return;
+            item.addEventListener("pointerdown", () => {
+              item.style.transform = "scale(.97)";
+            });
+            item.addEventListener("pointerup", () => {
+              item.style.transform = "";
+            });
+            item.addEventListener("pointerleave", () => {
+              item.style.transform = "";
+            });
+          });
+        });
+      })();
+    </script>
   </body>
 </html>

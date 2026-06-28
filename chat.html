@@ -3,35 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3xTOM - Бичлэг</title>
+    <title>3хТОМ - Чат</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@900&family=Rubik+Moonrocks&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@900&display=swap");
 
-      .rubik-spray-paint-regular {
-        font-family: "Rubik Spray Paint", system-ui;
-        font-weight: 400;
-        font-style: normal;
-      }
-
-      .rubik-moonrocks-regular {
-        font-family: "Rubik Moonrocks", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-      }
-
-      .page-bg {
+      .grid-bg {
         background:
-          radial-gradient(circle at 12% 4%, #fff2dd 0%, transparent 28%),
-          radial-gradient(circle at 86% 35%, #dff3ff 0%, transparent 38%),
-          radial-gradient(circle at 72% 85%, #fff2df 0%, transparent 28%),
           linear-gradient(
-            135deg,
-            #fff4dd 0%,
-            #fdeef8 32%,
-            #dff4ff 70%,
-            #fff3e8 100%
+            to right,
+            rgba(55, 65, 81, 0.22) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(55, 65, 81, 0.22) 1px,
+            transparent 1px
+          ),
+          radial-gradient(
+            circle at left center,
+            rgba(218, 247, 230, 0.75),
+            transparent 38%
+          ),
+          radial-gradient(
+            circle at right center,
+            rgba(255, 220, 238, 0.65),
+            transparent 42%
+          ),
+          linear-gradient(90deg, #edf6f1 0%, #f7f1f6 55%, #fcf5ef 100%);
+        background-size:
+          28px 28px,
+          28px 28px,
+          cover,
+          cover,
+          cover;
+      }
+
+      .soft-bg {
+        background:
+          radial-gradient(
+            circle at left center,
+            rgba(218, 247, 230, 0.72),
+            transparent 34%
+          ),
+          radial-gradient(
+            circle at right center,
+            rgba(244, 222, 255, 0.7),
+            transparent 36%
+          ),
+          radial-gradient(
+            circle at center,
+            rgba(255, 239, 220, 0.6),
+            transparent 40%
+          ),
+          linear-gradient(
+            90deg,
+            #fdfcff 0%,
+            #f4fff8 45%,
+            #fff7ef 70%,
+            #fbf2ff 100%
           );
       }
 
@@ -69,7 +101,6 @@
             #fff7db 63%,
             #eef2ff 100%
           );
-
         background-size:
           32px 32px,
           32px 32px,
@@ -78,193 +109,320 @@
           cover,
           cover;
       }
+
+      .rubik-spray-paint-regular {
+        font-family: "Rubik Spray Paint", system-ui;
+        font-weight: 400;
+      }
+
+      .comic-relief-bold {
+        font-family: "Comic Relief", system-ui;
+        font-weight: 700;
+      }
+
+      .chat-scroll::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .chat-scroll::-webkit-scrollbar-thumb {
+        background: #ff9ac2;
+        border-radius: 999px;
+      }
+
+      .chat-scroll::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .bubble-in {
+        animation: bubbleIn 0.25s ease-out;
+      }
+
+      @keyframes bubbleIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px) scale(0.98);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
     </style>
   </head>
-  <body class="page-bg">
-    <section class="py-16"></section>
-    <header
-      class="absolute top-3 left-1/2 z-50 w-[80%] -translate-x-1/2 bg-[#FFFFFF] rounded-full"
-    >
-      <nav
-        class="flex items-center justify-between rounded-full border border-[#FF66A2] bg-[#FFFFFF] px-6 py-1.5 shadow-[0_0_20px_rgba(255,102,162,0.4)] shadow-[#FF66A2]"
+
+  <body class="min-h-screen bg-white text-[#19004E]">
+    <section class="relative min-h-screen grid-bg overflow-hidden">
+      <header
+        class="absolute top-3 left-1/2 z-50 w-[80%] -translate-x-1/2 bg-[#FFFFFF] rounded-full"
       >
-        <div
-          class="flex h-18 w-14 items-center justify-center rounded-full ml-8 mt-[-12px] mb-[-8px] cursor-pointer"
+        <nav
+          class="flex items-center justify-between rounded-full border border-[#FF66A2] bg-[#FFFFFF] px-6 py-1.5 shadow-[0_0_20px_rgba(255,102,162,0.4)] shadow-[#FF66A2]"
         >
-          <a href="/3хТом/main.html"
-            ><img
-              src="./3xTOM-logo-vector.svg"
-              alt="3xTOM logo"
-              class="h-full w-full object-contain"
-          /></a>
-        </div>
-
-        <ul
-          class="hidden items-center gap-10 text-sm font-bold text-black md:flex"
-        >
-          <li>
-            <a href="/3хТом/main.html" class="hover:text-pink-500">Нүүр</a>
-          </li>
-          <li>
-            <a href="/3хТом/about.html" class="hover:text-pink-500"
-              >Танилцуулга</a
-            >
-          </li>
-          <li>
-            <a href="/3хТом/news.html" class="hover:text-pink-500">Мэдээлэл</a>
-          </li>
-          <li>
-            <a href="/3хТом/poster.html" class="hover:text-pink-500">Постер</a>
-          </li>
-          <li>
-            <a
-              href="/3хТом/videos.html"
-              class="border-b border-[#FF7EB1] pb-1 text-pink-500"
-              >Бичлэг</a
-            >
-          </li>
-          <li>
-            <a href="/3хТом/contact.html" class="hover:text-pink-500"
-              >Холбогдох</a
-            >
-          </li>
-        </ul>
-
-        <div class="hidden items-center gap-3 md:flex">
-          <a
-            href="/3хТом/donate.html"
-            class="rounded-full bg-[#FF66A2] px-6 py-3 text-sm font-bold text-white shadow-md shadow-[#000000]/40 transition hover:bg-pink-600 cursor-pointer"
+          <div
+            class="flex h-18 w-14 items-center justify-center rounded-full ml-8 mt-[-12px] mb-[-8px] cursor-pointer"
           >
-            Хандив өгөх
-          </a>
-
-          <a
-            href="/3хТом/login.html"
-            class="rounded-full border-2 border-[#FF66A2] px-6 py-2.5 text-sm font-bold text-[#FF66A2] transition hover:bg-pink-50 cursor-pointer"
-          >
-            Нэвтрэх
-          </a>
-        </div>
-      </nav>
-    </header>
-
-    <main class="overflow-hidden pt-[140px]">
-      <section
-        class="relative mx-auto mt-8 flex h-[760px] w-[84%] items-center justify-between"
-      >
-        <div class="relative w-[760px] mb-30 h-full">
-          <img
-            src="./Podcast.png"
-            alt="Podcast"
-            class="absolute left-0 ml-[-120px] right-[50px] top-[20px] w-[640px] object-contain"
-          />
-
-          <img
-            src="./Phone.png"
-            alt="Phone"
-            class="absolute rounded-4xl ml-50 left-[250px] top-[20px] z-20 w-[360px] drop-shadow-[0_20px_30px_rgba(0,0,0,0.35)]"
-          />
-        </div>
-
-        <div class="w-[520px]">
-          <h1
-            class="rubik-spray-paint-regular text-[74px] leading-[0.9] ml-15 mt-[-220px]"
-          >
-            <span class="block text-[#FFA13C]">Бүх</span>
-            <span class="block text-[#FFA13C]">мэдээллийг</span>
-            <span class="block text-[#1A1464]">нэг сувгаас</span>
-          </h1>
-        </div>
-      </section>
-
-      <div class="mx-auto w-[84%] pb-16">
-        <h2
-          class="rubik-spray-paint-regular text-[70px] leading-tight text-black"
-        >
-          2026 оны <span class="text-[#FF9F43]">шилдэг</span><br />
-          дугаарууд
-        </h2>
-      </div>
-
-      <section
-        class="relative mx-auto mb-40 flex h-[560px] w-[84%] items-center justify-center"
-      >
-        <div
-          class="absolute left-0 top-[70px] w-[430px] rounded-[28px] bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
-        >
-          <img
-            src="./video.png"
-            alt=""
-            class="h-[220px] w-full rounded-2xl object-cover"
-          />
-
-          <h3 class="rubik-moonrocks-regular mt-7 text-[34px]">Дугаар #11</h3>
-
-          <button
-            class="mt-8 rounded-full border-2 border-black px-8 py-3 text-[22px] font-bold transition hover:bg-black hover:text-white"
-          >
-            Дэлгэрэнгүй ↗
-          </button>
-        </div>
-
-        <div
-          class="relative z-10 w-[500px] rounded-[30px] bg-white p-8 shadow-[0_15px_40px_rgba(0,0,0,0.12)]"
-        >
-          <img
-            src="./video.png"
-            alt=""
-            class="h-[250px] w-full rounded-2xl object-cover"
-          />
-
-          <h3 class="rubik-moonrocks-regular mt-7 text-[38px]">Дугаар #12</h3>
-
-          <p class="mt-4 text-[17px] leading-7 text-[#1A1464]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-            ultrices lacus ut mi euismod tincidunt.
-          </p>
-
-          <button
-            class="mt-8 rounded-full border-2 border-black px-8 py-3 text-[22px] font-bold transition hover:bg-black hover:text-white"
-          >
-            Дэлгэрэнгүй ↗
-          </button>
-        </div>
-
-        <div
-          class="absolute right-0 top-[70px] w-[430px] rounded-[28px] bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
-        >
-          <img
-            src="./video.png"
-            alt=""
-            class="h-[220px] w-full rounded-2xl object-cover"
-          />
-
-          <h3 class="rubik-moonrocks-regular mt-7 text-[34px]">Дугаар #15</h3>
-
-          <button
-            class="mt-8 rounded-full border-2 border-black px-8 py-3 text-[22px] font-bold transition hover:bg-black hover:text-white"
-          >
-            Дэлгэрэнгүй ↗
-          </button>
-        </div>
-      </section>
-
-      <section class="mx-auto w-[84%] pb-40">
-        <h2 class="rubik-spray-paint-regular mb-20 text-[64px] text-black">
-          Шилдэг бичлэгүүд
-        </h2>
-
-        <div class="grid grid-cols-[2fr_1fr] gap-14">
-          <div class="h-[520px] border border-gray-300"></div>
-
-          <div class="flex flex-col gap-14">
-            <div class="h-[170px] border border-gray-300"></div>
-            <div class="h-[170px] border border-gray-300"></div>
-            <div class="h-[170px] border border-gray-300"></div>
+            <a href="/3хТом/main.html"
+              ><img
+                src="./3xTOM-logo-vector.svg"
+                alt="3xTOM logo"
+                class="h-full w-full object-contain"
+            /></a>
           </div>
+
+          <ul
+            class="hidden items-center gap-10 text-sm font-bold text-black md:flex"
+          >
+            <li>
+              <a href="/3хТом/main.html" class="hover:text-pink-500">Нүүр</a>
+            </li>
+            <li>
+              <a href="/3хТом/about.html" class="hover:text-pink-500"
+                >Танилцуулга</a
+              >
+            </li>
+            <li>
+              <a href="/3хТом/news.html" class="hover:text-pink-500"
+                >Мэдээлэл</a
+              >
+            </li>
+            <li>
+              <a href="/3хТом/poster.html" class="hover:text-pink-500"
+                >Постер</a
+              >
+            </li>
+            <li>
+              <a href="/3хТом/videos.html" class="hover:text-pink-500"
+                >Бичлэг</a
+              >
+            </li>
+            <li>
+              <a href="/3хТом/contact.html" class="hover:text-pink-500"
+                >Холбогдох</a
+              >
+            </li>
+            <li>
+              <a
+                href="/3хТом/chat.html"
+                class="border-b border-[#FF7EB1] pb-1 text-pink-500"
+                >Чат</a
+              >
+            </li>
+          </ul>
+
+          <div class="hidden items-center gap-3 md:flex">
+            <a
+              href="/3хТом/donate.html"
+              class="rounded-full bg-[#FF66A2] px-6 py-3 text-sm font-bold text-white shadow-md shadow-[#000000]/40 transition hover:bg-pink-600 cursor-pointer"
+            >
+              Хандив өгөх
+            </a>
+
+            <a
+              href="/3хТом/login.html"
+              class="rounded-full border-2 border-[#FF66A2] px-6 py-2.5 text-sm font-bold text-[#FF66A2] transition hover:bg-pink-50 cursor-pointer"
+            >
+              Нэвтрэх
+            </a>
+          </div>
+        </nav>
+      </header>
+
+      <main class="mx-auto flex min-h-screen w-[86%] items-center pt-28 pb-16">
+        <div
+          class="grid w-full grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.35fr]"
+        >
+          <div class="flex flex-col justify-center">
+            <span
+              class="mb-7 inline-flex w-fit rounded-full border border-pink-400 bg-white/50 px-4 py-1 text-xs font-bold text-pink-400"
+            >
+              3хТОМ туслах чат
+            </span>
+
+            <h1
+              class="rubik-spray-paint-regular text-[36px] leading-[1.12] text-[#19004E] sm:text-[48px]"
+            >
+              Сайн уу? <br />
+              Биднээс
+              <span class="relative inline-block isolate">
+                <span class="relative z-10 text-[#FF66A2]">асуугаарай</span>
+                <span
+                  class="absolute bottom-[-3px] left-1/2 h-4 w-[105%] -translate-x-1/2 rounded-full bg-[#FFE299]"
+                ></span>
+              </span>
+            </h1>
+
+            <p
+              class="mt-5 max-w-[470px] text-[16px] font-semibold leading-[1.65] text-gray-700"
+            >
+              3хТОМ клубын тухай, хандив, үйл ажиллагаа, холбоо барих
+              мэдээлэлтэй холбоотой асуултаа бичээрэй.
+            </p>
+
+            <div
+              class="mt-8 grid max-w-[520px] grid-cols-1 gap-4 sm:grid-cols-2"
+            >
+              <div
+                class="rounded-[24px] border border-pink-200 bg-white/60 p-5 shadow-sm"
+              >
+                <div
+                  class="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-pink-200 shadow-[5px_5px_4px_rgba(255,102,162,0.28)]"
+                >
+                  <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M12 21C16.4183 21 20 17.4183 20 13C20 8.58172 16.4183 5 12 5C7.58172 5 4 8.58172 4 13C4 14.489 4.40699 15.883 5.115 17.076L4 21L7.924 19.885C9.117 20.593 10.511 21 12 21Z"
+                      stroke="white"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M8.8 12.5H15.2"
+                      stroke="white"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M8.8 15.5H13"
+                      stroke="white"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <h3 class="text-[16px] font-bold text-black">Хурдан асуулт</h3>
+                <p class="mt-2 text-[13px] leading-[1.5] text-gray-700">
+                  Доорх suggestion дээр дараад шууд асууж болно.
+                </p>
+              </div>
+
+              <div
+                class="rounded-[24px] border border-pink-200 bg-white/60 p-5 shadow-sm"
+              >
+                <div
+                  class="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-pink-200 shadow-[5px_5px_4px_rgba(255,102,162,0.28)]"
+                >
+                  <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M7 11.5L10.2 14.7L17 8"
+                      stroke="white"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                      stroke="white"
+                      stroke-width="1.7"
+                    />
+                  </svg>
+                </div>
+                <h3 class="text-[16px] font-bold text-black">Энгийн demo</h3>
+                <p class="mt-2 text-[13px] leading-[1.5] text-gray-700">
+                  Энэ нь frontend chat UI. Backend холбовол жинхэнэ чат болно.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <section
+            class="rounded-[36px] border border-pink-200 bg-white/70 p-4 shadow-[0_20px_60px_rgba(255,102,162,0.22)] backdrop-blur-md"
+          >
+            <div
+              class="flex items-center justify-between rounded-[28px] bg-[#FF66A2] px-5 py-4 text-white"
+            >
+              <div class="flex items-center gap-3">
+                <div
+                  class="flex h-12 w-12 items-center justify-center rounded-full bg-white"
+                >
+                  <img
+                    src="./3xTOM-logo-vector.svg"
+                    alt="3xTOM logo"
+                    class="h-9 w-9 object-contain"
+                  />
+                </div>
+
+                <div>
+                  <h2 class="comic-relief-bold text-[20px] leading-none">
+                    3хТОМ Chat
+                  </h2>
+                  <p class="mt-1 text-[12px] font-semibold text-white/85">
+                    Одоо online
+                  </p>
+                </div>
+              </div>
+
+              <button
+                id="clearChat"
+                class="rounded-full border border-white/70 px-4 py-2 text-[12px] font-bold transition hover:bg-white hover:text-[#FF66A2]"
+              >
+                Цэвэрлэх
+              </button>
+            </div>
+
+            <div
+              id="chatMessages"
+              class="chat-scroll mt-4 h-[455px] overflow-y-auto rounded-[28px] bg-white/65 p-5"
+            ></div>
+
+            <div class="mt-4 flex flex-wrap gap-2">
+              <button
+                class="quick-msg rounded-full border border-pink-200 bg-white px-4 py-2 text-[12px] font-bold text-[#FF66A2] transition hover:bg-pink-50"
+                data-text="3хТОМ клубын тухай хэлээд өгөөч"
+              >
+                3хТОМ гэж юу вэ?
+              </button>
+              <button
+                class="quick-msg rounded-full border border-pink-200 bg-white px-4 py-2 text-[12px] font-bold text-[#FF66A2] transition hover:bg-pink-50"
+                data-text="Хандив яаж өгөх вэ?"
+              >
+                Хандив
+              </button>
+              <button
+                class="quick-msg rounded-full border border-pink-200 bg-white px-4 py-2 text-[12px] font-bold text-[#FF66A2] transition hover:bg-pink-50"
+                data-text="Та нартай яаж холбогдох вэ?"
+              >
+                Холбогдох
+              </button>
+            </div>
+
+            <form
+              id="chatForm"
+              class="mt-4 flex items-center gap-3 rounded-full border border-pink-200 bg-white px-4 py-3"
+            >
+              <input
+                id="messageInput"
+                type="text"
+                autocomplete="off"
+                placeholder="Мессеж бичих..."
+                class="h-11 flex-1 bg-transparent text-[14px] font-semibold text-[#19004E] outline-none placeholder:text-gray-400"
+              />
+
+              <button
+                type="submit"
+                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#FF66A2] transition hover:bg-pink-500"
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M22 2L11 13"
+                    stroke="white"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M22 2L15 22L11 13L2 9L22 2Z"
+                    stroke="white"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </form>
+          </section>
         </div>
-      </section>
-    </main>
+      </main>
+    </section>
 
     <footer class="footer-grid-bg px-[6.5%] py-8">
       <div class="grid grid-cols-1 gap-10 md:grid-cols-[1.1fr_1fr_1.1fr]">
@@ -553,1904 +711,131 @@
     </footer>
 
     <script>
-      (() => {
-        "use strict";
+      const chatMessages = document.getElementById("chatMessages");
+      const chatForm = document.getElementById("chatForm");
+      const messageInput = document.getElementById("messageInput");
+      const clearChat = document.getElementById("clearChat");
+      const quickButtons = document.querySelectorAll(".quick-msg");
 
-        const ASSETS = {
-          podcast: "./Podcast.png",
-          phone: "./Phone.png",
-          video: "./video.png",
-        };
+      const STORAGE_KEY = "three-x-tom-chat";
 
-        const DEFAULT_EPISODES = [
-          {
-            number: "11",
-            title: "Сэтгэлээс ирээдүйд",
-            label: "Podcast",
-            date: "2026.01",
-            duration: "18 мин",
-            tag: "inspire",
-            image: ASSETS.video,
-            description:
-              "3хТОМ-ийн оролцогчид өөрийгөө нээх, зорилгоо тодорхойлох, хамтдаа хөгжих тухай ярилцсан дугаар.",
-            url: "#",
-          },
-          {
-            number: "12",
-            title: "Not now, when?",
-            label: "Instagram",
-            date: "2026.02",
-            duration: "24 мин",
-            tag: "story",
-            image: ASSETS.video,
-            description:
-              "Хойшлуулахгүйгээр эхлэх зориг, сайн дурын ажилд оролцох туршлага, шинэ элсэгчдийн уур амьсгалын тухай.",
-            url: "#",
-          },
-          {
-            number: "15",
-            title: "Learn • Inspire • Connect",
-            label: "Interview",
-            date: "2026.03",
-            duration: "31 мин",
-            tag: "interview",
-            image: ASSETS.video,
-            description:
-              "Багаар ажиллах, харилцааны чадвар, клубын соёл, ирээдүйн төлөвлөгөөний талаар хийсэн онцлох ярилцлага.",
-            url: "#",
-          },
-          {
-            number: "18",
-            title: "3хТОМ behind the scenes",
-            label: "Behind",
-            date: "2026.04",
-            duration: "12 мин",
-            tag: "behind",
-            image: ASSETS.video,
-            description:
-              "Контент бүтээх явц, постер, бичлэг, podcast-ийн ард ажилладаг багийн хөгжилтэй мөчүүд.",
-            url: "#",
-          },
-        ];
+      const defaultMessages = [
+        {
+          sender: "bot",
+          text: "Сайн уу? 👋 Би 3хТОМ клубын туслах чат байна. Та клубын тухай, хандив, холбоо барих мэдээлэл асууж болно.",
+        },
+      ];
 
-        const storageKeys = [
-          "3xTOM_videos",
-          "3xTOM_episodes",
-          "admin_videos",
-          "videos",
-          "episodes",
-          "podcasts",
-        ];
+      let messages =
+        JSON.parse(localStorage.getItem(STORAGE_KEY)) || defaultMessages;
 
-        const $ = (selector, root = document) => root.querySelector(selector);
-        const $$ = (selector, root = document) => [
-          ...root.querySelectorAll(selector),
-        ];
+      function saveMessages() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+      }
 
-        const text = (value) => String(value ?? "").trim();
+      function renderMessages() {
+        chatMessages.innerHTML = "";
 
-        const escapeHtml = (value) =>
-          text(value)
-            .replaceAll("&", "&amp;")
-            .replaceAll("<", "&lt;")
-            .replaceAll(">", "&gt;")
-            .replaceAll('"', "&quot;")
-            .replaceAll("'", "&#039;");
+        messages.forEach((message) => {
+          const wrapper = document.createElement("div");
+          wrapper.className =
+            message.sender === "user"
+              ? "mb-4 flex justify-end bubble-in"
+              : "mb-4 flex justify-start bubble-in";
 
-        const safeUrl = (value, fallback = "#") => {
-          const url = text(value);
-          if (!url) return fallback;
-          if (/^(javascript:|vbscript:|data:text\/html)/i.test(url))
-            return fallback;
-          return url;
-        };
+          const bubble = document.createElement("div");
+          bubble.className =
+            message.sender === "user"
+              ? "max-w-[78%] rounded-[22px] rounded-br-md bg-[#FF66A2] px-5 py-3 text-[14px] font-semibold leading-[1.55] text-white shadow-md"
+              : "max-w-[78%] rounded-[22px] rounded-bl-md border border-pink-100 bg-white px-5 py-3 text-[14px] font-semibold leading-[1.55] text-gray-800 shadow-sm";
 
-        const ICONS = {
-          playSquare:
-            '<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1.5" y="1.5" width="17" height="17" rx="4.5" fill="#2D8CFF"/><path d="M8 6.8L13.2 10L8 13.2V6.8Z" fill="white"/></svg>',
-          play: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 5.5L18 12L8 18.5V5.5Z" fill="currentColor"/></svg>',
-          arrowUpRight:
-            '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7 17L17 7M9 7H17V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-          copy: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="9" y="9" width="10" height="10" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M15 9V7.5C15 6.11929 13.8807 5 12.5 5H7.5C6.11929 5 5 6.11929 5 7.5V12.5C5 13.8807 6.11929 15 7.5 15H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-          chevronLeft:
-            '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M14.5 6.5L9 12L14.5 17.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-          chevronRight:
-            '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9.5 6.5L15 12L9.5 17.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-          chevronUp:
-            '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.5 14.5L12 9L17.5 14.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-        };
-
-        const readJSON = (key) => {
-          try {
-            const raw = localStorage.getItem(key);
-            if (!raw) return null;
-            return JSON.parse(raw);
-          } catch {
-            return null;
-          }
-        };
-
-        const loadEpisodes = () => {
-          for (const key of storageKeys) {
-            const data = readJSON(key);
-
-            if (Array.isArray(data)) return data.map(normalizeEpisode);
-            if (data && Array.isArray(data.items))
-              return data.items.map(normalizeEpisode);
-            if (data && Array.isArray(data.videos))
-              return data.videos.map(normalizeEpisode);
-            if (data && Array.isArray(data.episodes))
-              return data.episodes.map(normalizeEpisode);
-          }
-
-          const dbKeys = [
-            "3xTOM_DB",
-            "3xTOM_siteData",
-            "siteData",
-            "adminData",
-          ];
-          for (const key of dbKeys) {
-            const data = readJSON(key);
-            if (data && Array.isArray(data.videos))
-              return data.videos.map(normalizeEpisode);
-            if (data && Array.isArray(data.episodes))
-              return data.episodes.map(normalizeEpisode);
-          }
-
-          return DEFAULT_EPISODES.map(normalizeEpisode);
-        };
-
-        const normalizeEpisode = (item, index = 0) => ({
-          number: text(
-            item.number || item.episode || item.dugaar || index + 1,
-          ).replace("#", ""),
-          title: item.title || item.name || `Дугаар #${index + 1}`,
-          label: item.label || item.type || item.category || "Видео",
-          date: item.date || item.createdAt || "2026",
-          duration: item.duration || item.time || "15 мин",
-          tag: item.tag || item.category || "all",
-          image: item.image || item.img || item.thumbnail || ASSETS.video,
-          description:
-            item.description ||
-            item.desc ||
-            item.text ||
-            "3хТОМ-ийн онцлох бичлэг, podcast, ярилцлага болон үйл ажиллагааны мэдээлэл.",
-          url: item.url || item.link || "#",
+          bubble.textContent = message.text;
+          wrapper.appendChild(bubble);
+          chatMessages.appendChild(wrapper);
         });
 
-        const state = {
-          episodes: loadEpisodes(),
-          activeEpisode: 1,
-          activeVideo: 0,
-          filter: "all",
-          search: "",
-          timer: null,
-        };
-
-        const injectStyle = () => {
-          if ($("#videos-js-style")) return;
-
-          const style = document.createElement("style");
-          style.id = "videos-js-style";
-          style.textContent = `
-      :root {
-        --tom-pink: #FF66A2;
-        --tom-orange: #FFA13C;
-        --tom-blue: #1A1464;
-        --tom-cream: #FFF6E8;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        overflow-x: hidden;
-      }
-      .video-hero-js {
-        border-radius: 42px;
-        padding: 28px 32px;
-        isolation: isolate;
-      }
-
-      .video-hero-js::before {
-        content: "";
-        position: absolute;
-        inset: 18px;
-        z-index: -1;
-        border-radius: 46px;
-        border: 1px solid rgba(255, 102, 162, 0.18);
-        background:
-          radial-gradient(circle at 18% 18%, rgba(255, 161, 60, 0.18), transparent 30%),
-          radial-gradient(circle at 78% 40%, rgba(255, 102, 162, 0.14), transparent 34%),
-          rgba(255, 255, 255, 0.18);
-        backdrop-filter: blur(10px);
-      }
-
-      .video-floating-badge {
-        position: absolute;
-        z-index: 30;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.7);
-        background: rgba(255, 255, 255, 0.86);
-        padding: 10px 16px;
-        color: var(--tom-blue);
-        font-size: 13px;
-        font-weight: 900;
-        box-shadow: 0 14px 32px rgba(26, 20, 100, 0.12);
-        backdrop-filter: blur(12px);
-        animation: tomFloat 4.8s ease-in-out infinite;
-      }
-
-      .video-floating-badge:first-of-type {
-        left: 5%;
-        top: 12%;
-      }
-
-      .video-floating-badge:last-of-type {
-        left: 47%;
-        bottom: 16%;
-        animation-delay: -1.8s;
-      }
-
-      .video-floating-badge span {
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        background: var(--tom-pink);
-        box-shadow: 0 0 0 7px rgba(255, 102, 162, 0.14);
-      }
-
-      .video-hero-img {
-        transition:
-          transform 0.45s ease,
-          filter 0.45s ease;
-        will-change: transform;
-      }
-
-      .video-hero-img:hover {
-        filter: saturate(1.08) contrast(1.02);
-      }
-
-      .episode-stage-js {
-        position: relative;
-        min-height: 760px;
-        margin-bottom: 130px;
-        padding: 30px 0 70px;
-        touch-action: pan-y;
-        user-select: none;
-        perspective: 1500px;
-      }
-
-      .episode-shell {
-        position: relative;
-        min-height: 620px;
-        cursor: grab;
-        --drag-x: 0px;
-        --drag-side-x: 0px;
-        --drag-rotate: 0deg;
-      }
-
-      .episode-shell.is-dragging {
-        cursor: grabbing;
-      }
-
-      .episode-card-js {
-        position: absolute;
-        top: 34px;
-        left: 50%;
-        width: min(490px, 88vw);
-        border: 1px solid rgba(255, 102, 162, 0.18);
-        border-radius: 34px;
-        background: rgba(255, 255, 255, 0.92);
-        padding: 24px;
-        box-shadow: 0 24px 70px rgba(26, 20, 100, 0.13);
-        opacity: 0;
-        transform: translateX(-50%) scale(0.78);
-        pointer-events: none;
-        transition:
-          transform 0.58s cubic-bezier(.19,1,.22,1),
-          opacity 0.35s ease,
-          filter 0.35s ease,
-          box-shadow 0.35s ease;
-        overflow: hidden;
-        will-change: transform, opacity, filter;
-        backface-visibility: hidden;
-      }
-
-      .episode-card-js::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background:
-          linear-gradient(135deg, rgba(255, 102, 162, 0.13), transparent 34%),
-          radial-gradient(circle at 88% 18%, rgba(255, 161, 60, 0.22), transparent 24%);
-      }
-
-      .episode-card-js.is-active {
-        z-index: 5;
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateX(-50%) translateY(-8px) scale(1);
-        box-shadow: 0 32px 85px rgba(26, 20, 100, 0.18);
-      }
-
-      .episode-card-js.is-left {
-        z-index: 3;
-        opacity: 0.62;
-        transform: translateX(calc(-50% - 440px)) translateY(28px) scale(0.84) rotate(-4.5deg);
-        filter: saturate(0.78) blur(0.2px);
-      }
-
-      .episode-card-js.is-right {
-        z-index: 3;
-        opacity: 0.62;
-        transform: translateX(calc(-50% + 440px)) translateY(28px) scale(0.84) rotate(4.5deg);
-        filter: saturate(0.78) blur(0.2px);
-      }
-
-      .episode-shell.is-dragging .episode-card-js {
-        transition: none;
-      }
-
-      .episode-shell.is-dragging .episode-card-js.is-active {
-        transform: translateX(calc(-50% + var(--drag-x))) translateY(-10px) scale(1.01) rotate(var(--drag-rotate));
-      }
-
-      .episode-shell.is-dragging .episode-card-js.is-left {
-        transform: translateX(calc(-50% - 440px + var(--drag-side-x))) translateY(28px) scale(0.84) rotate(-4.5deg);
-      }
-
-      .episode-shell.is-dragging .episode-card-js.is-right {
-        transform: translateX(calc(-50% + 440px + var(--drag-side-x))) translateY(28px) scale(0.84) rotate(4.5deg);
-      }
-
-      .episode-stage-js.is-switching .episode-card-js.is-active {
-        animation: episodePop 0.58s cubic-bezier(.19,1,.22,1) both;
-      }
-
-      @keyframes episodePop {
-        from {
-          opacity: 0.35;
-          transform: translateX(-50%) translateY(22px) scale(0.92);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(-50%) translateY(-8px) scale(1);
-        }
-      }
-
-      .episode-card-js img {
-        position: relative;
-        z-index: 1;
-        display: block;
-        width: 100%;
-        height: 250px;
-        border-radius: 24px;
-        object-fit: cover;
-        -webkit-user-drag: none;
-        user-select: none;
-        transition: transform 0.5s ease, filter 0.5s ease;
-      }
-
-      .episode-card-js.is-active:hover img {
-        transform: scale(1.035);
-        filter: saturate(1.08) contrast(1.02);
-      }
-
-      .episode-meta {
-        position: relative;
-        z-index: 2;
-        margin-top: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        color: rgba(26, 20, 100, 0.74);
-        font-size: 13px;
-        font-weight: 900;
-      }
-
-      .episode-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        border-radius: 999px;
-        background: rgba(255, 102, 162, 0.12);
-        padding: 8px 12px;
-        color: var(--tom-pink);
-      }
-
-      .episode-pill svg {
-        width: 18px;
-        height: 18px;
-        flex-shrink: 0;
-      }
-
-      .episode-card-js h3 {
-        position: relative;
-        z-index: 2;
-        margin-top: 16px;
-        color: black;
-        font-size: 38px;
-        line-height: 1;
-      }
-
-      .episode-card-js p {
-        position: relative;
-        z-index: 2;
-        margin-top: 14px;
-        color: var(--tom-blue);
-        font-size: 16px;
-        font-weight: 650;
-        line-height: 1.65;
-      }
-
-      .episode-actions {
-        position: relative;
-        z-index: 2;
-        margin-top: 22px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-
-      .tom-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        border-radius: 999px;
-        border: 2px solid black;
-        padding: 12px 24px;
-        font-size: 18px;
-        font-weight: 900;
-        transition: 0.25s ease;
-        cursor: pointer;
-      }
-
-      .tom-btn svg {
-        width: 18px;
-        height: 18px;
-        flex-shrink: 0;
-      }
-
-      .tom-btn:hover {
-        transform: translateY(-2px);
-      }
-
-      .tom-btn--dark {
-        background: black;
-        color: white;
-      }
-
-      .tom-btn--dark:hover {
-        background: var(--tom-pink);
-        border-color: var(--tom-pink);
-      }
-
-      .tom-btn--light {
-        background: white;
-        color: black;
-      }
-
-      .tom-btn--light:hover {
-        background: black;
-        color: white;
-      }
-
-      .episode-nav {
-        position: relative;
-        z-index: 8;
-        width: max-content;
-        max-width: calc(100vw - 32px);
-        margin: 18px auto 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 14px;
-        border: 1px solid rgba(255,255,255,0.82);
-        border-radius: 999px;
-        background: rgba(255,255,255,0.78);
-        padding: 8px 12px;
-        box-shadow: 0 18px 40px rgba(26,20,100,0.12);
-        backdrop-filter: blur(14px);
-      }
-
-      .circle-btn {
-        width: 48px;
-        height: 48px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border: 2px solid black;
-        border-radius: 50%;
-        background: white;
-        color: black;
-        cursor: pointer;
-        transition: 0.25s ease;
-      }
-
-      .circle-btn svg {
-        width: 20px;
-        height: 20px;
-        flex-shrink: 0;
-      }
-
-      .circle-btn:hover {
-        background: black;
-        color: white;
-        transform: translateY(-2px);
-      }
-
-      .episode-dots {
-        display: flex;
-        gap: 8px;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
       }
 
-      .episode-dot {
-        width: 10px;
-        height: 10px;
-        border: 0;
-        border-radius: 999px;
-        background: rgba(26, 20, 100, 0.22);
-        cursor: pointer;
-        transition: 0.25s ease;
-      }
-
-      .episode-dot.is-active {
-        width: 34px;
-        background: var(--tom-orange);
-        box-shadow: 0 0 0 5px rgba(255, 161, 60, 0.16);
-      }
-
-      .video-library-js {
-        position: relative;
-        border-radius: 42px;
-        background:
-          radial-gradient(circle at 8% 10%, rgba(255, 102, 162, 0.16), transparent 30%),
-          radial-gradient(circle at 96% 8%, rgba(255, 161, 60, 0.17), transparent 32%),
-          rgba(255, 255, 255, 0.62);
-        padding: 34px;
-        box-shadow: 0 24px 70px rgba(26, 20, 100, 0.10);
-        backdrop-filter: blur(12px);
-      }
-
-      .video-library-top {
-        display: flex;
-        align-items: end;
-        justify-content: space-between;
-        gap: 22px;
-        margin-bottom: 26px;
-      }
-
-      .video-search {
-        min-width: 260px;
-        border: 2px solid rgba(26, 20, 100, 0.12);
-        border-radius: 999px;
-        background: white;
-        padding: 13px 18px;
-        color: var(--tom-blue);
-        font-weight: 800;
-        outline: none;
-      }
-
-      .video-search:focus {
-        border-color: var(--tom-pink);
-        box-shadow: 0 0 0 5px rgba(255, 102, 162, 0.12);
-      }
-
-      .filter-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .filter-chip {
-        border: 0;
-        border-radius: 999px;
-        background: rgba(26, 20, 100, 0.08);
-        padding: 10px 14px;
-        color: var(--tom-blue);
-        font-size: 13px;
-        font-weight: 900;
-        cursor: pointer;
-        transition: 0.2s ease;
-      }
-
-      .filter-chip.is-active,
-      .filter-chip:hover {
-        background: var(--tom-pink);
-        color: white;
-      }
-
-      .video-grid-js {
-        display: grid;
-        grid-template-columns: 1.85fr 1fr;
-        gap: 28px;
-      }
-
-      .main-video-card {
-        overflow: hidden;
-        border-radius: 34px;
-        background: #0e0d16;
-        color: white;
-        box-shadow: 0 24px 55px rgba(14, 13, 22, 0.22);
-      }
-
-      .main-video-thumb {
-        position: relative;
-        min-height: 390px;
-        background-position: center;
-        background-size: cover;
-      }
-
-      .main-video-thumb::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(180deg, transparent 38%, rgba(0,0,0,0.76)),
-          radial-gradient(circle at 50% 45%, rgba(255,255,255,0.12), transparent 18%);
-      }
-
-      .play-button-big {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        z-index: 2;
-        width: 86px;
-        height: 86px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border: 0;
-        border-radius: 50%;
-        background: white;
-        color: black;
-        transform: translate(-50%, -50%);
-        cursor: pointer;
-        box-shadow: 0 18px 40px rgba(0,0,0,0.24);
-        transition: 0.25s ease;
-      }
-
-      .play-button-big svg {
-        width: 34px;
-        height: 34px;
-        margin-left: 4px;
-        flex-shrink: 0;
-      }
-
-      .play-button-big:hover {
-        background: var(--tom-orange);
-        color: white;
-        transform: translate(-50%, -50%) scale(1.07);
-      }
-
-      .main-video-info {
-        position: relative;
-        z-index: 2;
-        margin-top: -130px;
-        padding: 0 28px 28px;
-      }
-
-      .main-video-info h3 {
-        font-size: 42px;
-        line-height: 1.05;
-      }
-
-      .main-video-info p {
-        margin-top: 12px;
-        max-width: 660px;
-        color: rgba(255,255,255,0.82);
-        font-size: 16px;
-        font-weight: 650;
-        line-height: 1.65;
-      }
-
-      .playlist {
-        max-height: 560px;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        overflow: auto;
-        padding-right: 6px;
-      }
-
-      .playlist::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      .playlist::-webkit-scrollbar-thumb {
-        border-radius: 999px;
-        background: rgba(255, 102, 162, 0.45);
-      }
-
-      .playlist-item {
-        display: grid;
-        grid-template-columns: 112px 1fr;
-        gap: 14px;
-        border: 1px solid rgba(26, 20, 100, 0.08);
-        border-radius: 24px;
-        background: rgba(255, 255, 255, 0.88);
-        padding: 12px;
-        cursor: pointer;
-        transition: 0.25s ease;
-        text-align: left;
-      }
-
-      .playlist-item:hover,
-      .playlist-item.is-active {
-        border-color: rgba(255, 102, 162, 0.42);
-        transform: translateY(-2px);
-        box-shadow: 0 14px 34px rgba(26, 20, 100, 0.10);
-      }
-
-      .playlist-item img {
-        width: 112px;
-        height: 82px;
-        border-radius: 16px;
-        object-fit: cover;
-      }
-
-      .playlist-item h4 {
-        color: black;
-        font-size: 17px;
-        font-weight: 900;
-        line-height: 1.2;
-      }
-
-      .playlist-item p {
-        margin-top: 6px;
-        color: rgba(26, 20, 100, 0.65);
-        font-size: 12px;
-        font-weight: 800;
-      }
-
-      .empty-result {
-        border: 2px dashed rgba(255, 102, 162, 0.35);
-        border-radius: 24px;
-        background: rgba(255,255,255,0.75);
-        padding: 28px;
-        color: var(--tom-blue);
-        font-weight: 900;
-      }
-
-      .video-modal {
-        position: fixed;
-        inset: 0;
-        z-index: 9998;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-        background: rgba(8, 7, 20, 0.62);
-        backdrop-filter: blur(10px);
-      }
-
-      .video-modal.is-open {
-        display: flex;
-      }
-
-      .video-modal-card {
-        width: min(860px, 96vw);
-        overflow: hidden;
-        border-radius: 34px;
-        background: white;
-        box-shadow: 0 40px 100px rgba(0,0,0,0.28);
-        animation: modalPop 0.28s ease both;
-      }
-
-      .video-modal-thumb {
-        height: 320px;
-        background-position: center;
-        background-size: cover;
-      }
-
-      .video-modal-body {
-        padding: 28px;
-      }
-
-      .video-modal-body h3 {
-        color: black;
-        font-size: 42px;
-        line-height: 1;
-      }
-
-      .video-modal-body p {
-        margin-top: 14px;
-        color: var(--tom-blue);
-        font-weight: 700;
-        line-height: 1.65;
-      }
-
-      .modal-actions {
-        margin-top: 24px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-
-      .toast {
-        position: fixed;
-        left: 50%;
-        bottom: 24px;
-        z-index: 10000;
-        max-width: min(520px, calc(100vw - 32px));
-        border-radius: 999px;
-        background: #111;
-        color: white;
-        padding: 13px 20px;
-        font-weight: 850;
-        box-shadow: 0 18px 40px rgba(0,0,0,0.2);
-        transform: translate(-50%, 120%);
-        transition: 0.3s ease;
-      }
-
-      .toast.is-show {
-        transform: translate(-50%, 0);
-      }
-
-      .top-button {
-        position: fixed;
-        right: 22px;
-        bottom: 22px;
-        z-index: 9997;
-        width: 52px;
-        height: 52px;
-        display: grid;
-        place-items: center;
-        border: 0;
-        border-radius: 50%;
-        background: var(--tom-pink);
-        color: white;
-        font-size: 22px;
-        font-weight: 900;
-        cursor: pointer;
-        box-shadow: 0 18px 38px rgba(255, 102, 162, 0.34);
-        opacity: 0;
-        pointer-events: none;
-        transform: translateY(10px);
-        transition: 0.25s ease;
-      }
-
-      .top-button.is-show {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0);
-      }
-
-      .js-reveal {
-        opacity: 0;
-        transform: translateY(28px);
-        transition:
-          opacity 0.7s ease,
-          transform 0.7s ease;
-      }
-
-      .js-reveal.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      @keyframes tomFloat {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-12px); }
-      }
-
-      @keyframes modalPop {
-        from {
-          opacity: 0;
-          transform: translateY(20px) scale(0.96);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
-      }
+      function getBotReply(userText) {
+        const text = userText.toLowerCase();
 
-      @media (max-width: 1180px) {
-        .episode-card-js.is-left {
-          transform: translateX(calc(-50% - 270px)) scale(0.78) rotate(-3deg);
+        if (
+          text.includes("сайн") ||
+          text.includes("hi") ||
+          text.includes("hello")
+        ) {
+          return "Сайн уу? 😊 Танд юугаар туслах вэ?";
         }
 
-        .episode-card-js.is-right {
-          transform: translateX(calc(-50% + 270px)) scale(0.78) rotate(3deg);
+        if (
+          text.includes("3хтом") ||
+          text.includes("3xtom") ||
+          text.includes("тухай")
+        ) {
+          return "3хТОМ клуб нь тусгай хэрэгцээт хүмүүсийн хөгжил, нийгмийн оролцоог дэмжих сайн дурын клуб юм.";
         }
 
-        .video-grid-js {
-          grid-template-columns: 1fr;
+        if (text.includes("хандив") || text.includes("donate")) {
+          return "Хандив өгөх бол navbar дээрх “Хандив өгөх” товч эсвэл donate.html хуудас руу орж болно. 💗";
         }
 
-        .playlist {
-          max-height: none;
-          overflow: visible;
+        if (
+          text.includes("холбогдох") ||
+          text.includes("утас") ||
+          text.includes("gmail") ||
+          text.includes("email")
+        ) {
+          return "Бидэнтэй +973 9020 4526 утсаар эсвэл 3dahintom@gmail.com хаягаар холбогдоорой.";
         }
+
+        if (text.includes("facebook") || text.includes("instagram")) {
+          return "Манай Instagram: @guravdahintom. Facebook link нь footer хэсэгт байгаа.";
+        }
+
+        if (text.includes("үйл ажиллагаа") || text.includes("хөтөлбөр")) {
+          return "Бид бүтээлч хөгжил, нийгмийн оролцоо, сургалт дэмжлэг, гэр бүлийн дэмжлэг зэрэг үйл ажиллагаа зохион байгуулдаг.";
+        }
+
+        return "Асуултыг тань хүлээж авлаа. Одоогоор энэ chat demo учраас богино хариулт өгч байна. Илүү дэлгэрэнгүй мэдээллийг contact.html эсвэл news.html хуудаснаас үзээрэй.";
       }
 
-      @media (max-width: 900px) {
-        header {
-          width: 94% !important;
-        }
-
-        main {
-          padding-top: 110px !important;
-        }
-
-        .video-hero-js {
-          width: 92% !important;
-          height: auto !important;
-          flex-direction: column !important;
-          align-items: flex-start !important;
-          padding: 18px 16px 36px;
-        }
-
-        .video-hero-js > div:first-child {
-          width: 100% !important;
-          min-height: 460px;
-          margin-bottom: 0 !important;
-        }
-
-        .video-hero-js img[alt="Podcast"] {
-          left: 50% !important;
-          top: 0 !important;
-          width: min(92vw, 560px) !important;
-          margin-left: 0 !important;
-          transform: translateX(-50%) !important;
-        }
-
-        .video-hero-js img[alt="Phone"] {
-          left: 50% !important;
-          top: 72px !important;
-          width: min(58vw, 260px) !important;
-          margin-left: 0 !important;
-          transform: translateX(-50%) !important;
-        }
-
-        .video-hero-js > div:last-child {
-          width: 100% !important;
-        }
-
-        .video-hero-js h1 {
-          margin: 0 !important;
-          font-size: clamp(42px, 12vw, 58px) !important;
-        }
-
-        .video-floating-badge {
-          display: none;
-        }
-
-        .episode-stage-js {
-          min-height: 620px;
-          width: 92% !important;
-        }
-
-        .episode-card-js {
-          width: min(92vw, 430px);
-        }
-
-        .episode-card-js.is-left,
-        .episode-card-js.is-right {
-          opacity: 0;
-          pointer-events: none;
-          transform: translateX(-50%) scale(0.72);
-        }
-
-        .video-library-js {
-          padding: 20px;
-        }
-
-        .video-library-top {
-          align-items: stretch;
-          flex-direction: column;
-        }
-
-        .video-search {
-          min-width: 100%;
-        }
-
-        .main-video-thumb {
-          min-height: 300px;
-        }
-
-        .main-video-info {
-          margin-top: -110px;
-          padding: 0 20px 22px;
-        }
-
-        .main-video-info h3 {
-          font-size: 32px;
-        }
-
-        .playlist-item {
-          grid-template-columns: 92px 1fr;
-        }
-
-        .playlist-item img {
-          width: 92px;
-          height: 72px;
-        }
-      }
-    
-
-      /* FINAL HERO SIZE LOCK: hemjee-g original-r ni hadgalj, zovhon bairlal/visibility zasna */
-      .video-hero-js {
-        width: 84% !important;
-        max-width: none !important;
-        height: 760px !important;
-        min-height: 760px !important;
-        margin-top: 32px !important;
-        padding: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        gap: 0 !important;
-        overflow: visible !important;
-        border-radius: 0 !important;
+      function addMessage(sender, text) {
+        messages.push({ sender, text });
+        saveMessages();
+        renderMessages();
       }
 
-      .video-hero-js::before {
-        display: none !important;
+      function sendUserMessage(text) {
+        const cleanText = text.trim();
+        if (!cleanText) return;
+
+        addMessage("user", cleanText);
+        messageInput.value = "";
+
+        setTimeout(() => {
+          addMessage("bot", getBotReply(cleanText));
+        }, 450);
       }
 
-      .video-hero-js > div:first-child {
-        position: relative !important;
-        width: 760px !important;
-        flex: 0 0 760px !important;
-        height: 100% !important;
-        margin-bottom: 7.5rem !important;
-        margin-top: 0 !important;
-        margin-left: 0 !important;
-        z-index: 20 !important;
-      }
-
-      .video-hero-js > div:last-child,
-      .video-hero-title-wrap {
-        position: relative !important;
-        z-index: 45 !important;
-        width: 520px !important;
-        flex: 0 0 520px !important;
-        height: auto !important;
-        display: block !important;
-        padding-left: 0 !important;
-        transform: translateX(clamp(26px, 3.2vw, 74px)) !important;
-        pointer-events: auto !important;
-      }
-
-      .video-hero-js img[alt="Podcast"] {
-        position: absolute !important;
-        left: 0 !important;
-        top: 20px !important;
-        width: 640px !important;
-        max-width: none !important;
-        height: auto !important;
-        margin-left: -120px !important;
-        margin-right: 0 !important;
-        z-index: 10 !important;
-        object-fit: contain !important;
-      }
-
-      .video-hero-js img[alt="Phone"] {
-        position: absolute !important;
-        left: 250px !important;
-        top: 20px !important;
-        width: 360px !important;
-        max-width: none !important;
-        height: auto !important;
-        margin-left: 12.5rem !important;
-        margin-right: 0 !important;
-        z-index: 30 !important;
-        object-fit: contain !important;
-        filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.35)) !important;
-      }
-
-      .video-hero-js h1 {
-        position: relative !important;
-        z-index: 60 !important;
-        width: max-content !important;
-        max-width: 100% !important;
-        margin-top: -220px !important;
-        margin-left: 3.75rem !important;
-        font-size: 74px !important;
-        line-height: 0.9 !important;
-        letter-spacing: 0 !important;
-        white-space: nowrap !important;
-        filter: none !important;
-      }
-
-      .video-hero-js h1 span {
-        white-space: nowrap !important;
-      }
-
-      .video-floating-badge {
-        display: none !important;
-      }
-
-      @media (max-width: 1500px) and (min-width: 901px) {
-        .video-hero-js {
-          width: 88% !important;
-          height: 700px !important;
-          min-height: 700px !important;
-        }
-
-        .video-hero-js > div:first-child {
-          width: 650px !important;
-          flex-basis: 650px !important;
-        }
-
-        .video-hero-js img[alt="Podcast"] {
-          width: 560px !important;
-          margin-left: -95px !important;
-        }
-
-        .video-hero-js img[alt="Phone"] {
-          width: 315px !important;
-          left: 220px !important;
-          margin-left: 10.5rem !important;
-        }
-
-        .video-hero-js > div:last-child,
-        .video-hero-title-wrap {
-          width: 450px !important;
-          flex-basis: 450px !important;
-          transform: translateX(30px) !important;
-        }
-
-        .video-hero-js h1 {
-          margin-top: -190px !important;
-          margin-left: 2.25rem !important;
-          font-size: 61px !important;
-        }
-      }
-
-      @media (max-width: 900px) {
-        .video-hero-js {
-          width: 92% !important;
-          height: auto !important;
-          min-height: 0 !important;
-          margin-top: 12px !important;
-          display: flex !important;
-          flex-direction: column !important;
-          align-items: center !important;
-          gap: 22px !important;
-          overflow: hidden !important;
-        }
-
-        .video-hero-js > div:first-child {
-          width: 100% !important;
-          flex: 0 0 420px !important;
-          height: 420px !important;
-          margin-bottom: 0 !important;
-        }
-
-        .video-hero-js img[alt="Podcast"] {
-          left: 50% !important;
-          top: 0 !important;
-          width: min(92vw, 520px) !important;
-          margin-left: 0 !important;
-          transform: translateX(-50%) !important;
-        }
-
-        .video-hero-js img[alt="Phone"] {
-          left: 50% !important;
-          top: 70px !important;
-          width: min(58vw, 250px) !important;
-          margin-left: 0 !important;
-          transform: translateX(-50%) !important;
-        }
-
-        .video-hero-js > div:last-child,
-        .video-hero-title-wrap {
-          width: 100% !important;
-          flex: 0 0 auto !important;
-          transform: none !important;
-          text-align: left !important;
-        }
-
-        .video-hero-js h1 {
-          width: 100% !important;
-          margin: 0 !important;
-          font-size: clamp(42px, 12vw, 58px) !important;
-          line-height: 0.92 !important;
-        }
-      }
-`;
-          document.head.appendChild(style);
-        };
-
-        const findHeading = (keyword) =>
-          $$("h1,h2,h3").find((heading) =>
-            heading.textContent
-              .replace(/\s+/g, " ")
-              .toLowerCase()
-              .includes(keyword.toLowerCase()),
-          );
-
-        const showToast = (message) => {
-          let toast = $(".toast");
-          if (!toast) {
-            toast = document.createElement("div");
-            toast.className = "toast";
-            document.body.appendChild(toast);
-          }
-
-          toast.textContent = message;
-          toast.classList.add("is-show");
-
-          window.clearTimeout(showToast.timer);
-          showToast.timer = window.setTimeout(() => {
-            toast.classList.remove("is-show");
-          }, 2400);
-        };
-
-        const enhanceHero = () => {
-          const main = $("main");
-          const hero = main ? $("section", main) : null;
-          if (!hero) return;
-
-          hero.classList.add("video-hero-js", "js-reveal");
-
-          const podcastImg = $('img[alt="Podcast"]');
-          const phoneImg = $('img[alt="Phone"]');
-
-          if (podcastImg) {
-            podcastImg.src = ASSETS.podcast;
-            podcastImg.classList.add("video-hero-img");
-            podcastImg.dataset.depth = "16";
-            podcastImg.dataset.fallback = ASSETS.podcast;
-          }
-
-          if (phoneImg) {
-            phoneImg.src = ASSETS.phone;
-            phoneImg.classList.add("video-hero-img");
-            phoneImg.dataset.depth = "28";
-            phoneImg.dataset.fallback = ASSETS.phone;
-          }
-
-          if (!$(".video-floating-badge", hero)) {
-            const badgeOne = document.createElement("div");
-            badgeOne.className = "video-floating-badge";
-            badgeOne.innerHTML = "<span></span> Podcast • Reels • Update";
-            hero.appendChild(badgeOne);
-
-            const badgeTwo = document.createElement("div");
-            badgeTwo.className = "video-floating-badge";
-            badgeTwo.innerHTML = "<span></span> 3хТОМ social hub";
-            hero.appendChild(badgeTwo);
-          }
-
-          hero.addEventListener("mousemove", (event) => {
-            if (window.innerWidth < 900) return;
-
-            const rect = hero.getBoundingClientRect();
-            const x = (event.clientX - rect.left) / rect.width - 0.5;
-            const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-            $$(".video-hero-img", hero).forEach((img) => {
-              const depth = Number(img.dataset.depth || 12);
-              img.style.transform = `translate(${x * depth}px, ${y * depth}px) rotate(${x * 2.2}deg)`;
-            });
-          });
-
-          hero.addEventListener("mouseleave", () => {
-            $$(".video-hero-img", hero).forEach((img) => {
-              img.style.transform = "";
-            });
-          });
-        };
-
-        const episodeCard = (item, index, role) => `
-    <article class="episode-card-js ${role}" data-card-index="${index}">
-      <img src="${safeUrl(item.image, ASSETS.video)}" alt="${escapeHtml(item.title)}" data-fallback="${ASSETS.video}" />
-
-      <div class="episode-meta">
-        <span class="episode-pill">${ICONS.playSquare}<span>${escapeHtml(item.label)}</span></span>
-        <span>${escapeHtml(item.date)} • ${escapeHtml(item.duration)}</span>
-      </div>
-
-      <h3 class="rubik-moonrocks-regular">Дугаар #${escapeHtml(item.number)}</h3>
-
-      <p>${escapeHtml(item.description)}</p>
-
-      <div class="episode-actions">
-        <button class="tom-btn tom-btn--dark" type="button" data-open-video="${index}">
-          <span>Дэлгэрэнгүй</span> ${ICONS.arrowUpRight}
-        </button>
-        <button class="tom-btn tom-btn--light" type="button" data-copy-video="${index}">
-          ${ICONS.copy} <span>Link copy</span>
-        </button>
-      </div>
-    </article>
-  `;
-
-        const getLoopIndex = (index) => {
-          const total = state.episodes.length;
-          return ((index % total) + total) % total;
-        };
-
-        const renderEpisodeCarousel = () => {
-          const heading = findHeading("2026 оны");
-          const stage = heading?.parentElement?.nextElementSibling;
-          if (!stage || !state.episodes.length) return;
-
-          stage.className = "episode-stage-js mx-auto w-[84%] js-reveal";
-          stage.dataset.episodeStage = "true";
-          drawEpisodeCarousel(stage);
-          startAutoplay(stage);
-          setupSwipe(
-            stage,
-            () => moveEpisode(1),
-            () => moveEpisode(-1),
-          );
-        };
-
-        const drawEpisodeCarousel = (
-          stage = $('[data-episode-stage="true"]'),
-        ) => {
-          if (!stage) return;
-
-          const total = state.episodes.length;
-          const left = getLoopIndex(state.activeEpisode - 1);
-          const center = getLoopIndex(state.activeEpisode);
-          const right = getLoopIndex(state.activeEpisode + 1);
-
-          stage.innerHTML = `
-      <div class="episode-shell">
-        ${episodeCard(state.episodes[left], left, "is-left")}
-        ${episodeCard(state.episodes[center], center, "is-active")}
-        ${episodeCard(state.episodes[right], right, "is-right")}
-      </div>
-
-      <div class="episode-nav">
-        <button class="circle-btn" type="button" data-episode-prev aria-label="Өмнөх дугаар">${ICONS.chevronLeft}</button>
-
-        <div class="episode-dots">
-          ${state.episodes
-            .map(
-              (_, index) => `
-                <button
-                  class="episode-dot ${index === center ? "is-active" : ""}"
-                  type="button"
-                  data-episode-dot="${index}"
-                  aria-label="${index + 1}-р дугаар"
-                ></button>
-              `,
-            )
-            .join("")}
-        </div>
-
-        <button class="circle-btn" type="button" data-episode-next aria-label="Дараагийн дугаар">${ICONS.chevronRight}</button>
-      </div>
-    `;
-        };
-
-        const moveEpisode = (step) => {
-          const stage = $('[data-episode-stage="true"]');
-          if (stage) {
-            stage.dataset.motion = step > 0 ? "next" : "prev";
-            stage.classList.remove("is-switching");
-            void stage.offsetWidth;
-            stage.classList.add("is-switching");
-            window.setTimeout(
-              () => stage.classList.remove("is-switching"),
-              620,
-            );
-          }
-
-          state.activeEpisode = getLoopIndex(state.activeEpisode + step);
-          drawEpisodeCarousel(stage || undefined);
-        };
-
-        const startAutoplay = (stage) => {
-          stopAutoplay();
-          state.timer = window.setInterval(() => moveEpisode(1), 5200);
-
-          stage.addEventListener("mouseenter", stopAutoplay);
-          stage.addEventListener("mouseleave", () => startAutoplay(stage));
-        };
-
-        const stopAutoplay = () => {
-          if (state.timer) {
-            window.clearInterval(state.timer);
-            state.timer = null;
-          }
-        };
-
-        const getFilteredVideos = () => {
-          const query = state.search.toLowerCase();
-          return state.episodes.filter((item) => {
-            const matchesTag =
-              state.filter === "all" ||
-              item.tag === state.filter ||
-              item.label.toLowerCase() === state.filter;
-            const content =
-              `${item.title} ${item.description} ${item.label} ${item.number}`.toLowerCase();
-            const matchesSearch = !query || content.includes(query);
-            return matchesTag && matchesSearch;
-          });
-        };
-
-        const renderVideoLibrary = () => {
-          const heading = findHeading("Шилдэг бичлэгүүд");
-          const section = heading?.closest("section");
-          if (!section) return;
-
-          const tags = [
-            { key: "all", label: "Бүгд" },
-            { key: "story", label: "Story" },
-            { key: "interview", label: "Interview" },
-            { key: "behind", label: "Behind" },
-          ];
-
-          section.className = "mx-auto w-[84%] pb-40 js-reveal";
-          section.innerHTML = `
-      <h2 class="rubik-spray-paint-regular mb-12 text-[64px] text-black">
-        Шилдэг бичлэгүүд
-      </h2>
-
-      <div class="video-library-js">
-        <div class="video-library-top">
-          <div class="filter-row">
-            ${tags
-              .map(
-                (tag) => `
-                  <button
-                    class="filter-chip ${state.filter === tag.key ? "is-active" : ""}"
-                    type="button"
-                    data-filter="${tag.key}"
-                  >
-                    ${tag.label}
-                  </button>
-                `,
-              )
-              .join("")}
-          </div>
-
-          <input
-            class="video-search"
-            type="search"
-            data-video-search
-            placeholder="Бичлэг хайх..."
-            value="${escapeHtml(state.search)}"
-          />
-        </div>
-
-        <div class="video-grid-js" data-video-grid></div>
-      </div>
-    `;
-
-          drawVideoGrid();
-        };
-
-        const drawVideoGrid = () => {
-          const grid = $("[data-video-grid]");
-          if (!grid) return;
-
-          const list = getFilteredVideos();
-          if (!list.length) {
-            grid.innerHTML = `
-        <div class="empty-result">
-          Илэрц олдсонгүй. Өөр keyword эсвэл filter сонгоод үзээрэй.
-        </div>
-      `;
-            return;
-          }
-
-          if (state.activeVideo >= list.length) state.activeVideo = 0;
-
-          const active = list[state.activeVideo];
-
-          grid.innerHTML = `
-      <article class="main-video-card">
-        <div
-          class="main-video-thumb"
-          style="background-image: url('${safeUrl(active.image, ASSETS.video)}')"
-        >
-          <button class="play-button-big" type="button" data-open-active-video aria-label="Видео үзэх">
-            ${ICONS.play}
-          </button>
-        </div>
-
-        <div class="main-video-info">
-          <div class="episode-meta">
-            <span class="episode-pill">${ICONS.playSquare}<span>${escapeHtml(active.label)}</span></span>
-            <span>${escapeHtml(active.date)} • ${escapeHtml(active.duration)}</span>
-          </div>
-
-          <h3 class="rubik-moonrocks-regular">
-            Дугаар #${escapeHtml(active.number)}
-          </h3>
-
-          <p>${escapeHtml(active.description)}</p>
-
-          <div class="episode-actions">
-            <button class="tom-btn tom-btn--dark" type="button" data-open-filtered-video="${state.activeVideo}">
-              <span>Үзэх</span> ${ICONS.arrowUpRight}
-            </button>
-            <button class="tom-btn tom-btn--light" type="button" data-copy-filtered-video="${state.activeVideo}">
-              Хуваалцах
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <aside class="playlist">
-        ${list
-          .map(
-            (item, index) => `
-              <button
-                class="playlist-item ${index === state.activeVideo ? "is-active" : ""}"
-                type="button"
-                data-play-index="${index}"
-              >
-                <img src="${safeUrl(item.image, ASSETS.video)}" alt="${escapeHtml(item.title)}" data-fallback="${ASSETS.video}" />
-
-                <span>
-                  <h4>${escapeHtml(item.title)}</h4>
-                  <p>Дугаар #${escapeHtml(item.number)} • ${escapeHtml(item.duration)}</p>
-                </span>
-              </button>
-            `,
-          )
-          .join("")}
-      </aside>
-    `;
-        };
-
-        const ensureModal = () => {
-          let modal = $(".video-modal");
-          if (modal) return modal;
-
-          modal = document.createElement("div");
-          modal.className = "video-modal";
-          modal.innerHTML = `
-      <div class="video-modal-card" role="dialog" aria-modal="true" aria-label="Видео дэлгэрэнгүй">
-        <div class="video-modal-thumb" data-modal-thumb></div>
-
-        <div class="video-modal-body">
-          <div class="episode-meta">
-            <span class="episode-pill" data-modal-label></span>
-            <span data-modal-meta></span>
-          </div>
-
-          <h3 class="rubik-moonrocks-regular" data-modal-title></h3>
-          <p data-modal-desc></p>
-
-          <div class="modal-actions">
-            <a class="tom-btn tom-btn--dark" href="#" data-modal-link>
-              <span>Нээх</span> ${ICONS.arrowUpRight}
-            </a>
-            <button class="tom-btn tom-btn--light" type="button" data-modal-close>
-              Хаах
-            </button>
-          </div>
-        </div>
-      </div>
-    `;
-          document.body.appendChild(modal);
-
-          modal.addEventListener("click", (event) => {
-            if (
-              event.target === modal ||
-              event.target.closest("[data-modal-close]")
-            ) {
-              closeModal();
-            }
-          });
-
-          return modal;
-        };
-
-        const openModal = (episode) => {
-          const modal = ensureModal();
-
-          $("[data-modal-thumb]", modal).style.backgroundImage =
-            `url('${safeUrl(episode.image, ASSETS.video)}')`;
-          $("[data-modal-label]", modal).innerHTML =
-            `${ICONS.playSquare}<span>${escapeHtml(episode.label)}</span>`;
-          $("[data-modal-meta]", modal).textContent =
-            `${episode.date} • ${episode.duration}`;
-          $("[data-modal-title]", modal).textContent =
-            `Дугаар #${episode.number}`;
-          $("[data-modal-desc]", modal).textContent = episode.description;
-
-          const link = $("[data-modal-link]", modal);
-          link.href = safeUrl(episode.url, "#");
-          link.onclick = (event) => {
-            if (link.getAttribute("href") === "#") {
-              event.preventDefault();
-              showToast("Энэ дугаарын link хараахан нэмэгдээгүй байна.");
-            }
-          };
-
-          modal.classList.add("is-open");
-          document.body.style.overflow = "hidden";
-        };
-
-        const closeModal = () => {
-          const modal = $(".video-modal");
-          if (!modal) return;
-          modal.classList.remove("is-open");
-          document.body.style.overflow = "";
-        };
-
-        const copyEpisode = async (episode) => {
-          const value =
-            safeUrl(episode.url, "#") !== "#"
-              ? episode.url
-              : `${location.origin}${location.pathname}#episode-${episode.number}`;
-
-          try {
-            await navigator.clipboard.writeText(value);
-            showToast("Видео link clipboard дээр хуулагдлаа.");
-          } catch {
-            showToast("Link: " + value);
-          }
-        };
-
-        const setupSwipe = (element, onLeft, onRight) => {
-          if (!element || element.dataset.dragReady === "true") return;
-          element.dataset.dragReady = "true";
-
-          let startX = 0;
-          let startY = 0;
-          let isPointerDown = false;
-          let didDrag = false;
-          let pointerId = null;
-
-          const getShell = () => $(".episode-shell", element);
-
-          const resetDragStyle = () => {
-            const shell = getShell();
-            if (!shell) return;
-            shell.style.setProperty("--drag-x", "0px");
-            shell.style.setProperty("--drag-side-x", "0px");
-            shell.style.setProperty("--drag-rotate", "0deg");
-          };
-
-          const updateDragStyle = (diffX) => {
-            const shell = getShell();
-            if (!shell) return;
-            const clamped = Math.max(-140, Math.min(140, diffX));
-            shell.style.setProperty("--drag-x", `${clamped * 0.45}px`);
-            shell.style.setProperty("--drag-side-x", `${clamped * 0.18}px`);
-            shell.style.setProperty("--drag-rotate", `${clamped * 0.018}deg`);
-          };
-
-          const begin = (event) => {
-            if (event.pointerType === "mouse" && event.button !== 0) return;
-            if (
-              event.target.closest(
-                "[data-episode-prev],[data-episode-next],[data-episode-dot],button,a,input",
-              )
-            )
-              return;
-
-            isPointerDown = true;
-            didDrag = false;
-            startX = event.clientX;
-            startY = event.clientY;
-            pointerId = event.pointerId;
-            getShell()?.classList.add("is-dragging");
-            stopAutoplay();
-
-            if (element.setPointerCapture && pointerId !== null) {
-              try {
-                element.setPointerCapture(pointerId);
-              } catch (error) {}
-            }
-          };
-
-          const move = (event) => {
-            if (!isPointerDown) return;
-
-            const diffX = event.clientX - startX;
-            const diffY = event.clientY - startY;
-
-            if (Math.abs(diffX) > 8 && Math.abs(diffX) > Math.abs(diffY)) {
-              didDrag = true;
-              updateDragStyle(diffX);
-            }
-          };
-
-          const end = (event) => {
-            if (!isPointerDown) return;
-
-            const diffX = event.clientX - startX;
-            const diffY = event.clientY - startY;
-            isPointerDown = false;
-            getShell()?.classList.remove("is-dragging");
-            resetDragStyle();
-
-            if (element.releasePointerCapture && pointerId !== null) {
-              try {
-                element.releasePointerCapture(pointerId);
-              } catch (error) {}
-            }
-
-            if (Math.abs(diffX) < 60 || Math.abs(diffX) < Math.abs(diffY)) {
-              startAutoplay(element);
-              return;
-            }
-
-            if (diffX < 0) onLeft();
-            else onRight();
-
-            startAutoplay(element);
-          };
-
-          element.addEventListener("pointerdown", begin);
-          element.addEventListener("pointermove", move);
-          element.addEventListener("pointerup", end);
-          element.addEventListener("pointercancel", end);
-          element.addEventListener("dragstart", (event) =>
-            event.preventDefault(),
-          );
-          element.addEventListener(
-            "click",
-            (event) => {
-              if (!didDrag) return;
-              event.preventDefault();
-              event.stopPropagation();
-              didDrag = false;
-            },
-            true,
-          );
-        };
-
-        const setupReveal = () => {
-          const targets = $$("main > section, main > div, footer").filter(
-            Boolean,
-          );
-          targets.forEach((target) => target.classList.add("js-reveal"));
-
-          if (!("IntersectionObserver" in window)) {
-            $$(".js-reveal").forEach((item) =>
-              item.classList.add("is-visible"),
-            );
-            return;
-          }
-
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add("is-visible");
-                  observer.unobserve(entry.target);
-                }
-              });
-            },
-            { threshold: 0.16 },
-          );
-
-          $$(".js-reveal").forEach((item) => observer.observe(item));
-        };
-
-        const setupImageFallback = () => {
-          document.addEventListener(
-            "error",
-            (event) => {
-              const img = event.target;
-              if (!(img instanceof HTMLImageElement)) return;
-
-              const fallback = img.dataset.fallback || ASSETS.video;
-              if (!fallback || img.src.endsWith(fallback)) return;
-              img.src = fallback;
-            },
-            true,
-          );
-        };
-
-        const bindEvents = () => {
-          document.addEventListener("click", (event) => {
-            const prev = event.target.closest("[data-episode-prev]");
-            const next = event.target.closest("[data-episode-next]");
-            const dot = event.target.closest("[data-episode-dot]");
-            const open = event.target.closest("[data-open-video]");
-            const copy = event.target.closest("[data-copy-video]");
-            const play = event.target.closest("[data-play-index]");
-            const filter = event.target.closest("[data-filter]");
-            const openFiltered = event.target.closest(
-              "[data-open-filtered-video]",
-            );
-            const copyFiltered = event.target.closest(
-              "[data-copy-filtered-video]",
-            );
-            const openActive = event.target.closest("[data-open-active-video]");
-
-            if (prev) {
-              moveEpisode(-1);
-              return;
-            }
-
-            if (next) {
-              moveEpisode(1);
-              return;
-            }
-
-            if (dot) {
-              state.activeEpisode = Number(dot.dataset.episodeDot);
-              drawEpisodeCarousel();
-              return;
-            }
-
-            if (open) {
-              openModal(state.episodes[Number(open.dataset.openVideo)]);
-              return;
-            }
-
-            if (copy) {
-              copyEpisode(state.episodes[Number(copy.dataset.copyVideo)]);
-              return;
-            }
-
-            if (play) {
-              state.activeVideo = Number(play.dataset.playIndex);
-              drawVideoGrid();
-              return;
-            }
-
-            if (filter) {
-              state.filter = filter.dataset.filter;
-              state.activeVideo = 0;
-              renderVideoLibrary();
-              return;
-            }
-
-            if (openFiltered || copyFiltered || openActive) {
-              const list = getFilteredVideos();
-              const index = openFiltered
-                ? Number(openFiltered.dataset.openFilteredVideo)
-                : copyFiltered
-                  ? Number(copyFiltered.dataset.copyFilteredVideo)
-                  : state.activeVideo;
-
-              if (!list[index]) return;
-
-              if (copyFiltered) copyEpisode(list[index]);
-              else openModal(list[index]);
-
-              return;
-            }
-          });
-
-          document.addEventListener("input", (event) => {
-            const input = event.target.closest("[data-video-search]");
-            if (!input) return;
-
-            state.search = input.value;
-            state.activeVideo = 0;
-            drawVideoGrid();
-          });
-
-          document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape") closeModal();
-
-            if (!$('[data-episode-stage="true"]')) return;
-
-            if (event.key === "ArrowLeft") moveEpisode(-1);
-            if (event.key === "ArrowRight") moveEpisode(1);
-          });
-        };
-
-        const init = () => {
-          injectStyle();
-          setupImageFallback();
-          enhanceHero();
-          renderEpisodeCarousel();
-          renderVideoLibrary();
-          setupReveal();
-          bindEvents();
-        };
-
-        if (document.readyState === "loading") {
-          document.addEventListener("DOMContentLoaded", init);
-        } else {
-          init();
-        }
-      })();
+      chatForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        sendUserMessage(messageInput.value);
+      });
+
+      quickButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          sendUserMessage(button.dataset.text);
+        });
+      });
+
+      clearChat.addEventListener("click", () => {
+        messages = defaultMessages;
+        saveMessages();
+        renderMessages();
+      });
+
+      renderMessages();
     </script>
   </body>
 </html>
