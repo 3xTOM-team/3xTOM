@@ -1,332 +1,195 @@
 <!doctype html>
-<html lang="en">
+<html lang="mn">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3хТОМ - Постер</title>
+    <title>3xTOM - Нэвтрэх</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@900&display=swap");
-
-      .grid-bg {
+      .page-bg {
         background:
-          linear-gradient(
-            to right,
-            rgba(55, 65, 81, 0.22) 1px,
-            transparent 1px
-          ),
-          linear-gradient(
-            to bottom,
-            rgba(55, 65, 81, 0.22) 1px,
-            transparent 1px
-          ),
-          radial-gradient(
-            circle at left center,
-            rgba(218, 247, 230, 0.75),
-            transparent 38%
-          ),
-          radial-gradient(
-            circle at right center,
-            rgba(255, 220, 238, 0.65),
-            transparent 42%
-          ),
-          linear-gradient(90deg, #edf6f1 0%, #f7f1f6 55%, #fcf5ef 100%);
-
-        background-size:
-          28px 28px,
-          28px 28px,
-          cover,
-          cover,
-          cover;
-      }
-
-      .soft-bg {
-        background:
-          radial-gradient(
-            circle at left center,
-            rgba(218, 247, 230, 0.72),
-            transparent 34%
-          ),
-          radial-gradient(
-            circle at right center,
-            rgba(244, 222, 255, 0.7),
-            transparent 36%
-          ),
-          radial-gradient(
-            circle at center,
-            rgba(255, 239, 220, 0.6),
-            transparent 40%
-          ),
-          linear-gradient(
-            90deg,
-            #fdfcff 0%,
-            #f4fff8 45%,
-            #fff7ef 70%,
-            #fbf2ff 100%
-          );
+          radial-gradient(circle at 15% 25%, #e9fbff 0%, transparent 35%),
+          radial-gradient(circle at 85% 20%, #ffe4f1 0%, transparent 35%),
+          radial-gradient(circle at 35% 80%, #ffe0f3 0%, transparent 35%),
+          radial-gradient(circle at 65% 80%, #e9edff 0%, transparent 35%),
+          linear-gradient(135deg, #f8ffff, #fff1f8);
       }
 
       .footer-grid-bg {
         background:
-          linear-gradient(
-            to right,
-            rgba(55, 65, 81, 0.18) 1px,
-            transparent 1px
-          ),
-          linear-gradient(
-            to bottom,
-            rgba(55, 65, 81, 0.18) 1px,
-            transparent 1px
-          ),
-          radial-gradient(
-            circle at left center,
-            rgba(218, 247, 230, 0.75),
-            transparent 38%
-          ),
-          radial-gradient(
-            circle at right center,
-            rgba(218, 225, 255, 0.7),
-            transparent 42%
-          ),
-          radial-gradient(
-            circle at center,
-            rgba(255, 235, 180, 0.65),
-            transparent 36%
-          ),
-          linear-gradient(
-            90deg,
-            #f5efff 0%,
-            #f6fff7 45%,
-            #fff7db 63%,
-            #eef2ff 100%
-          );
-
+          linear-gradient(to right, rgba(0, 0, 0, 0.12) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.12) 1px, transparent 1px),
+          linear-gradient(90deg, #effcff, #fff8dd, #f3eaff);
         background-size:
-          32px 32px,
-          32px 32px,
-          cover,
-          cover,
-          cover,
+          26px 26px,
+          26px 26px,
           cover;
-      }
-
-      .rubik-spray-paint-regular {
-        font-family: "Rubik Spray Paint", system-ui;
-        font-weight: 400;
-        font-style: normal;
-      }
-
-      .comic-relief-regular {
-        font-family: "Comic Relief", system-ui;
-        font-weight: 400;
-        font-style: normal;
-      }
-
-      .comic-relief-bold {
-        font-family: "Comic Relief", system-ui;
-        font-weight: 700;
-        font-style: normal;
-      }
-
-      .mango-logo {
-        font-family: "Chiron GoRound TC", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 900;
-        font-style: normal;
       }
     </style>
   </head>
 
-  <body class="min-h-screen bg-[#FFFFFF]">
-    <section class="relative z-20 min-h-[980px] soft-bg overflow-visible">
-      <header
-        class="absolute top-3 left-1/2 z-50 w-[80%] -translate-x-1/2 bg-[#FFFFFF] rounded-full"
+  <body class="page-bg min-h-screen">
+    <header
+      class="absolute top-3 left-1/2 z-50 w-[80%] -translate-x-1/2 bg-[#FFFFFF] rounded-full"
+    >
+      <nav
+        class="flex items-center justify-between rounded-full border border-[#FF66A2] bg-[#FFFFFF] px-6 py-1.5 shadow-[0_0_20px_rgba(255,102,162,0.4)] shadow-[#FF66A2]"
       >
-        <nav
-          class="flex items-center justify-between rounded-full border border-[#FF66A2] bg-[#FFFFFF] px-6 py-1.5 shadow-[0_0_20px_rgba(255,102,162,0.4)] shadow-[#FF66A2]"
+        <div
+          class="flex h-18 w-14 items-center justify-center rounded-full ml-8 mt-[-12px] mb-[-8px] cursor-pointer"
         >
-          <div
-            class="flex h-18 w-14 items-center justify-center rounded-full ml-8 mt-[-12px] mb-[-8px] cursor-pointer"
-          >
-            <a href="/3хТом/main.html"
-              ><img
-                src="./3xTOM-logo-vector.svg"
-                alt="3xTOM logo"
-                class="h-full w-full object-contain"
-            /></a>
-          </div>
-
-          <ul
-            class="hidden items-center gap-10 text-sm font-bold text-black md:flex"
-          >
-            <li>
-              <a
-                href="/3хТом/main.html"
-                class="hover:text-pink-500"
-                >Нүүр</a
-              >
-            </li>
-            <li>
-              <a href="/3хТом/about.html" class="hover:text-pink-500"
-                >Танилцуулга</a
-              >
-            </li>
-            <li>
-              <a href="/3хТом/news.html" class="hover:text-pink-500"
-                >Мэдээлэл</a
-              >
-            </li>
-            <li>
-              <a href="/3хТом/poster.html" class="border-b border-[#FF7EB1] pb-1 text-pink-500"
-                >Постер</a
-              >
-            </li>
-            <li>
-              <a href="/3хТом/videos.html" class="hover:text-pink-500"
-                >Бичлэг</a
-              >
-            </li>
-            <li>
-              <a href="/3хТом/contact.html" class="hover:text-pink-500"
-                >Холбогдох</a
-              >
-            </li>
-          </ul>
-
-          <div class="hidden items-center gap-3 md:flex">
-            <a
-              href="/3хТом/donate.html"
-              class="rounded-full bg-[#FF66A2] px-6 py-3 text-sm font-bold text-white shadow-md shadow-[#000000]/40 transition hover:bg-pink-600 cursor-pointer"
-            >
-              Хандив өгөх
-            </a>
-
-            <a
-              href="/3хТом/login.html"
-              class="rounded-full border-2 border-[#FF66A2] px-6 py-2.5 text-sm font-bold text-[#FF66A2] transition hover:bg-pink-50 cursor-pointer"
-            >
-              Нэвтрэх
-            </a>
-          </div>
-        </nav>
-      </header>
-
-      <div class="mx-36 w-[82%] pt-[190px]">
-        <p
-          class="mb-4 mt-[-40px] text-[13px] font-semibold tracking-[2px] text-[#FF66A2]"
-        >
-          3xTOM хөтөлбөр, мэдээлэл
-        </p>
-
-        <h1 class="mb-10 mt-[-10px] text-[38px] font-extrabold text-[#17084e]">
-          Бидний бүтээлүүд
-        </h1>
-
-        <div class="grid grid-cols-1 items-end gap-10 lg:grid-cols-3">
-          <img
-            src="./poster-work.png"
-            alt="3xTOM poster"
-            class="h-[440px] w-full rounded-[22px] object-cover shadow-sm lg:mt-16"
-          />
-          <img
-            src="./poster-work.png"
-            alt="3xTOM poster"
-            class="h-[530px] w-full rounded-[22px] object-cover shadow-sm"
-          />
-          <img
-            src="./poster-work.png"
-            alt="3xTOM poster"
-            class="h-[495px] w-full rounded-[22px] object-cover shadow-sm lg:mt-6"
-          />
+          <a href="/3хТом/main.html"
+            ><img
+              src="./3xTOM-logo-vector.svg"
+              alt="3xTOM logo"
+              class="h-full w-full object-contain"
+          /></a>
         </div>
-      </div>
-    </section>
 
-    <section class="soft-bg px-[6.5%] py-20">
-      <p class="mb-6 text-[13px] font-semibold tracking-[4px] text-[#FF4C92]">
-        элсэлт явагдаж буй хөтөлбөр
-      </p>
-      <h2 class="mb-10 mt-[-10px] text-[38px] font-extrabold text-[#17084e]">
-        Хөтөлбөрүүдийн элсэлт
-      </h2>
-      <div
-        class="mx-auto grid max-w-[1320px] grid-cols-1 overflow-hidden rounded-[14px] border border-gray-300 bg-white shadow-[0_0_45px_rgba(0,0,0,0.22)] lg:grid-cols-[1.05fr_1fr]"
+        <ul
+          class="hidden items-center gap-10 text-sm font-bold text-black md:flex"
+        >
+          <li>
+            <a href="/3хТом/main.html" class="hover:text-pink-500">Нүүр</a>
+          </li>
+          <li>
+            <a href="/3хТом/about.html" class="hover:text-pink-500"
+              >Танилцуулга</a
+            >
+          </li>
+          <li>
+            <a href="/3хТом/news.html" class="hover:text-pink-500">Мэдээлэл</a>
+          </li>
+          <li>
+            <a href="/3хТом/poster.html" class="hover:text-pink-500">Постер</a>
+          </li>
+          <li>
+            <a
+              href="/3хТом/videos.html"
+              class="hover:text-pink-500"
+              >Бичлэг</a
+            >
+          </li>
+          <li>
+            <a href="/3хТом/contact.html" class="hover:text-pink-500"
+              >Холбогдох</a
+            >
+          </li>
+        </ul>
+
+        <div class="hidden items-center gap-3 md:flex">
+          <a
+            href="/3хТом/donate.html"
+            class="rounded-full bg-[#FF66A2] px-6 py-3 text-sm font-bold text-white transition hover:bg-pink-200 cursor-pointer"
+          >
+            Хандив өгөх
+          </a>
+
+          <a
+            href="/3хТом/login.html"
+            class="rounded-full border-2 border-[#FF66A2] bg-white px-6 py-2.5 text-sm font-bold text-[#FF66A2] shadow-md shadow-[#000000]/40 transition hover:bg-pink-50 cursor-pointer"
+          >
+            Нэвтрэх
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex min-h-[1050px] items-center justify-center pt-24">
+      <section
+        class="flex w-[78%] overflow-hidden rounded-2xl bg-white shadow-[0_8px_35px_rgba(0,0,0,0.22)]"
       >
-        <div class="relative min-h-[620px]">
+        <div class="relative w-[50%]">
           <img
             src="./poster-program.jpg"
-            alt="3xTOM program"
-            class="h-full w-full object-cover"
+            alt="Register"
+            class="h-[720px] w-full object-cover"
           />
-          <div class="absolute bottom-7 left-1/2 flex -translate-x-1/2 gap-3">
-            <span class="h-6 w-6 rounded-full bg-[#FF66A2]"></span
-            ><span class="h-6 w-6 rounded-full bg-white"></span
-            ><span class="h-6 w-6 rounded-full bg-white"></span
-            ><span class="h-6 w-6 rounded-full bg-white"></span>
+
+          <div class="absolute bottom-28 left-1/2 flex -translate-x-1/2 gap-3">
+            <span class="h-5 w-5 rounded-full bg-[#FF66A2]"></span>
+            <span class="h-5 w-5 rounded-full bg-white"></span>
+            <span class="h-5 w-5 rounded-full bg-white"></span>
+            <span class="h-5 w-5 rounded-full bg-[#4EC7FF]"></span>
           </div>
         </div>
-        <div class="bg-white px-12 py-10">
-          <h3 class="mb-5 text-[40px] font-extrabold leading-[1.15] text-black">
-            Сэтгэлээс ирээдүйд
-          </h3>
-          <p
-            class="mb-4 max-w-[620px] text-[18px] font-semibold leading-[1.45] text-[#19004E]"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-            ultrices lacus ut mi euismod tincidunt. Pellentesque risus orci,
-            interdum nec venenatis eu, convallis laoreet enim. Praesent porta
-            dolor id porttitor vulputate. Sed
-          </p>
-          <p class="mb-10 text-[18px] leading-[1.45] text-[#19004E]">
-            Age - 16+<br />Availability -<br />Eligible for -
-          </p>
-          <form class="grid grid-cols-1 gap-6 md:grid-cols-2">
+
+        <div class="w-[50%] px-12 py-12">
+          <h1 class="mb-8 ml-20 text-[32px] font-bold text-black">
+            Тавтай морилно уу
+          </h1>
+
+          <form class="space-y-5">
             <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none"
+              class="h-12 w-full rounded-full border border-gray-300 px-5 outline-none"
               placeholder="Нэр*"
             />
             <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none"
+              class="h-12 w-full rounded-full border border-gray-300 px-5 outline-none"
               placeholder="Овог*"
             />
             <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none"
-              placeholder="Утасны дугаар*"
-            />
-            <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none"
+              class="h-12 w-full rounded-full border border-gray-300 px-5 outline-none"
               placeholder="Имэйл*"
             />
             <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none md:col-span-2"
-              placeholder="Яагаад 3xTOM гэж?*"
+              class="h-12 w-full rounded-full border border-gray-300 px-5 outline-none"
+              placeholder="Утасны дугаар*"
             />
             <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none md:col-span-2"
-              placeholder="Өөрийгөө танилцуулна уу*"
+              class="h-12 w-full rounded-full border border-gray-300 px-5 outline-none"
+              placeholder="Нууц үг*"
+              type="password"
             />
             <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none md:col-span-2"
-              placeholder="Таны давуу тал юу вэ?*"
+              class="h-12 w-full rounded-full border border-gray-300 px-5 outline-none"
+              placeholder="Нууц үгээ дахин оруулна уу*"
+              type="password"
             />
-          </form>
-          <div class="mt-10 flex items-center gap-5">
+
             <button
-              class="rounded-full bg-[#FF66A2] px-7 py-3 text-[16px] font-bold text-white shadow-md shadow-[#000000]/30 transition hover:bg-pink-600 cursor-pointer"
+              class="mt-4 flex h-12 w-full items-center justify-center gap-3 rounded-md bg-[#1877F2] text-lg font-bold text-white"
             >
-              Бүртгүүлэх
+              <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M23 11.5001C23 5.14878 17.8513 5.53131e-05 11.5 5.53131e-05C5.14872 5.53131e-05 0 5.14878 0 11.5001C0 17.24 4.20538 21.9976 9.70312 22.8604V14.8243H6.7832V11.5001H9.70312V8.96646C9.70312 6.08427 11.42 4.49224 14.0468 4.49224C15.305 4.49224 16.6211 4.71685 16.6211 4.71685V7.54693H15.171C13.7424 7.54693 13.2969 8.4334 13.2969 9.34284V11.5001H16.4863L15.9765 14.8243H13.2969V22.8604C18.7946 21.9976 23 17.24 23 11.5001Z" fill="white"/>
+</svg>
+
+              <span>Continue with Facebook</span>
             </button>
-            <a
-              href="/./login.html"
-              class="rounded-full border-2 border-[#FF66A2] px-7 py-2.5 text-[16px] font-bold text-[#FF66A2] transition hover:bg-pink-50 cursor-pointer"
-              >Нэвтрэх</a
+
+            <button
+              class="flex h-12 w-full items-center justify-center gap-3 rounded-md border border-gray-300 bg-white text-lg font-bold text-gray-500 shadow-sm"
             >
-          </div>
+              <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22.54 11.7613C22.54 10.9459 22.4668 10.1618 22.3309 9.40906H11.5V13.8575H17.6891C17.4225 15.295 16.6123 16.5129 15.3943 17.3284V20.2138H19.1109C21.2855 18.2118 22.54 15.2636 22.54 11.7613Z" fill="#4285F4"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.4995 22.9998C14.6045 22.9998 17.2077 21.97 19.1104 20.2137L15.3938 17.3282C14.364 18.0182 13.0467 18.4259 11.4995 18.4259C8.50425 18.4259 5.96902 16.403 5.0647 13.6848H1.22266V16.6644C3.11493 20.4228 7.00402 22.9998 11.4995 22.9998Z" fill="#34A853"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.06523 13.6851C4.83523 12.9951 4.70455 12.2581 4.70455 11.5001C4.70455 10.7422 4.83523 10.0051 5.06523 9.31512V6.33557H1.22318C0.444318 7.88807 0 9.64443 0 11.5001C0 13.3558 0.444318 15.1122 1.22318 16.6647L5.06523 13.6851Z" fill="#FBBC05"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.4995 4.57386C13.1879 4.57386 14.7038 5.15409 15.8956 6.29364L19.194 2.99523C17.2024 1.13955 14.5992 0 11.4995 0C7.00402 0 3.11493 2.57705 1.22266 6.33545L5.0647 9.315C5.96902 6.59682 8.50425 4.57386 11.4995 4.57386Z" fill="#EA4335"/>
+</svg>
+
+              </svg>
+
+              <span>Continue with Google</span>
+            </button>
+
+            <div class="flex gap-6 pt-5">
+              <button
+                class="rounded-full bg-[#FF66A2] px-9 py-3 text-lg font-bold text-white shadow-md"
+              >
+                Бүртгүүлэх
+              </button>
+
+              <button
+                class="rounded-full border-2 border-[#FF66A2] px-10 py-3 text-lg font-bold text-[#FF66A2]"
+              >
+                Нэвтрэх
+              </button>
+            </div>
+          </form>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <footer class="footer-grid-bg px-[6.5%] py-8">
       <div class="grid grid-cols-1 gap-10 md:grid-cols-[1.1fr_1fr_1.1fr]">

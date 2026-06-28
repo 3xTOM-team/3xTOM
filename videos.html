@@ -1,70 +1,37 @@
 <!doctype html>
-<html lang="en">
+<html lang="mn">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3хТОМ - Постер</title>
+    <title>3xTOM - Бичлэг</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@900&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@900&family=Rubik+Moonrocks&display=swap");
 
-      .grid-bg {
-        background:
-          linear-gradient(
-            to right,
-            rgba(55, 65, 81, 0.22) 1px,
-            transparent 1px
-          ),
-          linear-gradient(
-            to bottom,
-            rgba(55, 65, 81, 0.22) 1px,
-            transparent 1px
-          ),
-          radial-gradient(
-            circle at left center,
-            rgba(218, 247, 230, 0.75),
-            transparent 38%
-          ),
-          radial-gradient(
-            circle at right center,
-            rgba(255, 220, 238, 0.65),
-            transparent 42%
-          ),
-          linear-gradient(90deg, #edf6f1 0%, #f7f1f6 55%, #fcf5ef 100%);
-
-        background-size:
-          28px 28px,
-          28px 28px,
-          cover,
-          cover,
-          cover;
+      .rubik-spray-paint-regular {
+        font-family: "Rubik Spray Paint", system-ui;
+        font-weight: 400;
+        font-style: normal;
       }
 
-      .soft-bg {
+      .rubik-moonrocks-regular {
+        font-family: "Rubik Moonrocks", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .page-bg {
         background:
-          radial-gradient(
-            circle at left center,
-            rgba(218, 247, 230, 0.72),
-            transparent 34%
-          ),
-          radial-gradient(
-            circle at right center,
-            rgba(244, 222, 255, 0.7),
-            transparent 36%
-          ),
-          radial-gradient(
-            circle at center,
-            rgba(255, 239, 220, 0.6),
-            transparent 40%
-          ),
+          radial-gradient(circle at 12% 4%, #fff2dd 0%, transparent 28%),
+          radial-gradient(circle at 86% 35%, #dff3ff 0%, transparent 38%),
+          radial-gradient(circle at 72% 85%, #fff2df 0%, transparent 28%),
           linear-gradient(
-            90deg,
-            #fdfcff 0%,
-            #f4fff8 45%,
-            #fff7ef 70%,
-            #fbf2ff 100%
+            135deg,
+            #fff4dd 0%,
+            #fdeef8 32%,
+            #dff4ff 70%,
+            #fff3e8 100%
           );
       }
 
@@ -111,222 +78,193 @@
           cover,
           cover;
       }
-
-      .rubik-spray-paint-regular {
-        font-family: "Rubik Spray Paint", system-ui;
-        font-weight: 400;
-        font-style: normal;
-      }
-
-      .comic-relief-regular {
-        font-family: "Comic Relief", system-ui;
-        font-weight: 400;
-        font-style: normal;
-      }
-
-      .comic-relief-bold {
-        font-family: "Comic Relief", system-ui;
-        font-weight: 700;
-        font-style: normal;
-      }
-
-      .mango-logo {
-        font-family: "Chiron GoRound TC", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 900;
-        font-style: normal;
-      }
     </style>
   </head>
-
-  <body class="min-h-screen bg-[#FFFFFF]">
-    <section class="relative z-20 min-h-[980px] soft-bg overflow-visible">
-      <header
-        class="absolute top-3 left-1/2 z-50 w-[80%] -translate-x-1/2 bg-[#FFFFFF] rounded-full"
+  <body class="page-bg">
+    <section class="py-16"></section>
+    <header
+      class="absolute top-3 left-1/2 z-50 w-[80%] -translate-x-1/2 bg-[#FFFFFF] rounded-full"
+    >
+      <nav
+        class="flex items-center justify-between rounded-full border border-[#FF66A2] bg-[#FFFFFF] px-6 py-1.5 shadow-[0_0_20px_rgba(255,102,162,0.4)] shadow-[#FF66A2]"
       >
-        <nav
-          class="flex items-center justify-between rounded-full border border-[#FF66A2] bg-[#FFFFFF] px-6 py-1.5 shadow-[0_0_20px_rgba(255,102,162,0.4)] shadow-[#FF66A2]"
+        <div
+          class="flex h-18 w-14 items-center justify-center rounded-full ml-8 mt-[-12px] mb-[-8px] cursor-pointer"
         >
-          <div
-            class="flex h-18 w-14 items-center justify-center rounded-full ml-8 mt-[-12px] mb-[-8px] cursor-pointer"
-          >
-            <a href="/3хТом/main.html"
-              ><img
-                src="./3xTOM-logo-vector.svg"
-                alt="3xTOM logo"
-                class="h-full w-full object-contain"
-            /></a>
-          </div>
+          <a href="/3хТом/main.html"
+            ><img
+              src="./3xTOM-logo-vector.svg"
+              alt="3xTOM logo"
+              class="h-full w-full object-contain"
+          /></a>
+        </div>
 
-          <ul
-            class="hidden items-center gap-10 text-sm font-bold text-black md:flex"
-          >
-            <li>
-              <a
-                href="/3хТом/main.html"
-                class="hover:text-pink-500"
-                >Нүүр</a
-              >
-            </li>
-            <li>
-              <a href="/3хТом/about.html" class="hover:text-pink-500"
-                >Танилцуулга</a
-              >
-            </li>
-            <li>
-              <a href="/3хТом/news.html" class="hover:text-pink-500"
-                >Мэдээлэл</a
-              >
-            </li>
-            <li>
-              <a href="/3хТом/poster.html" class="border-b border-[#FF7EB1] pb-1 text-pink-500"
-                >Постер</a
-              >
-            </li>
-            <li>
-              <a href="/3хТом/videos.html" class="hover:text-pink-500"
-                >Бичлэг</a
-              >
-            </li>
-            <li>
-              <a href="/3хТом/contact.html" class="hover:text-pink-500"
-                >Холбогдох</a
-              >
-            </li>
-          </ul>
-
-          <div class="hidden items-center gap-3 md:flex">
-            <a
-              href="/3хТом/donate.html"
-              class="rounded-full bg-[#FF66A2] px-6 py-3 text-sm font-bold text-white shadow-md shadow-[#000000]/40 transition hover:bg-pink-600 cursor-pointer"
-            >
-              Хандив өгөх
-            </a>
-
-            <a
-              href="/3хТом/login.html"
-              class="rounded-full border-2 border-[#FF66A2] px-6 py-2.5 text-sm font-bold text-[#FF66A2] transition hover:bg-pink-50 cursor-pointer"
-            >
-              Нэвтрэх
-            </a>
-          </div>
-        </nav>
-      </header>
-
-      <div class="mx-36 w-[82%] pt-[190px]">
-        <p
-          class="mb-4 mt-[-40px] text-[13px] font-semibold tracking-[2px] text-[#FF66A2]"
+        <ul
+          class="hidden items-center gap-10 text-sm font-bold text-black md:flex"
         >
-          3xTOM хөтөлбөр, мэдээлэл
-        </p>
+          <li>
+            <a href="/3хТом/main.html" class="hover:text-pink-500">Нүүр</a>
+          </li>
+          <li>
+            <a href="/3хТом/about.html" class="hover:text-pink-500"
+              >Танилцуулга</a
+            >
+          </li>
+          <li>
+            <a href="/3хТом/news.html" class="hover:text-pink-500">Мэдээлэл</a>
+          </li>
+          <li>
+            <a href="/3хТом/poster.html" class="hover:text-pink-500">Постер</a>
+          </li>
+          <li>
+            <a
+              href="/3хТом/videos.html"
+              class="border-b border-[#FF7EB1] pb-1 text-pink-500"
+              >Бичлэг</a
+            >
+          </li>
+          <li>
+            <a href="/3хТом/contact.html" class="hover:text-pink-500"
+              >Холбогдох</a
+            >
+          </li>
+        </ul>
 
-        <h1 class="mb-10 mt-[-10px] text-[38px] font-extrabold text-[#17084e]">
-          Бидний бүтээлүүд
-        </h1>
+        <div class="hidden items-center gap-3 md:flex">
+          <a
+            href="/3хТом/donate.html"
+            class="rounded-full bg-[#FF66A2] px-6 py-3 text-sm font-bold text-white shadow-md shadow-[#000000]/40 transition hover:bg-pink-600 cursor-pointer"
+          >
+            Хандив өгөх
+          </a>
 
-        <div class="grid grid-cols-1 items-end gap-10 lg:grid-cols-3">
+          <a
+            href="/3хТом/login.html"
+            class="rounded-full border-2 border-[#FF66A2] px-6 py-2.5 text-sm font-bold text-[#FF66A2] transition hover:bg-pink-50 cursor-pointer"
+          >
+            Нэвтрэх
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="overflow-hidden pt-[140px]">
+      <section
+        class="relative mx-auto mt-8 flex h-[760px] w-[84%] items-center justify-between"
+      >
+        <div class="relative w-[760px] mb-30 h-full">
           <img
-            src="./poster-work.png"
-            alt="3xTOM poster"
-            class="h-[440px] w-full rounded-[22px] object-cover shadow-sm lg:mt-16"
+            src="./Podcast.png"
+            alt="Podcast"
+            class="absolute left-0 ml-[-120px] right-[50px] top-[20px] w-[640px] object-contain"
           />
+
           <img
-            src="./poster-work.png"
-            alt="3xTOM poster"
-            class="h-[530px] w-full rounded-[22px] object-cover shadow-sm"
-          />
-          <img
-            src="./poster-work.png"
-            alt="3xTOM poster"
-            class="h-[495px] w-full rounded-[22px] object-cover shadow-sm lg:mt-6"
+            src="./Phone.png"
+            alt="Phone"
+            class="absolute rounded-4xl ml-50 left-[250px] top-[20px] z-20 w-[360px] drop-shadow-[0_20px_30px_rgba(0,0,0,0.35)]"
           />
         </div>
+
+        <div class="w-[520px]">
+          <h1
+            class="rubik-spray-paint-regular text-[74px] leading-[0.9] ml-15 mt-[-220px]"
+          >
+            <span class="block text-[#FFA13C]">Бүх</span>
+            <span class="block text-[#FFA13C]">мэдээллийг</span>
+            <span class="block text-[#1A1464]">нэг сувгаас</span>
+          </h1>
+        </div>
+      </section>
+
+      <div class="mx-auto w-[84%] pb-16">
+        <h2
+          class="rubik-spray-paint-regular text-[70px] leading-tight text-black"
+        >
+          2026 оны <span class="text-[#FF9F43]">шилдэг</span><br />
+          дугаарууд
+        </h2>
       </div>
-    </section>
 
-    <section class="soft-bg px-[6.5%] py-20">
-      <p class="mb-6 text-[13px] font-semibold tracking-[4px] text-[#FF4C92]">
-        элсэлт явагдаж буй хөтөлбөр
-      </p>
-      <h2 class="mb-10 mt-[-10px] text-[38px] font-extrabold text-[#17084e]">
-        Хөтөлбөрүүдийн элсэлт
-      </h2>
-      <div
-        class="mx-auto grid max-w-[1320px] grid-cols-1 overflow-hidden rounded-[14px] border border-gray-300 bg-white shadow-[0_0_45px_rgba(0,0,0,0.22)] lg:grid-cols-[1.05fr_1fr]"
+      <section
+        class="relative mx-auto mb-40 flex h-[560px] w-[84%] items-center justify-center"
       >
-        <div class="relative min-h-[620px]">
+        <div
+          class="absolute left-0 top-[70px] w-[430px] rounded-[28px] bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
+        >
           <img
-            src="./poster-program.jpg"
-            alt="3xTOM program"
-            class="h-full w-full object-cover"
+            src="./video.png"
+            alt=""
+            class="h-[220px] w-full rounded-2xl object-cover"
           />
-          <div class="absolute bottom-7 left-1/2 flex -translate-x-1/2 gap-3">
-            <span class="h-6 w-6 rounded-full bg-[#FF66A2]"></span
-            ><span class="h-6 w-6 rounded-full bg-white"></span
-            ><span class="h-6 w-6 rounded-full bg-white"></span
-            ><span class="h-6 w-6 rounded-full bg-white"></span>
-          </div>
-        </div>
-        <div class="bg-white px-12 py-10">
-          <h3 class="mb-5 text-[40px] font-extrabold leading-[1.15] text-black">
-            Сэтгэлээс ирээдүйд
-          </h3>
-          <p
-            class="mb-4 max-w-[620px] text-[18px] font-semibold leading-[1.45] text-[#19004E]"
+
+          <h3 class="rubik-moonrocks-regular mt-7 text-[34px]">Дугаар #11</h3>
+
+          <button
+            class="mt-8 rounded-full border-2 border-black px-8 py-3 text-[22px] font-bold transition hover:bg-black hover:text-white"
           >
+            Дэлгэрэнгүй ↗
+          </button>
+        </div>
+
+        <div
+          class="relative z-10 w-[500px] rounded-[30px] bg-white p-8 shadow-[0_15px_40px_rgba(0,0,0,0.12)]"
+        >
+          <img
+            src="./video.png"
+            alt=""
+            class="h-[250px] w-full rounded-2xl object-cover"
+          />
+
+          <h3 class="rubik-moonrocks-regular mt-7 text-[38px]">Дугаар #12</h3>
+
+          <p class="mt-4 text-[17px] leading-7 text-[#1A1464]">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-            ultrices lacus ut mi euismod tincidunt. Pellentesque risus orci,
-            interdum nec venenatis eu, convallis laoreet enim. Praesent porta
-            dolor id porttitor vulputate. Sed
+            ultrices lacus ut mi euismod tincidunt.
           </p>
-          <p class="mb-10 text-[18px] leading-[1.45] text-[#19004E]">
-            Age - 16+<br />Availability -<br />Eligible for -
-          </p>
-          <form class="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none"
-              placeholder="Нэр*"
-            />
-            <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none"
-              placeholder="Овог*"
-            />
-            <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none"
-              placeholder="Утасны дугаар*"
-            />
-            <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none"
-              placeholder="Имэйл*"
-            />
-            <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none md:col-span-2"
-              placeholder="Яагаад 3xTOM гэж?*"
-            />
-            <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none md:col-span-2"
-              placeholder="Өөрийгөө танилцуулна уу*"
-            />
-            <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none md:col-span-2"
-              placeholder="Таны давуу тал юу вэ?*"
-            />
-          </form>
-          <div class="mt-10 flex items-center gap-5">
-            <button
-              class="rounded-full bg-[#FF66A2] px-7 py-3 text-[16px] font-bold text-white shadow-md shadow-[#000000]/30 transition hover:bg-pink-600 cursor-pointer"
-            >
-              Бүртгүүлэх
-            </button>
-            <a
-              href="/./login.html"
-              class="rounded-full border-2 border-[#FF66A2] px-7 py-2.5 text-[16px] font-bold text-[#FF66A2] transition hover:bg-pink-50 cursor-pointer"
-              >Нэвтрэх</a
-            >
+
+          <button
+            class="mt-8 rounded-full border-2 border-black px-8 py-3 text-[22px] font-bold transition hover:bg-black hover:text-white"
+          >
+            Дэлгэрэнгүй ↗
+          </button>
+        </div>
+
+        <div
+          class="absolute right-0 top-[70px] w-[430px] rounded-[28px] bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
+        >
+          <img
+            src="./video.png"
+            alt=""
+            class="h-[220px] w-full rounded-2xl object-cover"
+          />
+
+          <h3 class="rubik-moonrocks-regular mt-7 text-[34px]">Дугаар #15</h3>
+
+          <button
+            class="mt-8 rounded-full border-2 border-black px-8 py-3 text-[22px] font-bold transition hover:bg-black hover:text-white"
+          >
+            Дэлгэрэнгүй ↗
+          </button>
+        </div>
+      </section>
+
+      <section class="mx-auto w-[84%] pb-40">
+        <h2 class="rubik-spray-paint-regular mb-20 text-[64px] text-black">
+          Шилдэг бичлэгүүд
+        </h2>
+
+        <div class="grid grid-cols-[2fr_1fr] gap-14">
+          <div class="h-[520px] border border-gray-300"></div>
+
+          <div class="flex flex-col gap-14">
+            <div class="h-[170px] border border-gray-300"></div>
+            <div class="h-[170px] border border-gray-300"></div>
+            <div class="h-[170px] border border-gray-300"></div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <footer class="footer-grid-bg px-[6.5%] py-8">
       <div class="grid grid-cols-1 gap-10 md:grid-cols-[1.1fr_1fr_1.1fr]">

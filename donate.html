@@ -1,332 +1,105 @@
 <!doctype html>
-<html lang="en">
+<html lang="mn">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3хТОМ - Постер</title>
+    <title>3xTOM - Хандив өгөх</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@900&display=swap");
-
-      .grid-bg {
-        background:
-          linear-gradient(
-            to right,
-            rgba(55, 65, 81, 0.22) 1px,
-            transparent 1px
-          ),
-          linear-gradient(
-            to bottom,
-            rgba(55, 65, 81, 0.22) 1px,
-            transparent 1px
-          ),
-          radial-gradient(
-            circle at left center,
-            rgba(218, 247, 230, 0.75),
-            transparent 38%
-          ),
-          radial-gradient(
-            circle at right center,
-            rgba(255, 220, 238, 0.65),
-            transparent 42%
-          ),
-          linear-gradient(90deg, #edf6f1 0%, #f7f1f6 55%, #fcf5ef 100%);
-
-        background-size:
-          28px 28px,
-          28px 28px,
-          cover,
-          cover,
-          cover;
-      }
-
-      .soft-bg {
-        background:
-          radial-gradient(
-            circle at left center,
-            rgba(218, 247, 230, 0.72),
-            transparent 34%
-          ),
-          radial-gradient(
-            circle at right center,
-            rgba(244, 222, 255, 0.7),
-            transparent 36%
-          ),
-          radial-gradient(
-            circle at center,
-            rgba(255, 239, 220, 0.6),
-            transparent 40%
-          ),
-          linear-gradient(
-            90deg,
-            #fdfcff 0%,
-            #f4fff8 45%,
-            #fff7ef 70%,
-            #fbf2ff 100%
-          );
-      }
-
-      .footer-grid-bg {
-        background:
-          linear-gradient(
-            to right,
-            rgba(55, 65, 81, 0.18) 1px,
-            transparent 1px
-          ),
-          linear-gradient(
-            to bottom,
-            rgba(55, 65, 81, 0.18) 1px,
-            transparent 1px
-          ),
-          radial-gradient(
-            circle at left center,
-            rgba(218, 247, 230, 0.75),
-            transparent 38%
-          ),
-          radial-gradient(
-            circle at right center,
-            rgba(218, 225, 255, 0.7),
-            transparent 42%
-          ),
-          radial-gradient(
-            circle at center,
-            rgba(255, 235, 180, 0.65),
-            transparent 36%
-          ),
-          linear-gradient(
-            90deg,
-            #f5efff 0%,
-            #f6fff7 45%,
-            #fff7db 63%,
-            #eef2ff 100%
-          );
-
-        background-size:
-          32px 32px,
-          32px 32px,
-          cover,
-          cover,
-          cover,
-          cover;
-      }
 
       .rubik-spray-paint-regular {
         font-family: "Rubik Spray Paint", system-ui;
         font-weight: 400;
         font-style: normal;
       }
-
-      .comic-relief-regular {
-        font-family: "Comic Relief", system-ui;
-        font-weight: 400;
-        font-style: normal;
+      .page-bg {
+        background:
+          radial-gradient(circle at 15% 25%, #e9fbff 0%, transparent 35%),
+          radial-gradient(circle at 85% 20%, #ffe4f1 0%, transparent 35%),
+          radial-gradient(circle at 35% 80%, #ffe0f3 0%, transparent 35%),
+          radial-gradient(circle at 65% 80%, #e9edff 0%, transparent 35%),
+          linear-gradient(135deg, #f8ffff, #fff1f8);
       }
 
-      .comic-relief-bold {
-        font-family: "Comic Relief", system-ui;
-        font-weight: 700;
-        font-style: normal;
-      }
-
-      .mango-logo {
-        font-family: "Chiron GoRound TC", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 900;
-        font-style: normal;
+      .footer-grid-bg {
+        background:
+          linear-gradient(to right, rgba(0, 0, 0, 0.12) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.12) 1px, transparent 1px),
+          linear-gradient(90deg, #effcff, #fff8dd, #f3eaff);
+        background-size:
+          26px 26px,
+          26px 26px,
+          cover;
       }
     </style>
   </head>
 
-  <body class="min-h-screen bg-[#FFFFFF]">
-    <section class="relative z-20 min-h-[980px] soft-bg overflow-visible">
-      <header
-        class="absolute top-3 left-1/2 z-50 w-[80%] -translate-x-1/2 bg-[#FFFFFF] rounded-full"
+  <body class="page-bg min-h-screen">
+    <header
+      class="absolute top-3 left-1/2 z-50 w-[80%] -translate-x-1/2 bg-[#FFFFFF] rounded-full"
+    >
+      <nav
+        class="flex items-center justify-between rounded-full border border-[#FF66A2] bg-[#FFFFFF] px-6 py-1.5 shadow-[0_0_20px_rgba(255,102,162,0.4)] shadow-[#FF66A2]"
       >
-        <nav
-          class="flex items-center justify-between rounded-full border border-[#FF66A2] bg-[#FFFFFF] px-6 py-1.5 shadow-[0_0_20px_rgba(255,102,162,0.4)] shadow-[#FF66A2]"
+        <div
+          class="flex h-18 w-14 items-center justify-center rounded-full ml-8 mt-[-12px] mb-[-8px] cursor-pointer"
         >
-          <div
-            class="flex h-18 w-14 items-center justify-center rounded-full ml-8 mt-[-12px] mb-[-8px] cursor-pointer"
-          >
-            <a href="/3хТом/main.html"
-              ><img
-                src="./3xTOM-logo-vector.svg"
-                alt="3xTOM logo"
-                class="h-full w-full object-contain"
-            /></a>
-          </div>
+          <a href="/3хТом/main.html"
+            ><img
+              src="./3xTOM-logo-vector.svg"
+              alt="3xTOM logo"
+              class="h-full w-full object-contain"
+          /></a>
+        </div>
 
-          <ul
-            class="hidden items-center gap-10 text-sm font-bold text-black md:flex"
-          >
-            <li>
-              <a
-                href="/3хТом/main.html"
-                class="hover:text-pink-500"
-                >Нүүр</a
-              >
-            </li>
-            <li>
-              <a href="/3хТом/about.html" class="hover:text-pink-500"
-                >Танилцуулга</a
-              >
-            </li>
-            <li>
-              <a href="/3хТом/news.html" class="hover:text-pink-500"
-                >Мэдээлэл</a
-              >
-            </li>
-            <li>
-              <a href="/3хТом/poster.html" class="border-b border-[#FF7EB1] pb-1 text-pink-500"
-                >Постер</a
-              >
-            </li>
-            <li>
-              <a href="/3хТом/videos.html" class="hover:text-pink-500"
-                >Бичлэг</a
-              >
-            </li>
-            <li>
-              <a href="/3хТом/contact.html" class="hover:text-pink-500"
-                >Холбогдох</a
-              >
-            </li>
-          </ul>
-
-          <div class="hidden items-center gap-3 md:flex">
-            <a
-              href="/3хТом/donate.html"
-              class="rounded-full bg-[#FF66A2] px-6 py-3 text-sm font-bold text-white shadow-md shadow-[#000000]/40 transition hover:bg-pink-600 cursor-pointer"
-            >
-              Хандив өгөх
-            </a>
-
-            <a
-              href="/3хТом/login.html"
-              class="rounded-full border-2 border-[#FF66A2] px-6 py-2.5 text-sm font-bold text-[#FF66A2] transition hover:bg-pink-50 cursor-pointer"
-            >
-              Нэвтрэх
-            </a>
-          </div>
-        </nav>
-      </header>
-
-      <div class="mx-36 w-[82%] pt-[190px]">
-        <p
-          class="mb-4 mt-[-40px] text-[13px] font-semibold tracking-[2px] text-[#FF66A2]"
+        <ul
+          class="hidden items-center gap-10 text-sm font-bold text-black md:flex"
         >
-          3xTOM хөтөлбөр, мэдээлэл
-        </p>
+          <li>
+            <a href="/3хТом/main.html" class="hover:text-pink-500">Нүүр</a>
+          </li>
+          <li>
+            <a href="/3хТом/about.html" class="hover:text-pink-500"
+              >Танилцуулга</a
+            >
+          </li>
+          <li>
+            <a href="/3хТом/news.html" class="hover:text-pink-500">Мэдээлэл</a>
+          </li>
+          <li>
+            <a href="/3хТом/poster.html" class="hover:text-pink-500">Постер</a>
+          </li>
+          <li>
+            <a href="/3хТом/videos.html" class="hover:text-pink-500">Бичлэг</a>
+          </li>
+          <li>
+            <a href="/3хТом/contact.html" class="hover:text-pink-500"
+              >Холбогдох</a
+            >
+          </li>
+        </ul>
 
-        <h1 class="mb-10 mt-[-10px] text-[38px] font-extrabold text-[#17084e]">
-          Бидний бүтээлүүд
-        </h1>
-
-        <div class="grid grid-cols-1 items-end gap-10 lg:grid-cols-3">
-          <img
-            src="./poster-work.png"
-            alt="3xTOM poster"
-            class="h-[440px] w-full rounded-[22px] object-cover shadow-sm lg:mt-16"
-          />
-          <img
-            src="./poster-work.png"
-            alt="3xTOM poster"
-            class="h-[530px] w-full rounded-[22px] object-cover shadow-sm"
-          />
-          <img
-            src="./poster-work.png"
-            alt="3xTOM poster"
-            class="h-[495px] w-full rounded-[22px] object-cover shadow-sm lg:mt-6"
-          />
-        </div>
-      </div>
-    </section>
-
-    <section class="soft-bg px-[6.5%] py-20">
-      <p class="mb-6 text-[13px] font-semibold tracking-[4px] text-[#FF4C92]">
-        элсэлт явагдаж буй хөтөлбөр
-      </p>
-      <h2 class="mb-10 mt-[-10px] text-[38px] font-extrabold text-[#17084e]">
-        Хөтөлбөрүүдийн элсэлт
-      </h2>
-      <div
-        class="mx-auto grid max-w-[1320px] grid-cols-1 overflow-hidden rounded-[14px] border border-gray-300 bg-white shadow-[0_0_45px_rgba(0,0,0,0.22)] lg:grid-cols-[1.05fr_1fr]"
-      >
-        <div class="relative min-h-[620px]">
-          <img
-            src="./poster-program.jpg"
-            alt="3xTOM program"
-            class="h-full w-full object-cover"
-          />
-          <div class="absolute bottom-7 left-1/2 flex -translate-x-1/2 gap-3">
-            <span class="h-6 w-6 rounded-full bg-[#FF66A2]"></span
-            ><span class="h-6 w-6 rounded-full bg-white"></span
-            ><span class="h-6 w-6 rounded-full bg-white"></span
-            ><span class="h-6 w-6 rounded-full bg-white"></span>
-          </div>
-        </div>
-        <div class="bg-white px-12 py-10">
-          <h3 class="mb-5 text-[40px] font-extrabold leading-[1.15] text-black">
-            Сэтгэлээс ирээдүйд
-          </h3>
-          <p
-            class="mb-4 max-w-[620px] text-[18px] font-semibold leading-[1.45] text-[#19004E]"
+        <div class="hidden items-center gap-3 md:flex">
+          <a
+            href="/3хТом/donate.html"
+            class="rounded-full border-2 border-[#FF66A2] bg-white px-6 py-3 text-sm font-bold text-[#FF66A2] shadow-md shadow-[#000000]/40 hover:bg-pink-50 cursor-pointer"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-            ultrices lacus ut mi euismod tincidunt. Pellentesque risus orci,
-            interdum nec venenatis eu, convallis laoreet enim. Praesent porta
-            dolor id porttitor vulputate. Sed
-          </p>
-          <p class="mb-10 text-[18px] leading-[1.45] text-[#19004E]">
-            Age - 16+<br />Availability -<br />Eligible for -
-          </p>
-          <form class="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none"
-              placeholder="Нэр*"
-            />
-            <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none"
-              placeholder="Овог*"
-            />
-            <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none"
-              placeholder="Утасны дугаар*"
-            />
-            <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none"
-              placeholder="Имэйл*"
-            />
-            <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none md:col-span-2"
-              placeholder="Яагаад 3xTOM гэж?*"
-            />
-            <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none md:col-span-2"
-              placeholder="Өөрийгөө танилцуулна уу*"
-            />
-            <input
-              class="rounded-full border border-gray-200 px-7 py-3 text-[16px] shadow-[0_0_7px_rgba(0,0,0,0.16)] outline-none md:col-span-2"
-              placeholder="Таны давуу тал юу вэ?*"
-            />
-          </form>
-          <div class="mt-10 flex items-center gap-5">
-            <button
-              class="rounded-full bg-[#FF66A2] px-7 py-3 text-[16px] font-bold text-white shadow-md shadow-[#000000]/30 transition hover:bg-pink-600 cursor-pointer"
-            >
-              Бүртгүүлэх
-            </button>
-            <a
-              href="/./login.html"
-              class="rounded-full border-2 border-[#FF66A2] px-7 py-2.5 text-[16px] font-bold text-[#FF66A2] transition hover:bg-pink-50 cursor-pointer"
-              >Нэвтрэх</a
-            >
-          </div>
+            Хандив өгөх
+          </a>
+
+          <a
+            href="/3хТом/login.html"
+            class="rounded-full bg-[#FF66A2] px-6 py-2.5 text-sm font-bold text-white transition hover:bg-pink-200 cursor-pointer"
+          >
+            Нэвтрэх
+          </a>
         </div>
-      </div>
-    </section>
+      </nav>
+    </header>
+
+    
 
     <footer class="footer-grid-bg px-[6.5%] py-8">
       <div class="grid grid-cols-1 gap-10 md:grid-cols-[1.1fr_1fr_1.1fr]">
