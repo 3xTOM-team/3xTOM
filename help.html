@@ -1,46 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mn">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3хТОМ</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap");
       @import url("https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap");
       @import url("https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@900&display=swap");
-
-      .grid-bg {
-        background:
-          linear-gradient(
-            to right,
-            rgba(55, 65, 81, 0.22) 1px,
-            transparent 1px
-          ),
-          linear-gradient(
-            to bottom,
-            rgba(55, 65, 81, 0.22) 1px,
-            transparent 1px
-          ),
-          radial-gradient(
-            circle at left center,
-            rgba(218, 247, 230, 0.75),
-            transparent 38%
-          ),
-          radial-gradient(
-            circle at right center,
-            rgba(255, 220, 238, 0.65),
-            transparent 42%
-          ),
-          linear-gradient(90deg, #edf6f1 0%, #f7f1f6 55%, #fcf5ef 100%);
-
-        background-size:
-          28px 28px,
-          28px 28px,
-          cover,
-          cover,
-          cover;
-      }
 
       .soft-bg {
         background:
@@ -66,6 +33,37 @@
             #fff7ef 70%,
             #fbf2ff 100%
           );
+      }
+
+      .grid-bg {
+        background:
+          linear-gradient(
+            to right,
+            rgba(55, 65, 81, 0.18) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(55, 65, 81, 0.18) 1px,
+            transparent 1px
+          ),
+          radial-gradient(
+            circle at left center,
+            rgba(218, 247, 230, 0.75),
+            transparent 38%
+          ),
+          radial-gradient(
+            circle at right center,
+            rgba(255, 220, 238, 0.65),
+            transparent 42%
+          ),
+          linear-gradient(90deg, #edf6f1 0%, #f7f1f6 55%, #fcf5ef 100%);
+        background-size:
+          28px 28px,
+          28px 28px,
+          cover,
+          cover,
+          cover;
       }
 
       .footer-grid-bg {
@@ -102,7 +100,6 @@
             #fff7db 63%,
             #eef2ff 100%
           );
-
         background-size:
           32px 32px,
           32px 32px,
@@ -118,12 +115,6 @@
         font-style: normal;
       }
 
-      .comic-relief-regular {
-        font-family: "Comic Relief", system-ui;
-        font-weight: 400;
-        font-style: normal;
-      }
-
       .comic-relief-bold {
         font-family: "Comic Relief", system-ui;
         font-weight: 700;
@@ -132,993 +123,301 @@
 
       .mango-logo {
         font-family: "Chiron GoRound TC", sans-serif;
-        font-optical-sizing: auto;
         font-weight: 900;
         font-style: normal;
       }
+
+      .float-card {
+        animation: floatCard 5s ease-in-out infinite;
+      }
+
+      @keyframes floatCard {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
     </style>
+
+    <title>3хТОМ - Тусламж</title>
   </head>
 
-  <body class="min-h-screen bg-[#FFFFFF]">
-    <section class="relative z-20 min-h-[555px] grid-bg overflow-visible">
-      <header
-        class="absolute top-3 left-1/2 z-50 w-[80%] -translate-x-1/2 bg-[#FFFFFF] rounded-full"
-      >
-        <nav
-          class="flex items-center justify-between rounded-full border border-[#FF66A2] bg-[#FFFFFF] px-6 py-1.5 shadow-[0_0_20px_rgba(255,102,162,0.4)] shadow-[#FF66A2]"
+  <body class="min-h-screen bg-white">
+    <main class="soft-bg overflow-hidden">
+      <section class="relative z-20 px-[6.5%] pb-20 pt-32">
+        <header
+          class="absolute top-3 left-1/2 z-50 w-[80%] -translate-x-1/2 bg-[#FFFFFF] rounded-full"
         >
-          <div
-            class="flex h-18 w-14 items-center justify-center rounded-full ml-8 mt-[-12px] mb-[-8px] cursor-pointer"
+          <nav
+            class="flex items-center justify-between rounded-full border border-[#FF66A2] bg-[#FFFFFF] px-6 py-1.5 shadow-[0_0_20px_rgba(255,102,162,0.4)] shadow-[#FF66A2]"
           >
-            <a href="/3xTOM/main.html"
-              ><img
-                src="./3xTOM-logo-vector.svg"
-                alt="3xTOM logo"
-                class="h-full w-full object-contain"
-            /></a>
-          </div>
+            <div
+              class="flex h-18 w-14 items-center justify-center rounded-full ml-8 mt-[-12px] mb-[-8px] cursor-pointer"
+            >
+              <a href="/3xTOM/main.html"
+                ><img
+                  src="./3xTOM-logo-vector.svg"
+                  alt="3xTOM logo"
+                  class="h-full w-full object-contain"
+              /></a>
+            </div>
 
-          <ul
-            class="hidden items-center gap-10 text-sm font-bold text-black md:flex"
-          >
-            <li>
+            <ul
+              class="hidden items-center gap-10 text-sm font-bold text-black md:flex"
+            >
+              <li>
+                <a href="/3xTOM/main.html" class="hover:text-pink-500">Нүүр</a>
+              </li>
+              <li>
+                <a href="/3xTOM/about.html" class="hover:text-pink-500"
+                  >Танилцуулга</a
+                >
+              </li>
+              <li>
+                <a href="/3xTOM/news.html" class="hover:text-pink-500"
+                  >Мэдээлэл</a
+                >
+              </li>
+              <li>
+                <a href="/3xTOM/poster.html" class="hover:text-pink-500"
+                  >Постер</a
+                >
+              </li>
+              <li>
+                <a href="/3xTOM/videos.html" class="hover:text-pink-500"
+                  >Бичлэг</a
+                >
+              </li>
+              <li>
+                <a href="/3xTOM/contact.html" class="hover:text-pink-500"
+                  >Холбогдох</a
+                >
+              </li>
+            </ul>
+
+            <div class="hidden items-center gap-3 md:flex">
               <a
-                href="/3xTOM/main.html"
-                class="border-b border-[#FF7EB1] pb-1 text-pink-500"
-                >Нүүр</a
+                href="/3xTOM/donate.html"
+                class="rounded-full bg-[#FF66A2] px-6 py-3 text-sm font-bold text-white shadow-md shadow-[#000000]/40 transition hover:bg-pink-600 cursor-pointer"
               >
-            </li>
-            <li>
-              <a href="/3xTOM/about.html" class="hover:text-pink-500"
-                >Танилцуулга</a
+                Хандив өгөх
+              </a>
+
+              <a
+                href="/3xTOM/login.html"
+                class="rounded-full border-2 border-[#FF66A2] px-6 py-2.5 text-sm font-bold text-[#FF66A2] transition hover:bg-pink-50 cursor-pointer"
               >
-            </li>
-            <li>
-              <a href="/3xTOM/news.html" class="hover:text-pink-500"
-                >Мэдээлэл</a
-              >
-            </li>
-            <li>
-              <a href="/3xTOM/poster.html" class="hover:text-pink-500"
-                >Постер</a
-              >
-            </li>
-            <li>
-              <a href="/3xTOM/videos.html" class="hover:text-pink-500"
-                >Бичлэг</a
-              >
-            </li>
-            <li>
-              <a href="/3xTOM/contact.html" class="hover:text-pink-500"
+                Нэвтрэх
+              </a>
+            </div>
+          </nav>
+        </header>
+
+        <div
+          class="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-12 pt-7 lg:grid-cols-[1.05fr_0.95fr]"
+        >
+          <div>
+            <p
+              class="mb-5 text-[13px] font-semibold tracking-[3px] text-[#FF66A2]"
+            >
+              ТУСЛАМЖИЙН ТӨВ
+            </p>
+            <h1
+              class="rubik-spray-paint-regular max-w-[620px] text-[36px] leading-[1.1] text-[#19004E] sm:text-[48px]"
+            >
+              <span class="relative inline-block isolate"
+                ><span class="relative z-10 text-[#FF66A2]">Тусламж</span
+                ><span
+                  class="absolute bottom-[-3px] left-1/2 h-4 w-[105%] -translate-x-1/2 rounded-full bg-[#FFE299]"
+                ></span
+              ></span>
+              хэрэгтэй юу?
+            </h1>
+            <p
+              class="mt-7 max-w-[560px] text-[17px] font-semibold leading-[1.7] text-[#19004E]"
+            >
+              3xTOM вебсайтыг ашиглах үед хамгийн их хэрэг болох асуулт, хариулт
+              болон холбоо барих зааврыг энд цэгцтэй байрлууллаа.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a
+                href="/3xTOM/contact.html"
+                class="rounded-full bg-[#FF66A2] px-7 py-3 text-sm font-bold text-white shadow-md shadow-pink-300 transition hover:bg-pink-500"
                 >Холбогдох</a
               >
-            </li>
-          </ul>
-
-          <div class="hidden items-center gap-3 md:flex">
-            <a
-              href="/3xTOM/donate.html"
-              class="rounded-full bg-[#FF66A2] px-6 py-3 text-sm font-bold text-white shadow-md shadow-[#000000]/40 transition hover:bg-pink-600 cursor-pointer"
-            >
-              Хандив өгөх
-            </a>
-
-            <a
-              href="/3xTOM/login.html"
-              class="rounded-full border-2 border-[#FF66A2] px-6 py-2.5 text-sm font-bold text-[#FF66A2] transition hover:bg-pink-50 cursor-pointer"
-            >
-              Нэвтрэх
-            </a>
-          </div>
-        </nav>
-      </header>
-
-      <div class="mx-auto flex min-h-[555px] w-[80%] items-center pt-20">
-        <div class="max-w-[520px]">
-          <span
-            class="mb-7 inline-flex rounded-full border border-pink-400 bg-[#FFFFFF]/40 px-4 py-1 text-xs font-bold text-pink-400 mt-10"
-          >
-            Бүх хүнд нээлттэй
-          </span>
-
-          <h1
-            class="rubik-spray-paint-regular text-[34px] leading-[1.15] text-[#19004E] sm:text-[42px] sm:leading-[1.08]"
-          >
-            "<span class="text-[#FF66A2]">3хТОМ</span>" клуб нь <br />
-            тусгай хэрэгцээт <br />
-            хүмүүсийн
-            <span class="relative inline-block isolate">
-              <span class="relative z-10">хөгжил,</span>
-              <span
-                class="absolute bottom-[-2px] left-1/2 h-4 w-[105%] -translate-x-1/2 rounded-full bg-[#FFE299]"
-              ></span>
-            </span>
-            нийгмийн оролцоог <br />
-            дэмжих <span class="text-[#FF66A2]">орон зай</span> юм.
-          </h1>
-
-          <p class="mt-2 text-lg text-gray-700">Хамтдаа илүү тод гэрэлтъе.</p>
-
-          <div class="mt-6 flex items-center gap-5">
-            <a
-              href="/3xTOM/news.html"
-              class="rounded-full border-2 border-[#FF66A2] bg-[#FFFFFF] px-4 py-2 text-sm text-[#FF66A2] font-bold transition hover:bg-pink-50 flex items-center justify-center cursor-pointer"
-            >
-              Дэлгэрэнгүй
-              <div class="ml-2 mr-[-6px] mt-[10px]">
-                <svg
-                  width="17"
-                  height="18"
-                  viewBox="0 0 17 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M11.5833 9.16669H4.49992"
-                    stroke="#FF66A2"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M10.9583 1.45831L5.12492 7.29165"
-                    stroke="#FF66A2"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M10.9583 5.73748V1.45831H6.67909"
-                    stroke="#FF66A2"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </a>
-
-            <a
-              href="/3xTOM/donate.html"
-              class="rounded-full bg-[#FF66A2] px-7 py-3 text-sm font-bold text-white shadow-md shadow-pink-300 transition hover:bg-pink-500 cursor-pointer"
-            >
-              Хандив өгөх
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <a
-        href="/3xTOM/chat.html"
-        class="absolute bottom-[-42px] right-[4.5%] z-20 flex h-14 w-14 items-center justify-center rounded-full bg-[#FF66A2]"
-      >
-        <svg
-          width="30"
-          height="30"
-          viewBox="0 0 30 30"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M22.475 13.4875V18.4875C22.475 18.8125 22.4625 19.125 22.425 19.425C22.1375 22.8 20.15 24.475 16.4875 24.475H15.9875C15.675 24.475 15.375 24.625 15.1875 24.875L13.6875 26.875C13.025 27.7625 11.95 27.7625 11.2875 26.875L9.78748 24.875C9.62498 24.6625 9.2625 24.475 8.9875 24.475H8.48751C4.50001 24.475 2.5 23.4875 2.5 18.4875V13.4875C2.5 9.82501 4.18751 7.83751 7.55001 7.55001C7.85001 7.51251 8.16251 7.5 8.48751 7.5H16.4875C20.475 7.5 22.475 9.50001 22.475 13.4875Z"
-            stroke="white"
-            stroke-width="1.5"
-            stroke-miterlimit="10"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M27.4751 8.48751V13.4875C27.4751 17.1625 25.7875 19.1375 22.425 19.425C22.4625 19.125 22.4751 18.8125 22.4751 18.4875V13.4875C22.4751 9.50001 20.475 7.5 16.4875 7.5H8.48755C8.16255 7.5 7.85005 7.51251 7.55005 7.55001C7.83755 4.18751 9.82505 2.5 13.4875 2.5H21.4875C25.475 2.5 27.4751 4.50001 27.4751 8.48751Z"
-            stroke="white"
-            stroke-width="1.5"
-            stroke-miterlimit="10"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M16.8694 16.5625H16.8806"
-            stroke="white"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M12.4944 16.5625H12.5056"
-            stroke="white"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M8.11937 16.5625H8.13062"
-            stroke="white"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </a>
-    </section>
-
-    <section
-      class="relative z-0 grid grid-cols-2 border border-b-2 border-pink-200 bg-[#FFFFFF] md:grid-cols-4"
-    >
-      <div class="border-r border-pink-100 py-8 text-center">
-        <h3 class="text-4xl font-extrabold text-[#FF66A2]">+20</h3>
-        <p class="mt-1 text-sm font-bold text-gray-800">Гишүүд</p>
-      </div>
-
-      <div class="border-r border-pink-100 py-8 text-center">
-        <h3 class="text-4xl font-extrabold text-[#FF66A2]">+2</h3>
-        <p class="mt-1 text-sm font-bold text-gray-800">Хамтрагч</p>
-      </div>
-
-      <div class="border-r border-pink-100 py-8 text-center">
-        <h3 class="text-4xl font-extrabold text-[#FF66A2]">+10</h3>
-        <p class="mt-1 text-sm font-bold text-gray-800">Хөтөлбөрүүд</p>
-      </div>
-
-      <div class="py-8 text-center">
-        <h3 class="text-4xl font-extrabold text-[#FF66A2]">+30</h3>
-        <p class="mt-1 text-sm font-bold text-gray-800">Хандивлагч</p>
-      </div>
-    </section>
-
-    <section class="soft-bg px-[6.5%] py-16">
-      <p class="mb-6 text-[13px] font-semibold tracking-[2px] text-[#FF66A2]">
-        3xTОМ клубын танилцуулга
-      </p>
-
-      <h2
-        class="mb-20 max-w-[430px] text-[34px] font-extrabold leading-[1.15] text-[#19004E]"
-      >
-        Бидний зорилго ба хамтын уриа
-      </h2>
-
-      <div class="grid grid-cols-1 gap-9 lg:grid-cols-[1fr_1.32fr_0.8fr]">
-        <div
-          class="rounded-[40px] border border-pink-200 bg-white/65 p-9 shadow-sm"
-        >
-          <div class="mb-10 flex items-center gap-3 mt-[-10px]">
-            <img
-              src="./3xTOM-logo-vector.svg"
-              alt="3xTOM logo"
-              class="h-16 w-16 object-contain"
-            />
-            <h3 class="comic-relief-bold text-[28px] text-[#FF66A2] ml-[-6px]">
-              3хТОМ
-            </h3>
-          </div>
-
-          <p
-            class="mb-10 mt-12 max-w-[350px] text-[15px] font-semibold leading-[1.55] text-[#19004E]"
-          >
-            3 дахин ТОМ клуб нь 2025 оны <br />
-            5-р сарын 26-ны өдөр байгуулагдсан <br />
-            сайн дурын клуб юм. Бид тусгай хэрэгцээт <br />
-            иргэд болон асрамжийн газруудад <br />
-            чиглэн үйл ажиллагаа явуулахыг зорьдог.
-          </p>
-
-          <a
-            href="/3xTOM/news.html"
-            class="max-w-[140px] mt-12 rounded-full border-2 border-[#FF66A2] bg-[#FFFFFF] px-4 py-2 text-sm text-[#FF66A2] font-bold transition hover:bg-pink-50 flex items-center justify-center cursor-pointer"
-          >
-            Дэлгэрэнгүй
-            <div class="ml-2 mr-[-6px] mt-[10px]">
-              <svg
-                width="17"
-                height="18"
-                viewBox="0 0 17 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+              <a
+                href="/3xTOM/main.html"
+                class="rounded-full border-2 border-[#FF66A2] bg-white px-7 py-2.5 text-sm font-bold text-[#FF66A2] transition hover:bg-pink-50"
+                >Нүүр лүү буцах</a
               >
-                <path
-                  d="M11.5833 9.16669H4.49992"
-                  stroke="#FF66A2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M10.9583 1.45831L5.12492 7.29165"
-                  stroke="#FF66A2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M10.9583 5.73748V1.45831H6.67909"
-                  stroke="#FF66A2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
             </div>
-          </a>
-        </div>
-
-        <div
-          class="rounded-[40px] border border-pink-200 bg-white/65 p-11 shadow-sm"
-        >
-          <h3 class="mb-7 text-[28px] mt-[-10px]">
-            <span class="text-[#FF66A2] comic-relief-bold">3хТОМ</span>
-            <span class="text-[#19004E] font-bold">нэрний утга</span>
-          </h3>
-
-          <div>
-            <div class="flex items-center gap-8 mt-[-10px]">
-              <p
-                class="w-28 text-[40px] mango-logo tracking-[-2px] text-[#FF66A2]"
-              >
-                Толон
-              </p>
-              <p
-                class="text-[16px] font-semibold text-[#FF66A2] w-[259px] h-[14px] ml-4 mb-[-4px]"
-              >
-                Гэрэл гэгээ цацруулан байгаа нь
-              </p>
-            </div>
-
-            <div class="flex items-center gap-8">
-              <p
-                class="w-28 text-[40px] mango-logo tracking-[-2px] text-[#FFC943]"
-              >
-                Онцгой
-              </p>
-              <p
-                class="text-[16px] font-semibold text-[#FFC943] w-[259px] h-[14px] ml-4 mb-[-4px]"
-              >
-                Олноос онцгойрон ялгарах нь
-              </p>
-            </div>
-
-            <div class="flex items-center gap-8">
-              <p
-                class="w-28 text-[40px] mango-logo tracking-[-2px] text-[#A26BC3]"
-              >
-                Мирээн
-              </p>
-              <p
-                class="text-[16px] font-semibold text-[#A26BC3] w-[259px] h-[14px] ml-5 mb-[-4px]"
-              >
-                Олон өнгө алаглан байх нь
-              </p>
-            </div>
-          </div>
-
-          <p
-            class="mt-4 mb-[-6px] max-w-[430px] h-[40px] text-[15px] font-semibold text-black"
-          >
-            3 дахин ТОМ бүхэн бидний хичээл зүтгэлийн эцэст <br />
-            3 дахин ИЛҮҮ болоосой.
-          </p>
-        </div>
-
-        <div
-          class="flex items-center justify-center rounded-[40px] border border-pink-200 bg-white/65 p-11 shadow-sm"
-        >
-          <img
-            src="./3xTOM-logo-vector.svg"
-            alt="3xTOM logo"
-            class="h-[250px] w-[250px] object-contain"
-          />
-        </div>
-      </div>
-    </section>
-
-    <section class="soft-bg px-[6.5%] py-16">
-      <p class="mb-6 text-[13px] font-semibold tracking-[2px] text-[#FF4C92]">
-        Мэдээ, мэдээлэл нийтлэл
-      </p>
-
-      <h2
-        class="mb-20 max-w-[500px] text-[34px] font-extrabold leading-[1.15] text-[#19004E]"
-      >
-        Халуун дулаан, эерэг мэдээллийг түгээе
-      </h2>
-
-      <div class="relative">
-        <div class="grid grid-cols-1 gap-9 lg:grid-cols-3">
-          <div
-            class="rounded-[18px] border border-gray-200 bg-white/40 p-7 transition hover:scale-105 cursor-pointer"
-          >
-            <img
-              src="./main-news.png"
-              alt="News"
-              class="mb-7 h-[155px] w-full rounded-[10px] object-cover"
-            />
-
-            <h3 class="mb-5 text-[18px] font-bold text-black">
-              Бүтээлч хөгжил
-            </h3>
-
-            <p
-              class="mb-8 max-w-[280px] text-[14px] leading-[1.25] text-gray-800"
-            >
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              ....
-            </p>
-
-            <a
-              href="/3xTOM/news.html"
-              class="max-w-[140px] mt-12 rounded-full border-2 border-[#FF66A2] bg-[#FFFFFF] px-4 py-2 text-sm text-[#FF66A2] font-bold transition hover:bg-pink-50 flex items-center justify-center cursor-pointer"
-            >
-              Дэлгэрэнгүй
-              <div class="ml-2 mr-[-6px] mt-[10px]">
-                <svg
-                  width="17"
-                  height="18"
-                  viewBox="0 0 17 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M11.5833 9.16669H4.49992"
-                    stroke="#FF66A2"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M10.9583 1.45831L5.12492 7.29165"
-                    stroke="#FF66A2"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M10.9583 5.73748V1.45831H6.67909"
-                    stroke="#FF66A2"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </a>
           </div>
 
           <div
-            class="rounded-[18px] border border-gray-200 bg-white/40 p-7 transition hover:scale-105 cursor-pointer"
+            class="float-card rounded-[36px] border border-pink-100 bg-white/70 p-8 shadow-sm"
           >
-            <img
-              src="./main-news.png"
-              alt="News"
-              class="mb-7 h-[155px] w-full rounded-[10px] object-cover"
-            />
-
-            <h3 class="mb-5 text-[18px] font-bold text-black">
-              Бүтээлч хөгжил
-            </h3>
-
-            <p
-              class="mb-8 max-w-[280px] text-[14px] leading-[1.25] text-gray-800"
-            >
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              ....
-            </p>
-
-            <a
-              href="/3xTOM/news.html"
-              class="max-w-[140px] mt-12 rounded-full border-2 border-[#FF66A2] bg-[#FFFFFF] px-4 py-2 text-sm text-[#FF66A2] font-bold transition hover:bg-pink-50 flex items-center justify-center cursor-pointer"
-            >
-              Дэлгэрэнгүй
-              <div class="ml-2 mr-[-6px] mt-[10px]">
-                <svg
-                  width="17"
-                  height="18"
-                  viewBox="0 0 17 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M11.5833 9.16669H4.49992"
-                    stroke="#FF66A2"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M10.9583 1.45831L5.12492 7.29165"
-                    stroke="#FF66A2"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M10.9583 5.73748V1.45831H6.67909"
-                    stroke="#FF66A2"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </a>
-          </div>
-
-          <div
-            class="rounded-[18px] border border-gray-200 bg-white/40 p-7 transition hover:scale-105 cursor-pointer"
-          >
-            <img
-              src="./main-news.png"
-              alt="News"
-              class="mb-7 h-[155px] w-full rounded-[10px] object-cover"
-            />
-
-            <h3 class="mb-5 text-[18px] font-bold text-black">
-              Бүтээлч хөгжил
-            </h3>
-
-            <p
-              class="mb-8 max-w-[280px] text-[14px] leading-[1.25] text-gray-800"
-            >
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              ....
-            </p>
-
-            <a
-              href="/3xTOM/news.html"
-              class="max-w-[140px] mt-12 rounded-full border-2 border-[#FF66A2] bg-[#FFFFFF] px-4 py-2 text-sm text-[#FF66A2] font-bold transition hover:bg-pink-50 flex items-center justify-center cursor-pointer"
-            >
-              Дэлгэрэнгүй
-              <div class="ml-2 mr-[-6px] mt-[10px]">
-                <svg
-                  width="17"
-                  height="18"
-                  viewBox="0 0 17 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M11.5833 9.16669H4.49992"
-                    stroke="#FF66A2"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M10.9583 1.45831L5.12492 7.29165"
-                    stroke="#FF66A2"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M10.9583 5.73748V1.45831H6.67909"
-                    stroke="#FF66A2"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </a>
+            <div class="rounded-[28px] bg-[#FF66A2]/10 p-7">
+              <p class="text-[13px] font-bold tracking-[2px] text-[#FF66A2]">
+                3xTOM
+              </p>
+              <h2
+                class="mt-4 text-[28px] font-extrabold leading-[1.15] text-[#19004E]"
+              >
+                Асуулт, заавар, холбоо барих мэдээлэл
+              </h2>
+              <p
+                class="mt-5 text-[15px] font-semibold leading-[1.65] text-gray-700"
+              >
+                Энэхүү хуудас нь хэрэглэгч, сайн дурын ажилтан, хандивлагч,
+                зочдод ойлгомжтой байхаар богино, цэгцтэй байдлаар бичигдсэн.
+              </p>
+            </div>
           </div>
         </div>
-
-        <button
-          class="absolute right-[-52px] top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full transition hover:scale-105 lg:flex cursor-pointer"
+        <a
+          href="/3xTOM/chat.html"
+          class="absolute bottom-[-42px] right-[4.5%] z-20 flex h-14 w-14 items-center justify-center rounded-full bg-[#FF66A2] shadow-lg shadow-pink-300 transition hover:scale-110"
         >
           <svg
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
+            width="30"
+            height="30"
+            viewBox="0 0 30 30"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
           >
             <path
-              d="M20.0002 36.4035C29.2049 36.4035 36.6668 28.9952 36.6668 19.8565C36.6668 10.7179 29.2049 3.30957 20.0002 3.30957C10.7954 3.30957 3.3335 10.7179 3.3335 19.8565C3.3335 28.9952 10.7954 36.4035 20.0002 36.4035Z"
-              stroke="black"
-              stroke-width="2"
+              d="M22.475 13.4875V18.4875C22.475 18.8125 22.4625 19.125 22.425 19.425C22.1375 22.8 20.15 24.475 16.4875 24.475H15.9875C15.675 24.475 15.375 24.625 15.1875 24.875L13.6875 26.875C13.025 27.7625 11.95 27.7625 11.2875 26.875L9.78748 24.875C9.62498 24.6625 9.2625 24.475 8.9875 24.475H8.48751C4.50001 24.475 2.5 23.4875 2.5 18.4875V13.4875C2.5 9.82501 4.18751 7.83751 7.55001 7.55001C7.85001 7.51251 8.16251 7.5 8.48751 7.5H16.4875C20.475 7.5 22.475 9.50001 22.475 13.4875Z"
+              stroke="white"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
               stroke-linecap="round"
               stroke-linejoin="round"
             />
             <path
-              d="M14.1665 19.8564H24.1665"
-              stroke="black"
-              stroke-width="2"
+              d="M27.4751 8.48751V13.4875C27.4751 17.1625 25.7875 19.1375 22.425 19.425C22.4625 19.125 22.4751 18.8125 22.4751 18.4875V13.4875C22.4751 9.50001 20.475 7.5 16.4875 7.5H8.48755C8.16255 7.5 7.85005 7.51251 7.55005 7.55001C7.83755 4.18751 9.82505 2.5 13.4875 2.5H21.4875C25.475 2.5 27.4751 4.50001 27.4751 8.48751Z"
+              stroke="white"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
               stroke-linecap="round"
               stroke-linejoin="round"
             />
             <path
-              d="M20.8335 24.8205L25.8335 19.8564L20.8335 14.8923"
-              stroke="black"
+              d="M16.8694 16.5625H16.8806M12.4944 16.5625H12.5056M8.11937 16.5625H8.13062"
+              stroke="white"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
             />
           </svg>
-        </button>
-      </div>
-    </section>
+        </a>
+      </section>
 
-    <section class="soft-bg px-[6.5%] py-16">
-      <p class="mb-6 text-[13px] font-semibold tracking-[2px] text-[#FF4C92]">
-        БИДНИЙ ҮЙЛ АЖИЛЛАГАА
-      </p>
-
-      <h2
-        class="mb-20 max-w-[560px] text-[34px] font-extrabold leading-[1.15] text-[#19004E]"
-      >
-        Хамт олон болон, ургаж хөгжицгөөе
-      </h2>
-
-      <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-        <div
-          class="rounded-[18px] border border-gray-200 bg-white/35 p-7 transition hover:scale-105 cursor-pointer"
-        >
-          <div
-            class="mb-4 flex h-11 w-11 items-center justify-center rounded-md bg-pink-200 shadow-[5px_5px_4px_rgba(255,102,162,0.32)]"
+      <section class="px-[6.5%] py-16">
+        <div class="mx-auto max-w-[1180px]">
+          <p
+            class="mb-5 text-[13px] font-semibold tracking-[3px] text-[#FF66A2]"
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7.96997 22C10.1791 22 11.97 20.2091 11.97 18C11.97 15.7909 10.1791 14 7.96997 14C5.76083 14 3.96997 15.7909 3.96997 18C3.96997 20.2091 5.76083 22 7.96997 22Z"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M11.97 18V4"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M14.61 2.11L19.03 3.58C20.1 3.94 20.98 5.15 20.98 6.28V7.45C20.98 8.98 19.8 9.83 18.35 9.35L13.93 7.88C12.86 7.52 11.98 6.31 11.98 5.18V4C11.97 2.48 13.16 1.62 14.61 2.11Z"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-          <h3 class="mb-3 text-[17px] font-semibold text-black">
-            Бүтээлч хөгжил
-          </h3>
-          <p class="text-[14px] leading-[1.5] text-gray-800">
-            Урлаг, хөгжим, дүрслэх урлагаар дамжуулан <br />
-            өөрийгөө илэрхийлэх боломж олгодог.
+            ДЭЛГЭРЭНГҮЙ МЭДЭЭЛЭЛ
           </p>
-        </div>
-
-        <div
-          class="rounded-[18px] border border-gray-200 bg-white/35 p-7 transition hover:scale-105 cursor-pointer"
-        >
-          <div
-            class="mb-4 flex h-11 w-11 items-center justify-center rounded-md bg-pink-200 shadow-[5px_5px_4px_rgba(255,102,162,0.32)]"
+          <h2
+            class="mb-12 max-w-[620px] text-[34px] font-extrabold leading-[1.15] text-[#19004E]"
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+            Вэбсайт ашиглах заавар
+          </h2>
+
+          <div class="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
+            <article
+              class="rounded-[24px] border border-pink-100 bg-white/70 p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
             >
-              <path
-                d="M18.0001 7.16C17.9401 7.15 17.8701 7.15 17.8101 7.16C16.4301 7.11 15.3301 5.98 15.3301 4.58C15.3301 3.15 16.4801 2 17.9101 2C19.3401 2 20.4901 3.16 20.4901 4.58C20.4801 5.98 19.3801 7.11 18.0001 7.16Z"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M16.9702 14.4399C18.3402 14.6699 19.8502 14.4299 20.9102 13.7199C22.3202 12.7799 22.3202 11.2399 20.9102 10.2999C19.8402 9.58992 18.3102 9.34991 16.9402 9.58991"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M5.96998 7.16C6.02998 7.15 6.09998 7.15 6.15998 7.16C7.53998 7.11 8.63998 5.98 8.63998 4.58C8.63998 3.15 7.48998 2 6.05998 2C4.62998 2 3.47998 3.16 3.47998 4.58C3.48998 5.98 4.58998 7.11 5.96998 7.16Z"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M6.99994 14.4399C5.62994 14.6699 4.11994 14.4299 3.05994 13.7199C1.64994 12.7799 1.64994 11.2399 3.05994 10.2999C4.12994 9.58992 5.65994 9.34991 7.02994 9.58991"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M12.0001 14.63C11.9401 14.62 11.8701 14.62 11.8101 14.63C10.4301 14.58 9.33008 13.45 9.33008 12.05C9.33008 10.62 10.4801 9.46997 11.9101 9.46997C13.3401 9.46997 14.4901 10.63 14.4901 12.05C14.4801 13.45 13.3801 14.59 12.0001 14.63Z"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M9.08997 17.7799C7.67997 18.7199 7.67997 20.2599 9.08997 21.1999C10.69 22.2699 13.31 22.2699 14.91 21.1999C16.32 20.2599 16.32 18.7199 14.91 17.7799C13.32 16.7199 10.69 16.7199 9.08997 17.7799Z"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-          <h3 class="mb-3 text-[17px] font-semibold text-black">
-            Нийгмийн оролцоо
-          </h3>
-          <p class="text-[14px] leading-[1.5] text-gray-800">
-            Урлаг, хөгжим, дүрслэх урлагаар дамжуулан <br />
-            өөрийгөө илэрхийлэх боломж олгодог.
-          </p>
-        </div>
-
-        <div
-          class="rounded-[18px] border border-gray-200 bg-white/35 p-7 transition hover:scale-105 cursor-pointer"
-        >
-          <div
-            class="mb-4 flex h-11 w-11 items-center justify-center rounded-md bg-pink-200 shadow-[5px_5px_4px_rgba(255,102,162,0.32)]"
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#FF66A2] text-[14px] font-extrabold text-white"
+              >
+                01
+              </div>
+              <h3 class="mb-3 text-[18px] font-extrabold text-[#19004E]">
+                Клубт хэрхэн нэгдэх вэ?
+              </h3>
+              <p class="text-[14px] font-medium leading-[1.7] text-gray-700">
+              </p>
+            </article>
+            <article
+              class="rounded-[24px] border border-pink-100 bg-white/70 p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
             >
-              <path
-                d="M7.47998 18.35L10.58 20.75C10.98 21.15 11.88 21.35 12.48 21.35H16.28C17.48 21.35 18.78 20.45 19.08 19.25L21.48 11.95C21.98 10.55 21.08 9.34997 19.58 9.34997H15.58C14.98 9.34997 14.48 8.84997 14.58 8.14997L15.08 4.94997C15.28 4.04997 14.68 3.04997 13.78 2.74997C12.98 2.44997 11.98 2.84997 11.58 3.44997L7.47998 9.54997"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-miterlimit="10"
-              />
-              <path
-                d="M2.37988 18.3499V8.5499C2.37988 7.1499 2.97988 6.6499 4.37988 6.6499H5.37988C6.77988 6.6499 7.37988 7.1499 7.37988 8.5499V18.3499C7.37988 19.7499 6.77988 20.2499 5.37988 20.2499H4.37988C2.97988 20.2499 2.37988 19.7499 2.37988 18.3499Z"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-          <h3 class="mb-3 text-[17px] font-semibold text-black">
-            Сургалт дэмжлэг
-          </h3>
-          <p class="text-[14px] leading-[1.5] text-gray-800">
-            Урлаг, хөгжим, дүрслэх урлагаар дамжуулан <br />
-            өөрийгөө илэрхийлэх боломж олгодог.
-          </p>
-        </div>
-
-        <div
-          class="rounded-[18px] border border-gray-200 bg-white/35 p-7 transition hover:scale-105 cursor-pointer"
-        >
-          <div
-            class="mb-4 flex h-11 w-11 items-center justify-center rounded-md bg-pink-200 shadow-[5px_5px_4px_rgba(255,102,162,0.32)]"
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#FF66A2] text-[14px] font-extrabold text-white"
+              >
+                02
+              </div>
+              <h3 class="mb-3 text-[18px] font-extrabold text-[#19004E]">
+                Хандив хэрхэн өгөх вэ?
+              </h3>
+              <p class="text-[14px] font-medium leading-[1.7] text-gray-700">
+              </p>
+            </article>
+            <article
+              class="rounded-[24px] border border-pink-100 bg-white/70 p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
             >
-              <path
-                d="M19.86 8.09009C19.86 8.51009 19.83 8.92009 19.78 9.31009C19.32 9.11009 18.82 9.00009 18.29 9.00009C17.07 9.00009 15.99 9.59008 15.32 10.4901C14.64 9.59008 13.56 9.00009 12.34 9.00009C10.29 9.00009 8.63 10.6701 8.63 12.7401C8.63 15.4201 10.05 17.4701 11.63 18.8601C11.58 18.8901 11.53 18.9001 11.48 18.9201C11.18 19.0301 10.68 19.0301 10.38 18.9201C7.79 18.0301 2 14.3501 2 8.09009C2 5.33009 4.21999 3.1001 6.95999 3.1001C8.58999 3.1001 10.03 3.88009 10.93 5.09009C11.84 3.88009 13.28 3.1001 14.9 3.1001C17.64 3.1001 19.86 5.33009 19.86 8.09009Z"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M21.9999 12.74C21.9999 17.42 17.6699 20.18 15.7299 20.84C15.4999 20.92 15.1299 20.92 14.8999 20.84C14.0699 20.56 12.7999 19.89 11.6299 18.86C10.0499 17.47 8.62988 15.42 8.62988 12.74C8.62988 10.67 10.2899 9 12.3399 9C13.5599 9 14.6399 9.58999 15.3199 10.49C15.9899 9.58999 17.0699 9 18.2899 9C18.8199 9 19.3199 9.11 19.7799 9.31C21.0899 9.89 21.9999 11.2 21.9999 12.74Z"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-          <h3 class="mb-3 text-[17px] font-semibold text-black">
-            Гэр бүлийн дэмжлэг
-          </h3>
-          <p class="text-[14px] leading-[1.5] text-gray-800">
-            Урлаг, хөгжим, дүрслэх урлагаар дамжуулан <br />
-            өөрийгөө илэрхийлэх боломж олгодог.
-          </p>
-        </div>
-
-        <div
-          class="rounded-[18px] border border-gray-200 bg-white/35 p-7 transition hover:scale-105 cursor-pointer"
-        >
-          <div
-            class="mb-4 flex h-11 w-11 items-center justify-center rounded-md bg-pink-200 shadow-[5px_5px_4px_rgba(255,102,162,0.32)]"
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#FF66A2] text-[14px] font-extrabold text-white"
+              >
+                03
+              </div>
+              <h3 class="mb-3 text-[18px] font-extrabold text-[#19004E]">
+                Мэдээ, постер хаанаас үзэх вэ?
+              </h3>
+              <p class="text-[14px] font-medium leading-[1.7] text-gray-700">
+              </p>
+            </article>
+            <article
+              class="rounded-[24px] border border-pink-100 bg-white/70 p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
             >
-              <path
-                d="M4.26001 11.0199V15.9899C4.26001 17.8099 4.26001 17.8099 5.98001 18.9699L10.71 21.6999C11.42 22.1099 12.58 22.1099 13.29 21.6999L18.02 18.9699C19.74 17.8099 19.74 17.8099 19.74 15.9899V11.0199C19.74 9.19994 19.74 9.19994 18.02 8.03994L13.29 5.30994C12.58 4.89994 11.42 4.89994 10.71 5.30994L5.98001 8.03994C4.26001 9.19994 4.26001 9.19994 4.26001 11.0199Z"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M17.5 7.63V5C17.5 3 16.5 2 14.5 2H9.5C7.5 2 6.5 3 6.5 5V7.56"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M12.63 10.99L13.2 11.88C13.29 12.02 13.49 12.16 13.64 12.2L14.66 12.46C15.29 12.62 15.46 13.16 15.05 13.66L14.38 14.47C14.28 14.6 14.2 14.83 14.21 14.99L14.27 16.04C14.31 16.69 13.85 17.02 13.25 16.78L12.27 16.39C12.12 16.33 11.87 16.33 11.72 16.39L10.74 16.78C10.14 17.02 9.68002 16.68 9.72002 16.04L9.78002 14.99C9.79002 14.83 9.71002 14.59 9.61002 14.47L8.94002 13.66C8.53002 13.16 8.70002 12.62 9.33002 12.46L10.35 12.2C10.51 12.16 10.71 12.01 10.79 11.88L11.36 10.99C11.72 10.45 12.28 10.45 12.63 10.99Z"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-          <h3 class="mb-3 text-[17px] font-semibold text-black">
-            Амжилтын хөтөлбөр
-          </h3>
-          <p class="text-[14px] leading-[1.5] text-gray-800">
-            Урлаг, хөгжим, дүрслэх урлагаар дамжуулан <br />
-            өөрийгөө илэрхийлэх боломж олгодог.
-          </p>
-        </div>
-
-        <div
-          class="rounded-[18px] border border-gray-200 bg-white/35 p-7 transition hover:scale-105 cursor-pointer"
-        >
-          <div
-            class="mb-4 flex h-11 w-11 items-center justify-center rounded-md bg-pink-200 shadow-[5px_5px_4px_rgba(255,102,162,0.32)]"
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#FF66A2] text-[14px] font-extrabold text-white"
+              >
+                04
+              </div>
+              <h3 class="mb-3 text-[18px] font-extrabold text-[#19004E]">
+                Алдаа гарвал яах вэ?
+              </h3>
+              <p class="text-[14px] font-medium leading-[1.7] text-gray-700">
+              </p>
+            </article>
+            <article
+              class="rounded-[24px] border border-pink-100 bg-white/70 p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
             >
-              <path
-                d="M22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22H15C20 22 22 20 22 15Z"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M2.52002 7.11011H21.48"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M8.52002 2.11011V6.97011"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M15.48 2.11011V6.52011"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M9.75 14.4501V13.2501C9.75 11.7101 10.84 11.0801 12.17 11.8501L13.21 12.4501L14.25 13.0501C15.58 13.8201 15.58 15.0801 14.25 15.8501L13.21 16.4501L12.17 17.0501C10.84 17.8201 9.75 17.1901 9.75 15.6501V14.4501V14.4501Z"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+              <div
+                class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#FF66A2] text-[14px] font-extrabold text-white"
+              >
+                05
+              </div>
+              <h3 class="mb-3 text-[18px] font-extrabold text-[#19004E]">
+                Хэнтэй холбогдох вэ?
+              </h3>
+              <p class="text-[14px] font-medium leading-[1.7] text-gray-700">
+              </p>
+            </article>
+            <article
+              class="rounded-[24px] border border-pink-100 bg-white/70 p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+            >
+              <div
+                class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#FF66A2] text-[14px] font-extrabold text-white"
+              >
+                06
+              </div>
+              <h3 class="mb-3 text-[18px] font-extrabold text-[#19004E]">
+                Санал хүсэлт өгч болох уу?
+              </h3>
+              <p class="text-[14px] font-medium leading-[1.7] text-gray-700">
+              </p>
+            </article>
           </div>
-          <h3 class="mb-3 text-[17px] font-semibold text-black">
-            Хамтын тоглоом
-          </h3>
-          <p class="text-[14px] leading-[1.5] text-gray-800">
-            Урлаг, хөгжим, дүрслэх урлагаар дамжуулан <br />
-            өөрийгөө илэрхийлэх боломж олгодог.
-          </p>
         </div>
-      </div>
-    </section>
-
-    <section class="soft-bg px-[6.5%] py-16">
-      <p class="mb-6 text-[13px] font-semibold tracking-[2px] text-[#FF4C92]">
-        Онцлох хэсэг, бүтээлүүд
-      </p>
-
-      <h2
-        class="mb-12 max-w-[560px] text-[34px] font-extrabold leading-[1.15] text-[#19004E]"
-      >
-        Хамтын хүчээр бусдад <br />
-        тусалъя
-      </h2>
-
-      <div class="relative grid grid-cols-1 gap-12 lg:grid-cols-[1.9fr_1fr]">
-        <img
-          src="./poster-001.jpg"
-          alt="Main poster"
-          class="h-[329px] w-[704px] object-cover ml-8"
-        />
-
-        <div class="grid gap-10 ml-[-40px]">
-          <img
-            src="./poster-002.jpg"
-            alt="Poster"
-            class="h-[140px] w-[300px] object-cover"
-          />
-          <img
-            src="./poster-003.jpg"
-            alt="Poster"
-            class="h-[140px] w-[300px] object-cover"
-          />
-        </div>
-
-        <button
-          class="absolute right-[-52px] top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full transition hover:scale-105 lg:flex cursor-pointer"
-        >
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M20.0002 36.4035C29.2049 36.4035 36.6668 28.9952 36.6668 19.8565C36.6668 10.7179 29.2049 3.30957 20.0002 3.30957C10.7954 3.30957 3.3335 10.7179 3.3335 19.8565C3.3335 28.9952 10.7954 36.4035 20.0002 36.4035Z"
-              stroke="black"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M14.1665 19.8564H24.1665"
-              stroke="black"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M20.8335 24.8205L25.8335 19.8564L20.8335 14.8923"
-              stroke="black"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
-      </div>
-    </section>
-
-    <section class="soft-bg px-[6.5%] py-16">
-      <p class="mb-6 text-[13px] font-semibold tracking-[2px] text-[#FF4C92]">
-        Хандив өгч хүмүүст тусалья
-      </p>
-    </section>
+      </section>
+    </main>
 
     <footer class="footer-grid-bg px-[6.5%] py-8">
       <div class="grid grid-cols-1 gap-10 md:grid-cols-[1.1fr_1fr_1.1fr]">
@@ -1405,527 +704,5 @@
         </div>
       </div>
     </footer>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll("a[href]").forEach((a) => {
-          const href = a.getAttribute("href");
-
-          if (href && href.includes("/3xTOM/")) {
-            const page = href.split("/3xTOM/")[1];
-            a.setAttribute("href", "./" + page);
-          }
-        });
-        const currentPage = location.pathname.split("/").pop() || "main.html";
-
-        document.querySelectorAll("header nav a").forEach((link) => {
-          const href = link.getAttribute("href") || "";
-
-          if (href.includes(currentPage)) {
-            link.classList.add(
-              "text-pink-500",
-              "border-b",
-              "border-[#FF7EB1]",
-              "pb-1",
-            );
-          }
-        });
-        const header = document.querySelector("header");
-        const nav = document.querySelector("header nav");
-        const desktopMenu = nav?.querySelector("ul");
-
-        if (header && nav && desktopMenu) {
-          const menuButton = document.createElement("button");
-          menuButton.type = "button";
-          menuButton.innerHTML = "☰";
-          menuButton.setAttribute("aria-label", "Цэс нээх");
-          menuButton.style.cssText = `
-      display: none;
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
-      border: 2px solid #FF66A2;
-      color: #FF66A2;
-      font-size: 24px;
-      font-weight: 900;
-      background: white;
-      cursor: pointer;
-    `;
-
-          const mobilePanel = document.createElement("div");
-          mobilePanel.style.cssText = `
-      display: none;
-      position: absolute;
-      top: 76px;
-      left: 0;
-      right: 0;
-      padding: 18px;
-      border-radius: 24px;
-      border: 1px solid #FF66A2;
-      background: rgba(255,255,255,0.96);
-      box-shadow: 0 12px 28px rgba(255,102,162,0.25);
-    `;
-
-          const navLinks = [...desktopMenu.querySelectorAll("a")];
-          const actionLinks = [...nav.querySelectorAll("a")].filter((a) => {
-            const text = a.textContent.trim();
-            return text === "Хандив өгөх" || text === "Нэвтрэх";
-          });
-
-          mobilePanel.innerHTML = [...navLinks, ...actionLinks]
-            .map((a) => {
-              return `
-          <a href="${a.getAttribute("href")}"
-             style="
-               display:block;
-               padding:12px 14px;
-               margin-bottom:8px;
-               border-radius:14px;
-               font-weight:800;
-               color:#19004E;
-               text-decoration:none;
-             ">
-            ${a.textContent.trim()}
-          </a>
-        `;
-            })
-            .join("");
-
-          nav.appendChild(menuButton);
-          header.appendChild(mobilePanel);
-
-          const syncMobile = () => {
-            if (window.innerWidth < 768) {
-              menuButton.style.display = "block";
-            } else {
-              menuButton.style.display = "none";
-              mobilePanel.style.display = "none";
-            }
-          };
-
-          menuButton.addEventListener("click", () => {
-            mobilePanel.style.display =
-              mobilePanel.style.display === "none" ? "block" : "none";
-          });
-
-          mobilePanel.addEventListener("click", (e) => {
-            if (e.target.tagName === "A") {
-              mobilePanel.style.display = "none";
-            }
-          });
-
-          window.addEventListener("resize", syncMobile);
-          syncMobile();
-        }
-        const statSection = document.querySelectorAll("section")[1];
-
-        if (statSection) {
-          const numbers = statSection.querySelectorAll("h3");
-          let started = false;
-
-          const animateNumber = (el) => {
-            const raw = el.textContent.trim();
-            const target = Number(raw.replace(/[^\d]/g, ""));
-            let current = 0;
-            const step = Math.max(1, Math.ceil(target / 40));
-
-            const timer = setInterval(() => {
-              current += step;
-
-              if (current >= target) {
-                current = target;
-                clearInterval(timer);
-              }
-
-              el.textContent = "+" + current;
-            }, 25);
-          };
-
-          const observer = new IntersectionObserver(
-            (entries) => {
-              if (entries[0].isIntersecting && !started) {
-                started = true;
-                numbers.forEach(animateNumber);
-              }
-            },
-            { threshold: 0.4 },
-          );
-
-          observer.observe(statSection);
-        }
-        const newsItems = JSON.parse(
-          localStorage.getItem("3xtom_news") || "null",
-        ) || [
-          {
-            title: "Бүтээлч хөгжил",
-            desc: "Урлаг, хөгжим, дүрслэх урлагаар дамжуулан өөрийгөө илэрхийлэх боломж олгодог.",
-            image: "./main-news.png",
-            link: "./news.html",
-          },
-          {
-            title: "Нийгмийн оролцоо",
-            desc: "Хамтдаа суралцаж, бусдыг ойлгож, эерэг орчныг бүтээх үйл ажиллагаа.",
-            image: "./main-news.png",
-            link: "./news.html",
-          },
-          {
-            title: "Сургалт дэмжлэг",
-            desc: "Тусгай хэрэгцээт хүүхэд, залуусын хөгжлийг дэмжих сургалт, уулзалт, хөтөлбөрүүд.",
-            image: "./main-news.png",
-            link: "./news.html",
-          },
-          {
-            title: "Гэр бүлийн дэмжлэг",
-            desc: "Гэр бүл, асран хамгаалагчдад зориулсан зөвлөгөө, хамтын ажиллагааны орчин.",
-            image: "./main-news.png",
-            link: "./news.html",
-          },
-        ];
-
-        const newsSection = [...document.querySelectorAll("section")].find(
-          (sec) => sec.textContent.includes("Мэдээ, мэдээлэл"),
-        );
-
-        if (newsSection) {
-          const newsCards = [
-            ...newsSection.querySelectorAll(".grid > div"),
-          ].slice(0, 3);
-          const nextButton = newsSection.querySelector("button");
-          let newsIndex = 0;
-
-          const renderNews = () => {
-            newsCards.forEach((card, i) => {
-              const item = newsItems[(newsIndex + i) % newsItems.length];
-              const img = card.querySelector("img");
-              const title = card.querySelector("h3");
-              const desc = card.querySelector("p");
-              const link = card.querySelector("a");
-
-              card.style.opacity = "0";
-
-              setTimeout(() => {
-                if (img) img.src = item.image;
-                if (title) title.textContent = item.title;
-                if (desc) desc.textContent = item.desc;
-                if (link) link.href = item.link;
-
-                card.style.opacity = "1";
-              }, 160);
-            });
-          };
-
-          newsCards.forEach((card) => {
-            card.style.transition = "opacity 0.25s ease, transform 0.25s ease";
-          });
-
-          nextButton?.addEventListener("click", () => {
-            newsIndex = (newsIndex + 1) % newsItems.length;
-            renderNews();
-          });
-
-          renderNews();
-        }
-        const posterItems = JSON.parse(
-          localStorage.getItem("3xtom_posters") || "null",
-        ) || ["./poster-001.jpg", "./poster-002.jpg", "./poster-003.jpg"];
-
-        const posterSection = [...document.querySelectorAll("section")].find(
-          (sec) => sec.textContent.includes("Онцлох хэсэг"),
-        );
-
-        if (posterSection) {
-          const posterImages = posterSection.querySelectorAll("img");
-          const mainPoster = posterImages[0];
-          const thumbOne = posterImages[1];
-          const thumbTwo = posterImages[2];
-          const nextPosterButton = posterSection.querySelector("button");
-          let posterIndex = 0;
-
-          const renderPoster = () => {
-            if (!mainPoster || !thumbOne || !thumbTwo) return;
-
-            mainPoster.style.opacity = "0";
-
-            setTimeout(() => {
-              mainPoster.src = posterItems[posterIndex % posterItems.length];
-              thumbOne.src =
-                posterItems[(posterIndex + 1) % posterItems.length];
-              thumbTwo.src =
-                posterItems[(posterIndex + 2) % posterItems.length];
-
-              mainPoster.style.opacity = "1";
-            }, 160);
-          };
-
-          [mainPoster, thumbOne, thumbTwo].forEach((img) => {
-            if (!img) return;
-            img.style.transition = "opacity 0.25s ease, transform 0.25s ease";
-            img.style.cursor = "pointer";
-          });
-
-          thumbOne?.addEventListener("click", () => {
-            posterIndex = (posterIndex + 1) % posterItems.length;
-            renderPoster();
-          });
-
-          thumbTwo?.addEventListener("click", () => {
-            posterIndex = (posterIndex + 2) % posterItems.length;
-            renderPoster();
-          });
-
-          nextPosterButton?.addEventListener("click", () => {
-            posterIndex = (posterIndex + 1) % posterItems.length;
-            renderPoster();
-          });
-
-          renderPoster();
-        }
-        const donateSection = [...document.querySelectorAll("section")].find(
-          (sec) => sec.textContent.includes("Хандив өгч"),
-        );
-
-        if (
-          donateSection &&
-          !donateSection.querySelector("[data-donate-box]")
-        ) {
-          const box = document.createElement("div");
-          box.setAttribute("data-donate-box", "true");
-          box.innerHTML = `
-      <div style="
-        margin-top: 28px;
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 28px;
-        align-items: center;
-      " class="donate-js-grid">
-        <div style="
-          border: 1px solid #fbcfe8;
-          border-radius: 32px;
-          padding: 34px;
-          background: rgba(255,255,255,0.68);
-        ">
-          <h2 style="
-            max-width: 520px;
-            font-size: 34px;
-            line-height: 1.15;
-            font-weight: 900;
-            color: #19004E;
-            margin-bottom: 18px;
-          ">
-            Таны дэмжлэг хэн нэгний инээмсэглэл болно
-          </h2>
-
-          <p style="
-            max-width: 560px;
-            font-size: 15px;
-            line-height: 1.65;
-            color: #374151;
-            font-weight: 600;
-          ">
-            3хТОМ клубын үйл ажиллагаа, сургалт, бүтээлч хөтөлбөр,
-            хамтын арга хэмжээг дэмжихийг хүсвэл бидэнтэй холбогдоорой.
-          </p>
-
-          <div style="margin-top: 24px; display:flex; gap:14px; flex-wrap:wrap;">
-            <a href="./donate.html" style="
-              display:inline-flex;
-              align-items:center;
-              justify-content:center;
-              padding: 13px 24px;
-              border-radius: 999px;
-              background: #FF66A2;
-              color: white;
-              font-weight: 900;
-              text-decoration:none;
-            ">
-              Хандив өгөх
-            </a>
-
-            <a href="./contact.html" style="
-              display:inline-flex;
-              align-items:center;
-              justify-content:center;
-              padding: 12px 22px;
-              border-radius: 999px;
-              border: 2px solid #FF66A2;
-              color: #FF66A2;
-              font-weight: 900;
-              text-decoration:none;
-              background:white;
-            ">
-              Холбогдох
-            </a>
-          </div>
-        </div>
-
-        <div style="
-          border-radius: 32px;
-          padding: 30px;
-          background: #FF66A2;
-          color: white;
-          box-shadow: 0 18px 35px rgba(255,102,162,0.28);
-        ">
-          <h3 style="font-size:24px; font-weight:900; margin-bottom:14px;">
-            Бидэнд хэрэгтэй дэмжлэг
-          </h3>
-
-          <ul style="line-height:1.9; font-weight:700; padding-left:18px;">
-            <li>Сургалтын хэрэглэгдэхүүн</li>
-            <li>Урлаг, бүтээлийн материал</li>
-            <li>Арга хэмжээний дэмжлэг</li>
-            <li>Сайн дурын оролцоо</li>
-          </ul>
-        </div>
-      </div>
-    `;
-
-          donateSection.appendChild(box);
-
-          const style = document.createElement("style");
-          style.textContent = `
-      @media (max-width: 900px) {
-        .donate-js-grid {
-          grid-template-columns: 1fr !important;
-        }
-      }
-    `;
-          document.head.appendChild(style);
-        }
-        const chatButton = document.querySelector(
-          'a[href="./chat.html"], a[href="/3xTOM/chat.html"]',
-        );
-
-        if (chatButton) {
-          const chatBox = document.createElement("div");
-          chatBox.style.cssText = `
-      display: none;
-      position: fixed;
-      right: 24px;
-      bottom: 92px;
-      width: min(340px, calc(100vw - 32px));
-      border-radius: 24px;
-      border: 1px solid #fbcfe8;
-      background: white;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.16);
-      overflow: hidden;
-      z-index: 9999;
-      font-family: system-ui, sans-serif;
-    `;
-
-          chatBox.innerHTML = `
-      <div style="background:#FF66A2;color:white;padding:14px 18px;font-weight:900;">
-        3хТОМ чат
-      </div>
-
-      <div id="chatMessages" style="height:230px;overflow:auto;padding:14px;background:#fff7fb;">
-        <p style="margin:0 0 10px;padding:10px 12px;border-radius:14px;background:white;color:#19004E;font-weight:600;">
-          Сайн байна уу? Та асуух зүйлээ бичээрэй.
-        </p>
-      </div>
-
-      <form id="chatForm" style="display:flex;gap:8px;padding:12px;background:white;">
-        <input id="chatInput" type="text" placeholder="Зурвас бичих..." style="
-          flex:1;
-          border:1px solid #f9a8d4;
-          border-radius:999px;
-          padding:10px 12px;
-          outline:none;
-        " />
-        <button type="submit" style="
-          border:none;
-          border-radius:999px;
-          background:#FF66A2;
-          color:white;
-          font-weight:900;
-          padding:0 16px;
-          cursor:pointer;
-        ">
-          Илгээх
-        </button>
-      </form>
-    `;
-
-          document.body.appendChild(chatBox);
-
-          chatButton.addEventListener("click", (e) => {
-            e.preventDefault();
-            chatBox.style.display =
-              chatBox.style.display === "none" ? "block" : "none";
-          });
-
-          const chatForm = chatBox.querySelector("#chatForm");
-          const chatInput = chatBox.querySelector("#chatInput");
-          const chatMessages = chatBox.querySelector("#chatMessages");
-
-          chatForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-
-            const value = chatInput.value.trim();
-            if (!value) return;
-
-            const userMsg = document.createElement("p");
-            userMsg.textContent = value;
-            userMsg.style.cssText = `
-        margin:0 0 10px auto;
-        max-width:80%;
-        padding:10px 12px;
-        border-radius:14px;
-        background:#FF66A2;
-        color:white;
-        font-weight:600;
-      `;
-            chatMessages.appendChild(userMsg);
-
-            chatInput.value = "";
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-
-            setTimeout(() => {
-              const botMsg = document.createElement("p");
-              botMsg.textContent = "Баярлалаа. Бид удахгүй хариу өгнө.";
-              botMsg.style.cssText = `
-          margin:0 0 10px;
-          max-width:85%;
-          padding:10px 12px;
-          border-radius:14px;
-          background:white;
-          color:#19004E;
-          font-weight:600;
-        `;
-              chatMessages.appendChild(botMsg);
-              chatMessages.scrollTop = chatMessages.scrollHeight;
-            }, 500);
-          });
-        }
-        const revealItems = document.querySelectorAll("section > *");
-
-        revealItems.forEach((item) => {
-          item.style.opacity = "0";
-          item.style.transform = "translateY(24px)";
-          item.style.transition = "opacity 0.55s ease, transform 0.55s ease";
-        });
-
-        const revealObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (!entry.isIntersecting) return;
-
-              entry.target.style.opacity = "1";
-              entry.target.style.transform = "translateY(0)";
-              revealObserver.unobserve(entry.target);
-            });
-          },
-          { threshold: 0.12 },
-        );
-
-        revealItems.forEach((item) => revealObserver.observe(item));
-        document.querySelectorAll("img").forEach((img) => {
-          img.addEventListener("error", () => {
-            img.src = "./3xTOM-logo-vector.svg";
-            img.style.objectFit = "contain";
-            img.style.background = "#fff";
-          });
-        });
-      });
-    </script>
   </body>
 </html>
